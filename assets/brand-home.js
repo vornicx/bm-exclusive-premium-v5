@@ -4,6 +4,11 @@
   heroStyle.href = 'assets/hero-v4.css';
   document.head.appendChild(heroStyle);
 
+  const polishStyle = document.createElement('link');
+  polishStyle.rel = 'stylesheet';
+  polishStyle.href = 'assets/polish-v11.css';
+  document.head.appendChild(polishStyle);
+
   const $ = (s, r=document) => r.querySelector(s);
   const $$ = (s, r=document) => [...r.querySelectorAll(s)];
   const body = document.body;
