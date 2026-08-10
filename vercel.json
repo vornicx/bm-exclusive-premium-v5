@@ -1,6 +1,13 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    {"source": "/cars", "destination": "/catalog"},
+    {"source": "/cars/:slug", "destination": "/catalog"},
+    {"source": "/properties", "destination": "/catalog"},
+    {"source": "/properties/:slug", "destination": "/catalog"}
+  ],
   "headers": [
     {
       "source": "/(.*)",
