@@ -25,20 +25,20 @@
 
   const copy = {
     es: {
-      navFleet:'Flota',navHow:'Cómo funciona',navService:'Concierge',privateEnquiry:'Consulta privada',
+      navFleet:'Flota',navHow:'Cómo funciona',navService:'Concierge',privateEnquiry:'Consulta privada',menu:'Menú',close:'Cerrar',contactLabel:'Contacto',mobileFoot:'Marbella · Costa del Sol · España',
       heroKicker:'B&M Exclusive · Marbella',heroTitle:'Conduce lo excepcional.',heroLead:'Superdeportivos y gran turismo, con entrega privada y atención directa en Marbella.',heroCTA:'Consultar disponibilidad',heroSecondary:'Ver flota',
-      proof1Title:'Selección privada',proof1Text:'Una selección cuidada de coches con presencia y carácter.',proof2Title:'Entrega a medida',proof2Text:'Hotel, villa, aeropuerto o ubicación acordada.',proof3Title:'Marbella based',proof3Text:'Servicio directo en Marbella y Costa del Sol.',
+      proof1Title:'Selección privada',proof1Text:'Una selección cuidada de coches con presencia y carácter.',proof2Title:'Entrega a medida',proof2Text:'Hotel, villa, aeropuerto o ubicación acordada.',proof3Title:'Base en Marbella',proof3Text:'Servicio directo en Marbella y Costa del Sol.',
       trust1:'Servicio local',trust1p:'Conocimiento de la Costa del Sol y coordinación de entregas bajo petición.',trust2:'Flota curada',trust2p:'Menos ruido, más criterio: coches elegidos por presencia y experiencia.',trust3:'Reserva personal',trust3p:'Sin un proceso impersonal. Hablas con una persona y sabes qué estás confirmando.',trust4:'Privacidad',trust4p:'Atención proporcionada al cliente, la ocasión y el nivel de discreción requerido.',
       introKicker:'Más que alquiler',introTitle:'Lujo es que todo encaje.',introP:'El coche es solo una parte. La experiencia empieza cuando la consulta es clara, continúa cuando la entrega ocurre donde debe y termina cuando no has tenido que perseguir a nadie para resolver un detalle.',introStrong:'B&M combina selección, coordinación y trato directo para reducir fricción sin convertir el servicio en espectáculo.',
       fleetKicker:'Selección destacada',fleetTitle:'Tres formas de llegar.',fleetIntro:'Empieza por el carácter del coche. B&M confirma la unidad concreta, disponibilidad y condiciones antes de la reserva.',car1:'Gran turismo, presencia y una experiencia más refinada que extrema.',car2:'Impacto visual y respuesta inmediata para una llegada sin discreción.',car3:'Precisión y versatilidad para disfrutar de carretera y ciudad con el mismo nivel.',fleetMore:'¿Buscas Mercedes-Benz, SUV o un modelo concreto?',fleetLink:'Ver flota completa',recommendCTA:'Pedir recomendación personal',
       processKicker:'Proceso',processTitle:'De la idea a las llaves.<br>Sin rodeos.',processLead:'Cada paso existe para eliminar incertidumbre, no para añadir formularios.',step1Title:'Cuéntanos el plan',step1Text:'Fechas, ubicación, ocasión y el tipo de coche que tienes en mente.',step2Title:'Recibe una propuesta real',step2Text:'Disponibilidad, precio, depósito, kilometraje y condiciones antes de decidir.',step3Title:'Recibe el coche',step3Text:'B&M coordina la entrega y permanece disponible durante toda la reserva.',
-      conciergeKicker:'Private concierge',conciergeTitle:'El coche no debería complicar el plan.',conciergeLead:'La capa de servicio existe para que el vehículo llegue a tu agenda, no para que tu agenda se adapte a la reserva.',service1:'Hotel, villa y aeropuerto',service1p:'Entrega y recogida coordinadas en el punto acordado.',service2:'Eventos y ocasiones',service2p:'Bodas, producciones, celebraciones, eventos corporativos y entradas especiales.',service3:'Estancias largas',service3p:'Opciones para alquileres extendidos y necesidades durante una estancia en la costa.',service4:'Recomendación personal',service4p:'Si no sabes qué elegir, B&M recomienda según ocasión, recorrido y preferencias.',
+      conciergeKicker:'Concierge privado',conciergeTitle:'El coche no debería complicar el plan.',conciergeLead:'La capa de servicio existe para que el vehículo llegue a tu agenda, no para que tu agenda se adapte a la reserva.',service1:'Hotel, villa y aeropuerto',service1p:'Entrega y recogida coordinadas en el punto acordado.',service2:'Eventos y ocasiones',service2p:'Bodas, producciones, celebraciones, eventos corporativos y entradas especiales.',service3:'Estancias largas',service3p:'Opciones para alquileres extendidos y necesidades durante una estancia en la costa.',service4:'Recomendación personal',service4p:'Si no sabes qué elegir, B&M recomienda según ocasión, recorrido y preferencias.',
       marbellaKicker:'Marbella · Costa del Sol',marbellaTitle:'Tu agenda primero.',marbellaText:'Una villa en Nueva Andalucía, una cena en Puente Romano, una llegada a Puerto Banús o una ruta por la costa. El coche debe encajar con el momento, no competir con él.',marbellaCTA:'Organizar mi reserva',
-      contactKicker:'Private enquiry',contactTitle:'Dinos qué necesitas.<br>Te decimos qué encaja.',contactText:'Consulta disponibilidad y recibe una respuesta personal con vehículo, condiciones y entrega adaptados a tu plan.',contactCTA:'Consultar por WhatsApp',mobileCTA:'Consultar disponibilidad',
+      contactKicker:'Consulta privada',contactTitle:'Dinos qué necesitas.<br>Te decimos qué encaja.',contactText:'Consulta disponibilidad y recibe una respuesta personal con vehículo, condiciones y entrega adaptados a tu plan.',contactCTA:'Consultar por WhatsApp',mobileCTA:'Consultar disponibilidad',
       bookTitle:'Consulta privada',bookLead:'Completa lo esencial. Prepararemos el mensaje y continuarás directamente con B&M por WhatsApp.',fieldCar:'Vehículo',recommend:'Quiero una recomendación',fieldFrom:'Desde',fieldTo:'Hasta',fieldDelivery:'Lugar de entrega',fieldName:'Nombre',fieldNotes:'Notas opcionales',sendWhatsapp:'Continuar por WhatsApp',formNote:'No se realiza ningún cargo online. B&M confirma disponibilidad y condiciones personalmente.'
     },
     en: {
-      navFleet:'Fleet',navHow:'How it works',navService:'Concierge',privateEnquiry:'Private enquiry',
+      navFleet:'Fleet',navHow:'How it works',navService:'Concierge',privateEnquiry:'Private enquiry',menu:'Menu',close:'Close',contactLabel:'Contact',mobileFoot:'Marbella · Costa del Sol · Spain',
       heroKicker:'B&M Exclusive · Marbella',heroTitle:'Drive the exceptional.',heroLead:'Supercars and grand tourers, with private delivery and direct service in Marbella.',heroCTA:'Check availability',heroSecondary:'View fleet',
       proof1Title:'Private selection',proof1Text:'A considered selection of cars chosen for presence and character.',proof2Title:'Tailored delivery',proof2Text:'Hotel, villa, airport or agreed location.',proof3Title:'Marbella based',proof3Text:'Direct service across Marbella and the Costa del Sol.',
       trust1:'Local service',trust1p:'Costa del Sol knowledge and delivery coordination on request.',trust2:'Curated fleet',trust2p:'Less noise, more judgement: cars selected for presence and experience.',trust3:'Personal booking',trust3p:'No faceless process. Speak to a person and know exactly what you are confirming.',trust4:'Privacy',trust4p:'Attention matched to the client, occasion and required level of discretion.',
@@ -52,12 +52,45 @@
     }
   };
 
+  const fleetData = {
+    es: {
+      ferrari:{category:'Gran turismo',specs:['Gran turismo','2 plazas','Marbella']},
+      lamborghini:{category:'Superdeportivo',specs:['Superdeportivo','2 plazas','Costa del Sol']},
+      porsche:{category:'Deportivo',specs:['Carrera 4S','4 plazas','Costa del Sol']}
+    },
+    en: {
+      ferrari:{category:'Grand tourer',specs:['Grand tourer','2 seats','Marbella']},
+      lamborghini:{category:'Supercar',specs:['Supercar','2 seats','Costa del Sol']},
+      porsche:{category:'Performance',specs:['Carrera 4S','4 seats','Costa del Sol']}
+    }
+  };
+
+  const visual = $('#fleetVisual'), image = $('#activeImage'), brand=$('#activeBrand'), name=$('#activeName'), category=$('#activeCategory'), index=$('#activeIndex'), specs=$('#activeSpecs');
+
+  function syncActiveFleet(btn = $('.fleet-option.active')){
+    if(!btn) return;
+    const localized = fleetData[lang]?.[btn.dataset.car];
+    if(brand) brand.textContent=btn.dataset.brand;
+    if(name) name.textContent=btn.dataset.name;
+    if(category) category.textContent=localized?.category || btn.dataset.category;
+    if(index) index.textContent=btn.dataset.index;
+    if(specs){
+      const values = localized?.specs || (btn.dataset.specs||'').split('|');
+      specs.innerHTML=values.map(s=>`<span>${s}</span>`).join('');
+    }
+  }
+
   function applyLang(next){
     lang = next;
     document.documentElement.lang = lang;
     $$('[data-lang]').forEach(b => b.classList.toggle('on', b.dataset.lang === lang));
     $$('[data-t]').forEach(el => { const v = copy[lang][el.dataset.t]; if(v) el.textContent = v; });
     $$('[data-th]').forEach(el => { const v = copy[lang][el.dataset.th]; if(v) el.innerHTML = v; });
+    const delivery = $('input[name="delivery"]',bookForm);
+    const notes = $('textarea[name="notes"]',bookForm);
+    if(delivery) delivery.placeholder = lang==='es' ? 'Hotel, villa, aeropuerto...' : 'Hotel, villa, airport...';
+    if(notes) notes.placeholder = lang==='es' ? 'Ocasión, preferencias, horario...' : 'Occasion, preferences, timing...';
+    syncActiveFleet();
   }
 
   function openMenu(){ menu.classList.add('open'); menu.setAttribute('aria-hidden','false'); menuBtn?.setAttribute('aria-expanded','true'); body.classList.add('lock'); }
@@ -76,14 +109,12 @@
 
   $$('[data-lang]').forEach(b=>b.addEventListener('click',()=>applyLang(b.dataset.lang)));
 
-  const visual = $('#fleetVisual'), image = $('#activeImage'), brand=$('#activeBrand'), name=$('#activeName'), category=$('#activeCategory'), index=$('#activeIndex'), specs=$('#activeSpecs');
   $$('.fleet-option').forEach(btn=>btn.addEventListener('click',()=>{
     if(btn.classList.contains('active')) return;
     $$('.fleet-option').forEach(x=>x.classList.remove('active')); btn.classList.add('active'); visual?.classList.add('change');
     setTimeout(()=>{
       if(image){ image.className=`fleet-photo ${btn.dataset.car}`; image.setAttribute('aria-label',btn.dataset.alt||btn.dataset.name); }
-      if(brand) brand.textContent=btn.dataset.brand; if(name) name.textContent=btn.dataset.name; if(category) category.textContent=btn.dataset.category; if(index) index.textContent=btn.dataset.index;
-      if(specs) specs.innerHTML=(btn.dataset.specs||'').split('|').map(s=>`<span>${s}</span>`).join('');
+      syncActiveFleet(btn);
       visual?.classList.remove('change');
     },220);
   }));
