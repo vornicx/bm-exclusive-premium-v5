@@ -1,4 +1,9 @@
 (() => {
+  const heroStyle = document.createElement('link');
+  heroStyle.rel = 'stylesheet';
+  heroStyle.href = 'assets/hero-v4.css';
+  document.head.appendChild(heroStyle);
+
   const $ = (s, r=document) => r.querySelector(s);
   const $$ = (s, r=document) => [...r.querySelectorAll(s)];
   const body = document.body;
@@ -16,8 +21,8 @@
   const copy = {
     es: {
       navFleet:'Flota',navHow:'Cómo funciona',navService:'Concierge',privateEnquiry:'Consulta privada',
-      heroKicker:'Luxury car rental · Marbella',heroTitle:'El coche correcto.<br>En el lugar correcto.',heroLead:'Una selección cuidada de deportivos y coches de lujo, con atención directa y una entrega coordinada alrededor de tu plan.',heroCTA:'Consultar disponibilidad',heroSecondary:'Explorar selección',
-      proof1Title:'Atención directa',proof1Text:'Un único interlocutor desde la consulta hasta la recogida.',proof2Title:'Entrega coordinada',proof2Text:'Hotel, villa, aeropuerto o ubicación acordada.',proof3Title:'Condiciones claras',proof3Text:'Precio, depósito, kilometraje y disponibilidad antes de confirmar.',
+      heroKicker:'B&M Exclusive · Marbella',heroTitle:'Conduce lo excepcional.',heroLead:'Superdeportivos y gran turismo, con entrega privada y atención directa en Marbella.',heroCTA:'Consultar disponibilidad',heroSecondary:'Ver flota',
+      proof1Title:'Selección privada',proof1Text:'Una selección cuidada de coches con presencia y carácter.',proof2Title:'Entrega a medida',proof2Text:'Hotel, villa, aeropuerto o ubicación acordada.',proof3Title:'Marbella based',proof3Text:'Servicio directo en Marbella y Costa del Sol.',
       trust1:'Servicio local',trust1p:'Conocimiento de la Costa del Sol y coordinación de entregas bajo petición.',trust2:'Flota curada',trust2p:'Menos ruido, más criterio: coches elegidos por presencia y experiencia.',trust3:'Reserva personal',trust3p:'Sin un proceso impersonal. Hablas con una persona y sabes qué estás confirmando.',trust4:'Privacidad',trust4p:'Atención proporcionada al cliente, la ocasión y el nivel de discreción requerido.',
       introKicker:'Más que alquiler',introTitle:'Lujo es que todo encaje.',introP:'El coche es solo una parte. La experiencia empieza cuando la consulta es clara, continúa cuando la entrega ocurre donde debe y termina cuando no has tenido que perseguir a nadie para resolver un detalle.',introStrong:'B&M combina selección, coordinación y trato directo para reducir fricción sin convertir el servicio en espectáculo.',
       fleetKicker:'Selección destacada',fleetTitle:'Tres formas de llegar.',fleetIntro:'Empieza por el carácter del coche. B&M confirma la unidad concreta, disponibilidad y condiciones antes de la reserva.',car1:'Gran turismo, presencia y una experiencia más refinada que extrema.',car2:'Impacto visual y respuesta inmediata para una llegada sin discreción.',car3:'Precisión y versatilidad para disfrutar de carretera y ciudad con el mismo nivel.',fleetMore:'¿Buscas Mercedes-Benz, SUV o un modelo concreto?',fleetLink:'Ver flota completa',recommendCTA:'Pedir recomendación personal',
@@ -29,8 +34,8 @@
     },
     en: {
       navFleet:'Fleet',navHow:'How it works',navService:'Concierge',privateEnquiry:'Private enquiry',
-      heroKicker:'Luxury car rental · Marbella',heroTitle:'The right car.<br>In the right place.',heroLead:'A considered selection of performance and luxury cars, with direct attention and delivery coordinated around your plans.',heroCTA:'Check availability',heroSecondary:'Explore selection',
-      proof1Title:'Direct attention',proof1Text:'One point of contact from enquiry to collection.',proof2Title:'Coordinated delivery',proof2Text:'Hotel, villa, airport or agreed location.',proof3Title:'Clear terms',proof3Text:'Price, deposit, mileage and availability before you confirm.',
+      heroKicker:'B&M Exclusive · Marbella',heroTitle:'Drive the exceptional.',heroLead:'Supercars and grand tourers, with private delivery and direct service in Marbella.',heroCTA:'Check availability',heroSecondary:'View fleet',
+      proof1Title:'Private selection',proof1Text:'A considered selection of cars chosen for presence and character.',proof2Title:'Tailored delivery',proof2Text:'Hotel, villa, airport or agreed location.',proof3Title:'Marbella based',proof3Text:'Direct service across Marbella and the Costa del Sol.',
       trust1:'Local service',trust1p:'Costa del Sol knowledge and delivery coordination on request.',trust2:'Curated fleet',trust2p:'Less noise, more judgement: cars selected for presence and experience.',trust3:'Personal booking',trust3p:'No faceless process. Speak to a person and know exactly what you are confirming.',trust4:'Privacy',trust4p:'Attention matched to the client, occasion and required level of discretion.',
       introKicker:'Beyond rental',introTitle:'Luxury is when everything fits.',introP:'The car is only one part. The experience starts with a clear enquiry, continues when delivery happens where it should, and ends without you having to chase anyone to solve a detail.',introStrong:'B&M combines selection, coordination and direct service to remove friction without turning service into theatre.',
       fleetKicker:'Featured selection',fleetTitle:'Three ways to arrive.',fleetIntro:'Start with the character of the car. B&M confirms the specific vehicle, availability and terms before booking.',car1:'Grand touring presence with an experience that is refined rather than extreme.',car2:'Immediate response and visual impact for an arrival that will not go unnoticed.',car3:'Precision and versatility for road and city at the same level.',fleetMore:'Looking for Mercedes-Benz, an SUV or a specific model?',fleetLink:'View full fleet',recommendCTA:'Ask for a personal recommendation',
