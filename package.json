@@ -1,1 +1,11 @@
-{"name":"bm-exclusive-premium-rental","version":"1.0.0","private":true,"type":"module","scripts":{"dev":"node server.mjs","check":"node --check assets/bm-v12.js && node --check assets/site.js && node --check assets/fleet.js && node --check assets/vehicle.js && node --check assets/admin.js"},"engines":{"node":">=20"}}
+{
+  "name":"mfinity-premium-rental",
+  "version":"1.0.0",
+  "private":true,
+  "type":"module",
+  "scripts":{
+    "dev":"node server.mjs",
+    "check":"node --check assets/mfinity.js"
+  },
+  "engines":{"node":">=20"}
+}

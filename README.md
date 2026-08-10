@@ -1,27 +1,30 @@
-# B&M Exclusive Marbella — Premium V5
+# Mfinity Premium
 
-Sitio web estático responsive para una empresa de alquiler de vehículos de lujo, con:
+Concept redesign for **Mfinity Luxury & Supercar Rental Marbella**.
 
-- Home editorial y cinematográfica usando las fotografías y el logotipo facilitados por B&M.
-- Catálogo filtrable de vehículos.
-- Fichas individuales de cada vehículo.
-- Consultas preparadas para WhatsApp.
-- Panel privado de demostración para flota, ofertas, solicitudes, reservas y ajustes.
-- Persistencia local de la demo mediante `localStorage`.
-- Páginas legales de muestra, SEO básico, sitemap, robots y configuración para Vercel.
+This repository replaces the former B&M Exclusive prototype. The final B&M state is preserved on `archive/bm-final`.
 
-## Ejecutar localmente
+## Direction
+
+- premium automotive art direction derived from the strongest Mackinze work
+- real Mfinity fleet and public pricing as content foundations
+- clear rental UX with vehicle selection and WhatsApp enquiry
+- EN/ES experience
+- Mfinity Properties kept as a distinct secondary vertical
+- clean foundation for a future catalogue / availability / management layer inspired by the Noguera architecture
+
+## Local preview
 
 ```bash
 npm run dev
 ```
 
-Después abre `http://localhost:4173`.
+Then open `http://localhost:4173`.
 
-## Desplegar
+## Validate
 
-El proyecto puede subirse directamente a GitHub y desplegarse como sitio estático en Vercel. `vercel.json` ya incluye la configuración básica.
+```bash
+npm run check
+```
 
-## Antes de publicar
-
-Deben confirmarse con B&M los vehículos reales, tarifas, teléfono, WhatsApp, dirección, horario, datos fiscales, condiciones de alquiler y textos legales. Los datos incluidos son de demostración.
+> Prototype only. Public Mfinity content and imagery are used as reference material and should be replaced/approved before production publication.
