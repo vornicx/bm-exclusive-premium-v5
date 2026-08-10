@@ -34,8 +34,26 @@ const fleet = [
 ];
 
 const translations = {
-  en:{navFleet:'Fleet',navExperience:'Experience',navProperties:'Properties',navContact:'Contact',navBook:'Check availability',heroTitle:'Drive Marbella<br><em>differently.</em>',heroLead:'A curated collection of supercars, performance cars and luxury mobility for Marbella and the Costa del Sol.',heroFleet:'Explore the fleet',heroBook:'Check availability',heroMeta1:'Collection',heroMeta2:'Location',heroMeta3:'Service',heroMeta3v:'Direct & personal',heroBottom:'Nueva Andalucía · Marbella · Costa del Sol',discover:'Discover',introLabel:'The Mfinity standard',introTitle:'The car should feel like part of the trip.<br><em>Not another task to manage.</em>',introText:'Mfinity brings together high-performance cars, premium vehicles and a direct booking experience built around your stay in Marbella.',point1:'Curated fleet',point1p:'Supercars, SUVs, performance cars and luxury transport selected around different plans and occasions.',point2:'Clear conditions',point2p:'Vehicle, price, deposit and rental period are confirmed before you commit.',point3:'One point of contact',point3p:'Direct communication from first enquiry through to the handover of the vehicle.',fleetKicker:'Available now',fleetTitle:'Choose the character.<br><em>We handle the details.</em>',fleetIntro:'Real vehicles currently presented by Mfinity, redesigned into a clearer premium rental experience.',fact1:'1 day',fact3:'3 days',fact7:'7 days',deposit:'Deposit',reserveCar:'Reserve this car',viewDetails:'View original listing ↗',marbellaTitle:'From airport arrival<br>to <em>Puerto Banús after dark.</em>',marbellaText:'Choose the vehicle around the stay: a supercar for the coast, a G-Class for presence, a performance car for everyday use or premium transport when comfort comes first.',planTrip:'Plan my rental',processLabel:'Booking, refined',processTitle:'A premium rental should be<br><em>clear from the first message.</em>',step1:'Tell us your plan',step1p:'Dates, preferred car and where you will be staying in Marbella or the Costa del Sol.',step2:'Confirm the vehicle',step2p:'Availability, rental price, deposit and conditions are confirmed before booking.',step3:'Collect or coordinate delivery',step3p:'The final handover details are arranged directly with the Mfinity team.',propertiesTitle:'Cars are the first chapter.<br><em>Marbella can be the whole stay.</em>',propertiesText:'Mfinity also presents luxury properties in Marbella. We keep that vertical distinct from the rental journey, while giving it the same premium level of presentation.',propertiesCta:'Explore properties ↗',propertyNote:'A separate luxury-property experience, connected to the same Mfinity brand.',contactTitle:'Tell us the dates.<br><em>We’ll find the right car.</em>',contactText:'For availability, longer rentals or a specific model, contact Mfinity directly.',phone:'Phone',address:'Address',footerTag:'Luxury & supercar rental · Marbella',backTop:'Back to top ↑',prototypeNote:'Prototype direction for presentation purposes',drawerTitle:'Check availability',formCar:'Vehicle',formOther:'Other / recommendation',formFrom:'From',formTo:'To',formName:'Name',formNotes:'Notes',formSend:'Continue on WhatsApp',formNote:'This prototype sends the enquiry through WhatsApp and does not process payment.'},
-  es:{navFleet:'Flota',navExperience:'Experiencia',navProperties:'Propiedades',navContact:'Contacto',navBook:'Consultar disponibilidad',heroTitle:'Vive Marbella<br><em>de otra manera.</em>',heroLead:'Una colección seleccionada de superdeportivos, coches de altas prestaciones y movilidad premium en Marbella y la Costa del Sol.',heroFleet:'Explorar la flota',heroBook:'Consultar disponibilidad',heroMeta1:'Colección',heroMeta2:'Ubicación',heroMeta3:'Servicio',heroMeta3v:'Directo y personal',heroBottom:'Nueva Andalucía · Marbella · Costa del Sol',discover:'Descubrir',introLabel:'El estándar Mfinity',introTitle:'El coche debe formar parte del viaje.<br><em>No ser otra cosa que gestionar.</em>',introText:'Mfinity reúne coches de altas prestaciones, vehículos premium y una experiencia de reserva directa alrededor de tu estancia en Marbella.',point1:'Flota seleccionada',point1p:'Superdeportivos, SUV, coches de altas prestaciones y transporte de lujo para distintos planes y ocasiones.',point2:'Condiciones claras',point2p:'Vehículo, precio, depósito y periodo de alquiler se confirman antes de reservar.',point3:'Un único contacto',point3p:'Comunicación directa desde la primera consulta hasta la entrega del vehículo.',fleetKicker:'Disponibles ahora',fleetTitle:'Elige el carácter.<br><em>Nosotros cerramos los detalles.</em>',fleetIntro:'Vehículos reales actualmente publicados por Mfinity, rediseñados dentro de una experiencia de alquiler premium más clara.',fact1:'1 día',fact3:'3 días',fact7:'7 días',deposit:'Depósito',reserveCar:'Reservar este coche',viewDetails:'Ver ficha original ↗',marbellaTitle:'Desde la llegada al aeropuerto<br>hasta <em>Puerto Banús de noche.</em>',marbellaText:'Elige el vehículo según la estancia: un supercar para la costa, un G-Class para presencia, un performance para el día a día o transporte premium cuando prima la comodidad.',planTrip:'Organizar mi alquiler',processLabel:'Reserva, refinada',processTitle:'Un alquiler premium debe ser<br><em>claro desde el primer mensaje.</em>',step1:'Cuéntanos tu plan',step1p:'Fechas, coche preferido y dónde te alojarás en Marbella o la Costa del Sol.',step2:'Confirma el vehículo',step2p:'Se confirman disponibilidad, precio, depósito y condiciones antes de reservar.',step3:'Recoge o coordina la entrega',step3p:'Los detalles finales de entrega se organizan directamente con el equipo de Mfinity.',propertiesTitle:'Los coches son el primer capítulo.<br><em>Marbella puede ser toda la estancia.</em>',propertiesText:'Mfinity también presenta propiedades de lujo en Marbella. Mantenemos esa vertical separada del alquiler, con el mismo nivel premium de presentación.',propertiesCta:'Explorar propiedades ↗',propertyNote:'Una experiencia inmobiliaria de lujo separada, conectada a la misma marca Mfinity.',contactTitle:'Dinos las fechas.<br><em>Buscamos el coche adecuado.</em>',contactText:'Para disponibilidad, alquileres largos o un modelo concreto, contacta directamente con Mfinity.',phone:'Teléfono',address:'Dirección',footerTag:'Luxury & supercar rental · Marbella',backTop:'Volver arriba ↑',prototypeNote:'Dirección de prototipo para presentación',drawerTitle:'Consultar disponibilidad',formCar:'Vehículo',formOther:'Otro / recomendación',formFrom:'Desde',formTo:'Hasta',formName:'Nombre',formNotes:'Notas',formSend:'Continuar por WhatsApp',formNote:'Este prototipo envía la consulta por WhatsApp y no procesa pagos.'}
+  en:{
+    navFleet:'Cars',navExperience:'About us',navProperties:'Properties',navContact:'Contact',navBook:'Rent online',
+    heroEyebrow:'Luxury car rental · Marbella',heroTitle:'Luxury in<br>every kilometer.',heroLead:'Supercars, performance cars and premium mobility from Nueva Andalucía to the whole Costa del Sol.',heroFleet:'View available cars',heroBook:'Rent online',heroMeta1:'cars in collection',heroMeta2:'Nueva Andalucía',heroMeta3:'WhatsApp booking',
+    fleetKicker:'Available supercars right now',fleetTitle:'Choose your car.<br><span>Own the moment.</span>',fleetIntro:'A clearer view of real cars currently presented by Mfinity, with rental price, deposit and direct booking access.',fact1:'1 day',fact3:'3 days',fact7:'7 days',deposit:'Deposit',reserveCar:'Rent this car',viewDetails:'Vehicle details ↗',allCars:'Explore the full Mfinity collection',
+    introLabel:'About Mfinity',introTitle:'A unique supercar rental<br><span>built around your stay.</span>',introText:'Mfinity brings together a broad luxury fleet with direct service in Marbella, helping clients choose the right car for the trip, event or occasion.',point1:'Luxury cars',point1p:'A varied collection spanning supercars, performance cars, SUVs and premium transport.',point2:'Quality',point2p:'Vehicle condition and presentation are part of the experience, not an afterthought.',point3:'Large selection',point3p:'From a Ferrari weekend to a G-Class stay or a comfortable airport transfer.',planTrip:'Find my car',
+    marbellaTitle:'The right car changes<br>the whole <span>Marbella experience.</span>',marbellaText:'Puerto Banús, Nueva Andalucía, the coast or Málaga Airport. Choose the vehicle around the plan and coordinate the details directly with Mfinity.',
+    propertiesTitle:'More than cars.<br><span>A Marbella lifestyle.</span>',propertiesText:'Mfinity also presents luxury properties in Marbella. The property business stays visually connected to the brand while remaining a distinct experience from car rental.',propertiesCta:'Explore properties ↗',propertyNote:'Frontline beach property presented within Mfinity’s luxury property portfolio.',
+    contactTitle:'Ready to choose<br>your next car?',contactText:'Send the dates and preferred vehicle. The Mfinity team can confirm availability, price, deposit and the final rental conditions directly.',phone:'Phone',address:'Address',backTop:'Back to top ↑',
+    drawerTitle:'Rent online',formCar:'Car',formOther:'Other / recommendation',formFrom:'From',formTo:'To',formName:'Name',formNotes:'Message',formSend:'Continue on WhatsApp',formNote:'Availability and final rental conditions are confirmed directly by Mfinity.'
+  },
+  es:{
+    navFleet:'Coches',navExperience:'Nosotros',navProperties:'Propiedades',navContact:'Contacto',navBook:'Alquilar online',
+    heroEyebrow:'Alquiler de coches de lujo · Marbella',heroTitle:'Lujo en<br>cada kilómetro.',heroLead:'Superdeportivos, coches de altas prestaciones y movilidad premium desde Nueva Andalucía a toda la Costa del Sol.',heroFleet:'Ver coches disponibles',heroBook:'Alquilar online',heroMeta1:'coches en la colección',heroMeta2:'Nueva Andalucía',heroMeta3:'reserva por WhatsApp',
+    fleetKicker:'Superdeportivos disponibles ahora',fleetTitle:'Elige tu coche.<br><span>Haz tuyo el momento.</span>',fleetIntro:'Una vista más clara de vehículos reales publicados por Mfinity, con precio de alquiler, depósito y acceso directo a la reserva.',fact1:'1 día',fact3:'3 días',fact7:'7 días',deposit:'Depósito',reserveCar:'Alquilar este coche',viewDetails:'Detalles del vehículo ↗',allCars:'Explorar toda la colección Mfinity',
+    introLabel:'Sobre Mfinity',introTitle:'Un alquiler de supercoches único<br><span>alrededor de tu estancia.</span>',introText:'Mfinity reúne una amplia flota de lujo con atención directa en Marbella para ayudarte a elegir el coche adecuado para el viaje, evento u ocasión.',point1:'Coches de lujo',point1p:'Una colección variada de superdeportivos, performance, SUV y transporte premium.',point2:'Calidad',point2p:'El estado y la presentación del vehículo forman parte de la experiencia.',point3:'Gran selección',point3p:'Desde un Ferrari para el fin de semana hasta un G-Class o un traslado cómodo al aeropuerto.',planTrip:'Encontrar mi coche',
+    marbellaTitle:'El coche adecuado cambia<br>toda la <span>experiencia Marbella.</span>',marbellaText:'Puerto Banús, Nueva Andalucía, la costa o el Aeropuerto de Málaga. Elige el vehículo según el plan y coordina los detalles directamente con Mfinity.',
+    propertiesTitle:'Más que coches.<br><span>Un estilo de vida Marbella.</span>',propertiesText:'Mfinity también presenta propiedades de lujo en Marbella. La vertical inmobiliaria mantiene la conexión visual con la marca, pero permanece separada del alquiler de coches.',propertiesCta:'Explorar propiedades ↗',propertyNote:'Propiedad en primera línea de playa dentro de la cartera inmobiliaria de lujo de Mfinity.',
+    contactTitle:'¿Listo para elegir<br>tu próximo coche?',contactText:'Envía las fechas y el vehículo que prefieres. El equipo de Mfinity puede confirmar directamente disponibilidad, precio, depósito y condiciones finales.',phone:'Teléfono',address:'Dirección',backTop:'Volver arriba ↑',
+    drawerTitle:'Alquilar online',formCar:'Coche',formOther:'Otro / recomendación',formFrom:'Desde',formTo:'Hasta',formName:'Nombre',formNotes:'Mensaje',formSend:'Continuar por WhatsApp',formNote:'La disponibilidad y las condiciones finales se confirman directamente con Mfinity.'
+  }
 };
 
 let fleetIndex = 0;
@@ -44,9 +62,7 @@ const q = s => document.querySelector(s);
 const qa = s => [...document.querySelectorAll(s)];
 
 function fallbackImages(){
-  qa('img[data-fallback]').forEach(img=>{
-    img.addEventListener('error',()=>{if(img.src!==img.dataset.fallback) img.src=img.dataset.fallback;},{once:true});
-  });
+  qa('img[data-fallback]').forEach(img=>img.addEventListener('error',()=>{if(img.src!==img.dataset.fallback) img.src=img.dataset.fallback;},{once:true}));
 }
 
 function setFleet(index){
@@ -56,7 +72,7 @@ function setFleet(index){
   stage.classList.add('changing');
   setTimeout(()=>{
     const image=q('[data-fleet-image]');
-    image.dataset.fallback=car.fallback; image.src=car.image; image.alt=car.name;
+    image.dataset.fallback=car.fallback;image.src=car.image;image.alt=car.name;
     q('[data-fleet-current]').textContent=String(fleetIndex+1).padStart(2,'0');
     q('[data-fleet-index]').textContent=String(fleetIndex+1).padStart(2,'0');
     q('[data-fleet-category]').textContent=car.category;
@@ -77,18 +93,16 @@ function setFleet(index){
 }
 
 function setLanguage(next){
-  lang=next;
-  document.documentElement.lang=lang;
+  lang=next;document.documentElement.lang=lang;
   const dict=translations[lang];
   qa('[data-t]').forEach(el=>{const key=el.dataset.t;if(dict[key])el.textContent=dict[key]});
   qa('[data-th]').forEach(el=>{const key=el.dataset.th;if(dict[key])el.innerHTML=dict[key]});
-  const toggle=q('[data-lang-toggle]');
-  toggle.innerHTML=lang==='en'?'<span class="active">EN</span><span>/</span><span>ES</span>':'<span>EN</span><span>/</span><span class="active">ES</span>';
+  q('[data-lang-toggle]').innerHTML=lang==='en'?'<span class="active">EN</span><span>/</span><span>ES</span>':'<span>EN</span><span>/</span><span class="active">ES</span>';
 }
 
 function openEnquiry(car){
   const drawer=q('[data-enquiry]');
-  if(car){const select=q('[data-car-select]'); if([...select.options].some(o=>o.value===car)) select.value=car;}
+  if(car){const select=q('[data-car-select]');if([...select.options].some(o=>o.value===car))select.value=car;}
   drawer.classList.add('open');drawer.setAttribute('aria-hidden','false');document.body.classList.add('lock');
 }
 function closeEnquiry(){const drawer=q('[data-enquiry]');drawer.classList.remove('open');drawer.setAttribute('aria-hidden','true');document.body.classList.remove('lock')}
@@ -107,8 +121,8 @@ function init(){
   q('[data-menu-close]').addEventListener('click',closeMenu);qa('[data-mobile-link]').forEach(a=>a.addEventListener('click',closeMenu));
   q('[data-enquiry-form]').addEventListener('submit',e=>{
     e.preventDefault();const fd=new FormData(e.currentTarget);
-    const parts=[lang==='es'?'Hola Mfinity, me gustaría consultar disponibilidad.':'Hi Mfinity, I would like to check availability.',`Car: ${fd.get('car')}`];
-    if(fd.get('from'))parts.push(`From: ${fd.get('from')}`);if(fd.get('to'))parts.push(`To: ${fd.get('to')}`);if(fd.get('name'))parts.push(`Name: ${fd.get('name')}`);if(fd.get('phone'))parts.push(`Phone: ${fd.get('phone')}`);if(fd.get('notes'))parts.push(`Notes: ${fd.get('notes')}`);
+    const parts=[lang==='es'?'Hola Mfinity, me gustaría consultar un alquiler.':'Hi Mfinity, I would like to enquire about a rental.',`Car: ${fd.get('car')}`];
+    if(fd.get('from'))parts.push(`From: ${fd.get('from')}`);if(fd.get('to'))parts.push(`To: ${fd.get('to')}`);if(fd.get('name'))parts.push(`Name: ${fd.get('name')}`);if(fd.get('phone'))parts.push(`Phone: ${fd.get('phone')}`);if(fd.get('notes'))parts.push(`Message: ${fd.get('notes')}`);
     window.open(`https://wa.me/34663557861?text=${encodeURIComponent(parts.join('\n'))}`,'_blank','noopener,noreferrer');
   });
   window.addEventListener('scroll',()=>q('[data-header]').classList.toggle('scrolled',window.scrollY>24),{passive:true});
