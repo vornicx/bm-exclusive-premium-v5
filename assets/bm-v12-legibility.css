@@ -1,0 +1,104 @@
+/* B&M Exclusive — v12.2 legibility pass. Readable luxury, stronger contrast, correct Porsche visual. */
+
+/* Global readable scale */
+.kicker{font-size:11px;letter-spacing:.16em}
+.nav-links a{font-size:10px;letter-spacing:.14em}
+.lang button,.header-cta,.menu-toggle,.mobile-close,.drawer-close{font-size:10px}
+.primary-btn,.ghost-btn,.text-btn,.mobile-book{font-size:10px;letter-spacing:.14em}
+.primary-btn,.ghost-btn{min-height:54px}
+.header-cta{height:46px;padding-inline:20px}
+
+/* Hero: stronger readability and hierarchy */
+.hero-media:after{background:linear-gradient(90deg,rgba(5,5,4,.985) 0%,rgba(5,5,4,.9) 30%,rgba(5,5,4,.64) 54%,rgba(5,5,4,.3) 82%,rgba(5,5,4,.22) 100%),linear-gradient(0deg,rgba(5,5,4,.95),rgba(5,5,4,.28) 54%,transparent 76%),linear-gradient(180deg,rgba(5,5,4,.56),transparent 32%)}
+.hero-copy .kicker{color:rgba(255,255,255,.9)}
+.hero h1{text-shadow:0 3px 28px rgba(0,0,0,.34)}
+.hero-lead{max-width:560px;font-size:16px;line-height:1.72;color:rgba(255,255,255,.84);text-shadow:0 2px 18px rgba(0,0,0,.28)}
+.hero-side{width:min(390px,100%);border-color:rgba(255,255,255,.3)}
+.hero-side-row{grid-template-columns:44px 1fr;gap:20px;padding:19px 0}
+.hero-side-row span{font-size:10px;color:var(--gold-light)}
+.hero-side-row strong{font-size:13px;letter-spacing:.025em;margin-bottom:6px;color:#fff}
+.hero-side-row p{font-size:11px;line-height:1.68;color:rgba(255,255,255,.7)}
+.hero-foot span{font-size:9px;color:rgba(255,255,255,.56)}
+.hero-scroll:before{background:rgba(255,255,255,.55)}
+.brand-rail-item{font-size:10px;color:rgba(255,255,255,.62)}
+
+/* Light sections */
+.manifesto-aside p:last-child{font-size:14px;line-height:1.78;color:rgba(8,8,6,.66)}
+.manifesto-note b{font-size:9px}
+.manifesto-note strong{font-size:16px}
+.manifesto-note p{font-size:12px;line-height:1.68;color:rgba(8,8,6,.62)}
+.section-head p:last-child,.service-head p:last-child{font-size:14px;line-height:1.78}
+.service-card .service-no{font-size:9px}
+.service-card h3{font-size:23px}
+.service-card p{font-size:13px;line-height:1.72;color:rgba(8,8,6,.62)}
+.faq-q span:first-child{font-size:16px}
+.faq-a p{font-size:13px;line-height:1.78;color:rgba(8,8,6,.62)}
+
+/* Collection */
+.collection-top span{font-size:10px;color:rgba(255,255,255,.72)}
+.collection-top .collection-index{font-size:19px}
+.collection-specs span{font-size:10px;color:rgba(255,255,255,.76)}
+.car-choice-no{font-size:10px}
+.car-choice strong{font-size:17px}
+.car-choice small{font-size:12px;line-height:1.65;color:rgba(255,255,255,.64)}
+.collection-panel-bottom p{font-size:12px;color:rgba(255,255,255,.62)}
+.collection-disclaimer{font-size:10px;line-height:1.65;color:rgba(255,255,255,.48)}
+.collection-photo.porsche{background-image:url('https://images.pexels.com/photos/3752194/pexels-photo-3752194.jpeg?auto=compress&cs=tinysrgb&w=1900');background-position:center 54%}
+
+/* Dark editorial sections */
+.marbella-inner p:not(.kicker){max-width:570px;font-size:14px;line-height:1.78;color:rgba(255,255,255,.75)}
+.process-copy p:last-child{font-size:14px;line-height:1.78;color:rgba(255,255,255,.65)}
+.process-step>span{font-size:10px}
+.process-step h3{font-size:22px}
+.process-step p{font-size:13px;line-height:1.72;color:rgba(255,255,255,.62)}
+.contact-side p{font-size:14px;line-height:1.78;color:rgba(255,255,255,.68)}
+.contact-meta a,.contact-meta span{font-size:10px;color:rgba(255,255,255,.58)}
+
+/* Footer */
+.footer-brand p{font-size:11px;line-height:1.7;color:rgba(255,255,255,.52)}
+.footer h4{font-size:10px}
+.footer a{font-size:11px;color:rgba(255,255,255,.52)}
+.footer-bottom{font-size:9px;color:rgba(255,255,255,.42)}
+
+/* Booking drawer */
+.drawer-copy>p:last-child{font-size:13px;line-height:1.72;color:rgba(255,255,255,.64)}
+.field span{font-size:9px;color:rgba(255,255,255,.62)}
+.field input,.field select,.field textarea{font-size:13px;color:#fff}
+.form-note{font-size:10px;line-height:1.62;color:rgba(255,255,255,.46)}
+
+/* Fleet page */
+.subhero p:last-child{font-size:14px;line-height:1.78;color:rgba(255,255,255,.72)}
+.catalog-top p{font-size:13px;line-height:1.75;color:rgba(8,8,6,.62)}
+.catalog-card-top{font-size:9px;color:rgba(255,255,255,.72)}
+.catalog-card p{font-size:12px;line-height:1.68;color:rgba(255,255,255,.68)}
+.catalog-cta p{max-width:620px;font-size:13px;line-height:1.72;color:rgba(8,8,6,.62)}
+
+/* Legal */
+.legal-warning{font-size:12px}
+.legal-wrap p{font-size:13px;line-height:1.82;color:rgba(8,8,6,.66)}
+.legal-back{font-size:10px}
+
+@media(max-width:860px){
+  .nav-links a{font-size:9px}
+  .hero-lead{font-size:14px;max-width:96%}
+  .hero-side-row strong{font-size:12px}
+  .brand-rail-item{font-size:9px}
+  .section-head p:last-child,.service-head p:last-child,.manifesto-aside p:last-child,.marbella-inner p:not(.kicker),.process-copy p:last-child,.contact-side p,.subhero p:last-child{font-size:13px}
+  .car-choice small{font-size:11px}
+  .service-card p,.process-step p,.faq-a p,.catalog-top p,.catalog-cta p{font-size:12px}
+  .footer a,.footer-brand p{font-size:10px}
+}
+
+@media(max-width:560px){
+  .kicker{font-size:10px}
+  .hero-lead{font-size:14px;line-height:1.68;color:rgba(255,255,255,.88)}
+  .hero-side-row strong{font-size:12px}
+  .hero-foot span{font-size:8px}
+  .brand-rail-item{font-size:9px}
+  .collection-top span{font-size:9px}
+  .car-choice strong{font-size:16px}
+  .car-choice small{font-size:11px;line-height:1.58}
+  .service-card h3{font-size:21px}
+  .faq-q span:first-child{font-size:15px}
+  .field input,.field select,.field textarea{font-size:16px}
+}
