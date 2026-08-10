@@ -26,6 +26,15 @@
     const hero = document.querySelector('.hero');
     const heroImage = document.querySelector('.hero-media img');
 
+    // Use an actual Mfinity car in the Marbella lifestyle section.
+    const marbellaImage = document.querySelector('.marbella-image img');
+    if (marbellaImage) {
+      marbellaImage.src = 'https://mfinity.es/wp-content/uploads/2024/04/Ferrari-488-Spyder%E2%80%8B-front-768x576.jpg';
+      marbellaImage.alt = 'Ferrari 488 Spyder by Mfinity in Marbella';
+      marbellaImage.removeAttribute('srcset');
+      marbellaImage.style.objectPosition = 'center center';
+    }
+
     // Small, almost imperceptible perspective response on desktop only.
     if (hero && heroImage && !prefersReduced && window.matchMedia('(pointer:fine)').matches) {
       hero.addEventListener('pointermove', (event) => {
