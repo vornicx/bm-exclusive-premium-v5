@@ -1,134 +1,19 @@
-const fleet = [
-  {
-    brand:'Lamborghini',name:'Lamborghini Huracán Tecnica',title:'Lamborghini<br>Huracán Tecnica',category:'SUPERCAR',
-    day:'€1,900',three:'€5,600',seven:'€12,900',deposit:'€6,000',price:'From €1,900 / day',
-    description:'Precision, theatre and naturally aspirated V10 character for a Marbella drive that is anything but ordinary.',
-    image:'https://mfinity.es/wp-content/uploads/2024/09/IMG_5309-768x1024.jpg',
-    fallback:'https://images.pexels.com/photos/3972755/pexels-photo-3972755.jpeg?auto=compress&cs=tinysrgb&w=1800',
-    url:'https://mfinity.es/lamborghini-huracan-tecnica/'
-  },
-  {
-    brand:'Ferrari',name:'Ferrari 488 Spyder',title:'Ferrari 488<br>Spyder',category:'SUPERCAR',
-    day:'€1,400',three:'Call',seven:'Call',deposit:'€7,000',price:'From €1,400 / day',
-    description:'Open-top Ferrari performance with the drama, sound and presence expected from one of Marbella’s most recognisable supercars.',
-    image:'https://mfinity.es/wp-content/uploads/2024/04/Ferrari-488-Spyder%E2%80%8B-front-768x576.jpg',
-    fallback:'https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=1800',
-    url:'https://mfinity.es/ferrari-488-spyder/'
-  },
-  {
-    brand:'Audi',name:'Audi R8',title:'Audi<br>R8',category:'SUPERCAR / PERFORMANCE',
-    day:'€650',three:'€1,500',seven:'€3,500',deposit:'€3,500',price:'From €650 / day',
-    description:'A more understated supercar experience: V10 performance, everyday usability and quattro confidence for the coast.',
-    image:'https://mfinity.es/wp-content/uploads/2024/04/audi-r8-marbella-rental-main-768x576.jpg',
-    fallback:'https://images.pexels.com/photos/1402787/pexels-photo-1402787.jpeg?auto=compress&cs=tinysrgb&w=1800',
-    url:'https://mfinity.es/audi-r8/'
-  },
-  {
-    brand:'Mercedes-AMG',name:'Mercedes G63',title:'Mercedes-AMG<br>G63',category:'LUXURY SUV',
-    day:'€1,000',three:'€2,900',seven:'€6,500',deposit:'€5,000',price:'From €1,000 / day',
-    description:'Commanding presence, space and AMG performance for villas, events, city nights and longer stays around Marbella.',
-    image:'https://images.pexels.com/photos/112460/pexels-photo-112460.jpeg?auto=compress&cs=tinysrgb&w=1800',
-    fallback:'https://images.pexels.com/photos/112460/pexels-photo-112460.jpeg?auto=compress&cs=tinysrgb&w=1800',
-    url:'https://mfinity.es/mercedes-g-wagon/'
-  }
+const cars=[
+{brand:'LAMBORGHINI',name:'Lamborghini Huracán Tecnica',title:'Lamborghini<br>Huracán Tecnica',category:'SUPERCAR',day:'€1,900',three:'€5,600',seven:'€12,900',deposit:'€6,000',price:'€1,900 / day',copy:{en:'Pure V10 theatre, precision and unmistakable presence for a Marbella drive that does not need an introduction.',es:'Teatro V10, precisión y una presencia inconfundible para vivir Marbella sin necesidad de presentación.'},image:'https://mfinity.es/wp-content/uploads/2024/09/IMG_5309-768x1024.jpg',fallback:'https://images.pexels.com/photos/3972755/pexels-photo-3972755.jpeg?auto=compress&cs=tinysrgb&w=1800',url:'https://mfinity.es/lamborghini-huracan-tecnica/'},
+{brand:'FERRARI',name:'Ferrari 488 Spyder',title:'Ferrari 488<br>Spyder',category:'SUPERCAR',day:'€1,400',three:'Call',seven:'Call',deposit:'€7,000',price:'€1,400 / day',copy:{en:'Open-top Ferrari performance with the sound, drama and visual impact expected from one of Marbella’s defining supercars.',es:'Prestaciones Ferrari a cielo abierto, con el sonido, la emoción y la presencia de uno de los superdeportivos más reconocibles de Marbella.'},image:'https://mfinity.es/wp-content/uploads/2024/04/Ferrari-488-Spyder%E2%80%8B-front-768x576.jpg',fallback:'https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=1800',url:'https://mfinity.es/ferrari-488-spyder/'},
+{brand:'AUDI',name:'Audi R8',title:'Audi<br>R8',category:'SUPERCAR / PERFORMANCE',day:'€650',three:'€1,500',seven:'€3,500',deposit:'€3,500',price:'€650 / day',copy:{en:'V10 performance with a more understated attitude: fast, usable and equally at home on the coast or in the city.',es:'Prestaciones V10 con una actitud más discreta: rápido, utilizable y tan natural en la costa como en la ciudad.'},image:'https://mfinity.es/wp-content/uploads/2024/04/audi-r8-marbella-rental-main-768x576.jpg',fallback:'https://images.pexels.com/photos/1402787/pexels-photo-1402787.jpeg?auto=compress&cs=tinysrgb&w=1800',url:'https://mfinity.es/audi-r8/'},
+{brand:'MERCEDES-AMG',name:'Mercedes-AMG G63',title:'Mercedes-AMG<br>G63',category:'LUXURY SUV',day:'€1,000',three:'€2,900',seven:'€6,500',deposit:'€5,000',price:'€1,000 / day',copy:{en:'AMG performance, generous space and unmistakable G-Class presence for longer stays, events and Marbella nights.',es:'Prestaciones AMG, espacio y la presencia inconfundible del G-Class para estancias largas, eventos y noches en Marbella.'},image:'https://images.pexels.com/photos/112460/pexels-photo-112460.jpeg?auto=compress&cs=tinysrgb&w=1800',fallback:'https://images.pexels.com/photos/112460/pexels-photo-112460.jpeg?auto=compress&cs=tinysrgb&w=1800',url:'https://mfinity.es/mercedes-g-wagon/'}
 ];
-
-const translations = {
-  en:{
-    navFleet:'Cars',navExperience:'About us',navProperties:'Properties',navContact:'Contact',navBook:'Rent online',
-    heroEyebrow:'Luxury car rental · Marbella',heroTitle:'Luxury in<br>every kilometer.',heroLead:'Supercars, performance cars and premium mobility from Nueva Andalucía to the whole Costa del Sol.',heroFleet:'View available cars',heroBook:'Rent online',heroMeta1:'cars in collection',heroMeta2:'Nueva Andalucía',heroMeta3:'WhatsApp booking',
-    fleetKicker:'Available supercars right now',fleetTitle:'Choose your car.<br><span>Own the moment.</span>',fleetIntro:'A clearer view of real cars currently presented by Mfinity, with rental price, deposit and direct booking access.',fact1:'1 day',fact3:'3 days',fact7:'7 days',deposit:'Deposit',reserveCar:'Rent this car',viewDetails:'Vehicle details ↗',allCars:'Explore the full Mfinity collection',
-    introLabel:'About Mfinity',introTitle:'A unique supercar rental<br><span>built around your stay.</span>',introText:'Mfinity brings together a broad luxury fleet with direct service in Marbella, helping clients choose the right car for the trip, event or occasion.',point1:'Luxury cars',point1p:'A varied collection spanning supercars, performance cars, SUVs and premium transport.',point2:'Quality',point2p:'Vehicle condition and presentation are part of the experience, not an afterthought.',point3:'Large selection',point3p:'From a Ferrari weekend to a G-Class stay or a comfortable airport transfer.',planTrip:'Find my car',
-    marbellaTitle:'The right car changes<br>the whole <span>Marbella experience.</span>',marbellaText:'Puerto Banús, Nueva Andalucía, the coast or Málaga Airport. Choose the vehicle around the plan and coordinate the details directly with Mfinity.',
-    propertiesTitle:'More than cars.<br><span>A Marbella lifestyle.</span>',propertiesText:'Mfinity also presents luxury properties in Marbella. The property business stays visually connected to the brand while remaining a distinct experience from car rental.',propertiesCta:'Explore properties ↗',propertyNote:'Frontline beach property presented within Mfinity’s luxury property portfolio.',
-    contactTitle:'Ready to choose<br>your next car?',contactText:'Send the dates and preferred vehicle. The Mfinity team can confirm availability, price, deposit and the final rental conditions directly.',phone:'Phone',address:'Address',backTop:'Back to top ↑',
-    drawerTitle:'Rent online',formCar:'Car',formOther:'Other / recommendation',formFrom:'From',formTo:'To',formName:'Name',formNotes:'Message',formSend:'Continue on WhatsApp',formNote:'Availability and final rental conditions are confirmed directly by Mfinity.'
-  },
-  es:{
-    navFleet:'Coches',navExperience:'Nosotros',navProperties:'Propiedades',navContact:'Contacto',navBook:'Alquilar online',
-    heroEyebrow:'Alquiler de coches de lujo · Marbella',heroTitle:'Lujo en<br>cada kilómetro.',heroLead:'Superdeportivos, coches de altas prestaciones y movilidad premium desde Nueva Andalucía a toda la Costa del Sol.',heroFleet:'Ver coches disponibles',heroBook:'Alquilar online',heroMeta1:'coches en la colección',heroMeta2:'Nueva Andalucía',heroMeta3:'reserva por WhatsApp',
-    fleetKicker:'Superdeportivos disponibles ahora',fleetTitle:'Elige tu coche.<br><span>Haz tuyo el momento.</span>',fleetIntro:'Una vista más clara de vehículos reales publicados por Mfinity, con precio de alquiler, depósito y acceso directo a la reserva.',fact1:'1 día',fact3:'3 días',fact7:'7 días',deposit:'Depósito',reserveCar:'Alquilar este coche',viewDetails:'Detalles del vehículo ↗',allCars:'Explorar toda la colección Mfinity',
-    introLabel:'Sobre Mfinity',introTitle:'Un alquiler de supercoches único<br><span>alrededor de tu estancia.</span>',introText:'Mfinity reúne una amplia flota de lujo con atención directa en Marbella para ayudarte a elegir el coche adecuado para el viaje, evento u ocasión.',point1:'Coches de lujo',point1p:'Una colección variada de superdeportivos, performance, SUV y transporte premium.',point2:'Calidad',point2p:'El estado y la presentación del vehículo forman parte de la experiencia.',point3:'Gran selección',point3p:'Desde un Ferrari para el fin de semana hasta un G-Class o un traslado cómodo al aeropuerto.',planTrip:'Encontrar mi coche',
-    marbellaTitle:'El coche adecuado cambia<br>toda la <span>experiencia Marbella.</span>',marbellaText:'Puerto Banús, Nueva Andalucía, la costa o el Aeropuerto de Málaga. Elige el vehículo según el plan y coordina los detalles directamente con Mfinity.',
-    propertiesTitle:'Más que coches.<br><span>Un estilo de vida Marbella.</span>',propertiesText:'Mfinity también presenta propiedades de lujo en Marbella. La vertical inmobiliaria mantiene la conexión visual con la marca, pero permanece separada del alquiler de coches.',propertiesCta:'Explorar propiedades ↗',propertyNote:'Propiedad en primera línea de playa dentro de la cartera inmobiliaria de lujo de Mfinity.',
-    contactTitle:'¿Listo para elegir<br>tu próximo coche?',contactText:'Envía las fechas y el vehículo que prefieres. El equipo de Mfinity puede confirmar directamente disponibilidad, precio, depósito y condiciones finales.',phone:'Teléfono',address:'Dirección',backTop:'Volver arriba ↑',
-    drawerTitle:'Alquilar online',formCar:'Coche',formOther:'Otro / recomendación',formFrom:'Desde',formTo:'Hasta',formName:'Nombre',formNotes:'Mensaje',formSend:'Continuar por WhatsApp',formNote:'La disponibilidad y las condiciones finales se confirman directamente con Mfinity.'
-  }
+const copy={
+en:{navCars:'Cars',navAbout:'About us',navProperties:'Properties',navContact:'Contact',navBook:'Rent online',close:'Close',heroTitle:'Luxury in every<br><span>kilometer.</span>',heroLead:'Supercars, performance cars and premium mobility for Marbella and the Costa del Sol.',heroCars:'Explore cars',heroBook:'Check availability',availableNow:'Available now',from:'From',reserveNow:'Reserve now ↗',heroFoot:'Luxury car rental · Nueva Andalucía · Marbella',scroll:'Scroll to collection',aboutLabel:'About Mfinity',aboutKicker:'More than the car',aboutTitle:'A collection built for<br><span>Marbella at full volume.</span>',aboutLead:'Mfinity brings together a broad luxury fleet with a direct rental experience in Nueva Andalucía. The point is simple: choose the car that fits the moment, understand the conditions clearly and get on with the trip.',proof1:'cars presented across the Mfinity collection',proof2:'direct point of contact for the rental',proof3:'reasons Mfinity highlights: luxury, quality, technical condition and selection',fleetKicker:'Available supercars right now',fleetTitle:'Choose the car.<br><span>Keep the feeling.</span>',fleetLead:'Real vehicles and published rental conditions from Mfinity, presented with the clarity a premium booking deserves.',day1:'1 day',day3:'3 days',day7:'7 days',deposit:'Deposit',reserveCar:'Reserve this car',originalListing:'Original Mfinity listing ↗',fleetMoreText:'Looking for something else? Mfinity also presents A35 AMG, C63S, BMW 540i, Golf GTI and V-Class Maybach.',fleetMore:'See the full Mfinity collection ↗',marbellaTitle:'A car for the coast.<br><span>A car for the night.</span>',marbellaLead:'From an airport arrival to Puerto Banús after dark, the right car changes the rhythm of the stay. Mfinity’s range covers supercars, performance cars, SUVs and premium transport.',planRental:'Plan my rental',cat1:'Supercars',cat1s:'For the drive itself',cat2:'Performance',cat2s:'For everyday pace',cat3:'Luxury SUVs',cat3s:'For presence and space',cat4:'Premium transport',cat4s:'For comfort first',bookingLabel:'Booking',bookingKicker:'Clear from the first message',bookingTitle:'Premium should feel<br><span>simple.</span>',step1:'Choose the direction',step1p:'Tell Mfinity the dates, the car you want or the type of experience you have in mind.',step2:'Confirm the conditions',step2p:'Vehicle, rental period, price and deposit are confirmed before the booking.',step3:'Take the keys',step3p:'Final handover details are coordinated directly with the Mfinity team in Marbella.',propertyTitle:'The same Marbella.<br><span>A different asset.</span>',propertyLead:'Mfinity also presents luxury properties. We keep that part of the business distinct from the car-rental journey, but connected through the same brand.',propertyDetails:'View property',onRequest:'On request',contactTitle:'Tell us the dates.<br><span>Find the car.</span>',contactLead:'For availability, longer rentals or a specific model, contact Mfinity directly.',contactBook:'Check availability',phone:'Phone',address:'Address',footerLine:'Luxury car rental · Marbella · Costa del Sol',backTop:'Back to top ↑',prototype:'Concept redesign for presentation',mobileBook:'Rent a car',drawerTitle:'Check availability',formCar:'Vehicle',formOther:'Other / recommendation',fromDate:'From',toDate:'To',name:'Name',notes:'Notes',notesPlaceholder:'Hotel, villa, airport, occasion or anything useful...',sendWhatsApp:'Continue on WhatsApp ↗',formNote:'This concept sends the enquiry through WhatsApp and does not process payment.'},
+es:{navCars:'Coches',navAbout:'Nosotros',navProperties:'Propiedades',navContact:'Contacto',navBook:'Alquilar online',close:'Cerrar',heroTitle:'Lujo en cada<br><span>kilómetro.</span>',heroLead:'Superdeportivos, coches de altas prestaciones y movilidad premium para Marbella y la Costa del Sol.',heroCars:'Explorar coches',heroBook:'Consultar disponibilidad',availableNow:'Disponible ahora',from:'Desde',reserveNow:'Reservar ahora ↗',heroFoot:'Alquiler de coches de lujo · Nueva Andalucía · Marbella',scroll:'Ver colección',aboutLabel:'Sobre Mfinity',aboutKicker:'Más que el coche',aboutTitle:'Una colección pensada para<br><span>vivir Marbella al máximo.</span>',aboutLead:'Mfinity reúne una amplia flota de lujo con una experiencia de alquiler directa en Nueva Andalucía. La idea es sencilla: elegir el coche que encaja con el momento, entender las condiciones con claridad y seguir con el viaje.',proof1:'coches presentados en la colección de Mfinity',proof2:'punto de contacto directo para el alquiler',proof3:'pilares que Mfinity destaca: lujo, calidad, condición técnica y selección',fleetKicker:'Superdeportivos disponibles ahora',fleetTitle:'Elige el coche.<br><span>Quédate con la sensación.</span>',fleetLead:'Vehículos reales y condiciones de alquiler publicadas por Mfinity, presentados con la claridad que merece una reserva premium.',day1:'1 día',day3:'3 días',day7:'7 días',deposit:'Depósito',reserveCar:'Reservar este coche',originalListing:'Ficha original de Mfinity ↗',fleetMoreText:'¿Buscas otra cosa? Mfinity también presenta A35 AMG, C63S, BMW 540i, Golf GTI y V-Class Maybach.',fleetMore:'Ver toda la colección Mfinity ↗',marbellaTitle:'Un coche para la costa.<br><span>Otro para la noche.</span>',marbellaLead:'Desde la llegada al aeropuerto hasta Puerto Banús de noche, el coche adecuado cambia el ritmo de la estancia. La gama de Mfinity incluye superdeportivos, performance, SUV y transporte premium.',planRental:'Organizar mi alquiler',cat1:'Superdeportivos',cat1s:'Para disfrutar la conducción',cat2:'Performance',cat2s:'Para el ritmo diario',cat3:'SUV de lujo',cat3s:'Para presencia y espacio',cat4:'Transporte premium',cat4s:'Cuando prima la comodidad',bookingLabel:'Reserva',bookingKicker:'Claro desde el primer mensaje',bookingTitle:'Premium también significa<br><span>fácil.</span>',step1:'Elige la dirección',step1p:'Dile a Mfinity las fechas, el coche que quieres o el tipo de experiencia que buscas.',step2:'Confirma las condiciones',step2p:'Vehículo, periodo, precio y depósito quedan confirmados antes de reservar.',step3:'Recoge las llaves',step3p:'Los detalles finales de entrega se coordinan directamente con el equipo de Mfinity en Marbella.',propertyTitle:'La misma Marbella.<br><span>Otro tipo de activo.</span>',propertyLead:'Mfinity también presenta propiedades de lujo. Esa parte del negocio se mantiene separada del alquiler de coches, pero conectada bajo la misma marca.',propertyDetails:'Ver propiedad',onRequest:'Consultar',contactTitle:'Dinos las fechas.<br><span>Encuentra el coche.</span>',contactLead:'Para disponibilidad, alquileres largos o un modelo concreto, contacta directamente con Mfinity.',contactBook:'Consultar disponibilidad',phone:'Teléfono',address:'Dirección',footerLine:'Alquiler de coches de lujo · Marbella · Costa del Sol',backTop:'Volver arriba ↑',prototype:'Rediseño conceptual para presentación',mobileBook:'Alquilar coche',drawerTitle:'Consultar disponibilidad',formCar:'Vehículo',formOther:'Otro / recomendación',fromDate:'Desde',toDate:'Hasta',name:'Nombre',notes:'Notas',notesPlaceholder:'Hotel, villa, aeropuerto, ocasión o cualquier detalle útil...',sendWhatsApp:'Continuar por WhatsApp ↗',formNote:'Este concepto envía la consulta por WhatsApp y no procesa pagos.'}
 };
-
-let fleetIndex = 0;
-let lang = 'en';
-const q = s => document.querySelector(s);
-const qa = s => [...document.querySelectorAll(s)];
-
-function fallbackImages(){
-  qa('img[data-fallback]').forEach(img=>img.addEventListener('error',()=>{if(img.src!==img.dataset.fallback) img.src=img.dataset.fallback;},{once:true}));
-}
-
-function setFleet(index){
-  fleetIndex=(index+fleet.length)%fleet.length;
-  const car=fleet[fleetIndex];
-  const stage=q('[data-fleet-stage]');
-  stage.classList.add('changing');
-  setTimeout(()=>{
-    const image=q('[data-fleet-image]');
-    image.dataset.fallback=car.fallback;image.src=car.image;image.alt=car.name;
-    q('[data-fleet-current]').textContent=String(fleetIndex+1).padStart(2,'0');
-    q('[data-fleet-index]').textContent=String(fleetIndex+1).padStart(2,'0');
-    q('[data-fleet-category]').textContent=car.category;
-    q('[data-fleet-name]').textContent=car.name;
-    q('[data-fleet-price]').textContent=car.price;
-    q('[data-fleet-brand]').textContent=car.brand;
-    q('[data-fleet-title]').innerHTML=car.title;
-    q('[data-fleet-day]').textContent=car.day;
-    q('[data-fleet-three]').textContent=car.three;
-    q('[data-fleet-seven]').textContent=car.seven;
-    q('[data-fleet-deposit]').textContent=car.deposit;
-    q('[data-fleet-description]').textContent=car.description;
-    q('[data-fleet-original]').href=car.url;
-    q('[data-selected-car]').dataset.selectedCar=car.name;
-    qa('[data-fleet]').forEach((tab,i)=>tab.classList.toggle('active',i===fleetIndex));
-    stage.classList.remove('changing');
-  },180);
-}
-
-function setLanguage(next){
-  lang=next;document.documentElement.lang=lang;
-  const dict=translations[lang];
-  qa('[data-t]').forEach(el=>{const key=el.dataset.t;if(dict[key])el.textContent=dict[key]});
-  qa('[data-th]').forEach(el=>{const key=el.dataset.th;if(dict[key])el.innerHTML=dict[key]});
-  q('[data-lang-toggle]').innerHTML=lang==='en'?'<span class="active">EN</span><span>/</span><span>ES</span>':'<span>EN</span><span>/</span><span class="active">ES</span>';
-}
-
-function openEnquiry(car){
-  const drawer=q('[data-enquiry]');
-  if(car){const select=q('[data-car-select]');if([...select.options].some(o=>o.value===car))select.value=car;}
-  drawer.classList.add('open');drawer.setAttribute('aria-hidden','false');document.body.classList.add('lock');
-}
-function closeEnquiry(){const drawer=q('[data-enquiry]');drawer.classList.remove('open');drawer.setAttribute('aria-hidden','true');document.body.classList.remove('lock')}
-
-function init(){
-  fallbackImages();
-  q('[data-fleet-total]').textContent=String(fleet.length).padStart(2,'0');
-  q('[data-fleet-prev]').addEventListener('click',()=>setFleet(fleetIndex-1));
-  q('[data-fleet-next]').addEventListener('click',()=>setFleet(fleetIndex+1));
-  qa('[data-fleet]').forEach(btn=>btn.addEventListener('click',()=>setFleet(Number(btn.dataset.fleet))));
-  q('[data-lang-toggle]').addEventListener('click',()=>setLanguage(lang==='en'?'es':'en'));
-  qa('[data-open-enquiry]').forEach(btn=>btn.addEventListener('click',()=>openEnquiry(btn.dataset.selectedCar||null)));
-  qa('[data-close-enquiry]').forEach(btn=>btn.addEventListener('click',closeEnquiry));
-  q('[data-menu-open]').addEventListener('click',()=>{q('[data-mobile-menu]').classList.add('open');q('[data-mobile-menu]').setAttribute('aria-hidden','false');document.body.classList.add('lock')});
-  const closeMenu=()=>{q('[data-mobile-menu]').classList.remove('open');q('[data-mobile-menu]').setAttribute('aria-hidden','true');document.body.classList.remove('lock')};
-  q('[data-menu-close]').addEventListener('click',closeMenu);qa('[data-mobile-link]').forEach(a=>a.addEventListener('click',closeMenu));
-  q('[data-enquiry-form]').addEventListener('submit',e=>{
-    e.preventDefault();const fd=new FormData(e.currentTarget);
-    const parts=[lang==='es'?'Hola Mfinity, me gustaría consultar un alquiler.':'Hi Mfinity, I would like to enquire about a rental.',`Car: ${fd.get('car')}`];
-    if(fd.get('from'))parts.push(`From: ${fd.get('from')}`);if(fd.get('to'))parts.push(`To: ${fd.get('to')}`);if(fd.get('name'))parts.push(`Name: ${fd.get('name')}`);if(fd.get('phone'))parts.push(`Phone: ${fd.get('phone')}`);if(fd.get('notes'))parts.push(`Message: ${fd.get('notes')}`);
-    window.open(`https://wa.me/34663557861?text=${encodeURIComponent(parts.join('\n'))}`,'_blank','noopener,noreferrer');
-  });
-  window.addEventListener('scroll',()=>q('[data-header]').classList.toggle('scrolled',window.scrollY>24),{passive:true});
-  const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});
-  qa('.reveal').forEach(el=>observer.observe(el));
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeEnquiry();closeMenu()}});
-}
-
-document.addEventListener('DOMContentLoaded',init);
+let language='en',index=0;const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+function safeImage(img,fallback){if(!img)return;img.onerror=()=>{if(fallback&&img.src!==fallback)img.src=fallback}}
+function updateCar(i){index=(i+cars.length)%cars.length;const car=cars[index],stage=$('[data-stage]');stage.classList.add('is-changing');setTimeout(()=>{const image=$('[data-car-image]');image.src=car.image;safeImage(image,car.fallback);image.alt=car.name;$('[data-current]').textContent=String(index+1).padStart(2,'0');$('[data-car-number]').textContent=String(index+1).padStart(2,'0');$('[data-car-category]').textContent=car.category;$('[data-car-name]').textContent=car.name;$('[data-car-price]').textContent=car.price;$('[data-car-brand]').textContent=car.brand;$('[data-car-title]').innerHTML=car.title;$('[data-car-copy]').textContent=car.copy[language];$('[data-day]').textContent=car.day;$('[data-three]').textContent=car.three;$('[data-seven]').textContent=car.seven;$('[data-deposit]').textContent=car.deposit;$('[data-original]').href=car.url;$('[data-reserve]').dataset.selectedCar=car.name;$$('[data-car]').forEach((b,n)=>b.classList.toggle('is-active',n===index));stage.classList.remove('is-changing')},180)}
+function setLanguage(next){language=next;document.documentElement.lang=next;const dict=copy[next];$$('[data-t]').forEach(el=>{const v=dict[el.dataset.t];if(v!==undefined)el.textContent=v});$$('[data-th]').forEach(el=>{const v=dict[el.dataset.th];if(v!==undefined)el.innerHTML=v});$$('[data-placeholder]').forEach(el=>{const v=dict[el.dataset.placeholder];if(v!==undefined)el.placeholder=v});$('[data-lang-toggle]').innerHTML=next==='en'?'<span class="is-active">EN</span><span>ES</span>':'<span>EN</span><span class="is-active">ES</span>';updateCar(index)}
+function openEnquiry(car){const modal=$('[data-enquiry]');if(car){const select=$('[data-car-select]'),option=[...select.options].find(o=>o.value===car||o.textContent===car);if(option)select.value=option.value}modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.classList.add('lock');setTimeout(()=>modal.querySelector('select')?.focus(),120)}
+function closeEnquiry(){const modal=$('[data-enquiry]');modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.classList.remove('lock')}
+function openMenu(){const menu=$('[data-mobile-menu]');menu.classList.add('open');menu.setAttribute('aria-hidden','false');document.body.classList.add('lock')}
+function closeMenu(){const menu=$('[data-mobile-menu]');menu.classList.remove('open');menu.setAttribute('aria-hidden','true');document.body.classList.remove('lock')}
+function init(){$$('img[data-fallback]').forEach(img=>safeImage(img,img.dataset.fallback));$$('[data-logo]').forEach(img=>{img.onerror=()=>{img.style.display='none';img.nextElementSibling.style.display='inline-block'}});$('[data-total]').textContent=String(cars.length).padStart(2,'0');$('[data-prev]').addEventListener('click',()=>updateCar(index-1));$('[data-next]').addEventListener('click',()=>updateCar(index+1));$$('[data-car]').forEach(btn=>btn.addEventListener('click',()=>updateCar(Number(btn.dataset.car))));$('[data-lang-toggle]').addEventListener('click',()=>setLanguage(language==='en'?'es':'en'));$$('[data-open-enquiry]').forEach(btn=>btn.addEventListener('click',()=>openEnquiry(btn.dataset.selectedCar||null)));$$('[data-close-enquiry]').forEach(btn=>btn.addEventListener('click',closeEnquiry));$('[data-menu-open]').addEventListener('click',openMenu);$('[data-menu-close]').addEventListener('click',closeMenu);$$('[data-mobile-link]').forEach(a=>a.addEventListener('click',closeMenu));$('[data-enquiry-form]').addEventListener('submit',e=>{e.preventDefault();const fd=new FormData(e.currentTarget),first=language==='es'?'Hola Mfinity, me gustaría consultar disponibilidad.':'Hi Mfinity, I would like to check availability.',lines=[first,`${language==='es'?'Coche':'Car'}: ${fd.get('car')}`];if(fd.get('from'))lines.push(`${language==='es'?'Desde':'From'}: ${fd.get('from')}`);if(fd.get('to'))lines.push(`${language==='es'?'Hasta':'To'}: ${fd.get('to')}`);if(fd.get('name'))lines.push(`${language==='es'?'Nombre':'Name'}: ${fd.get('name')}`);if(fd.get('phone'))lines.push(`${language==='es'?'Teléfono':'Phone'}: ${fd.get('phone')}`);if(fd.get('notes'))lines.push(`${language==='es'?'Notas':'Notes'}: ${fd.get('notes')}`);window.open(`https://wa.me/34663557861?text=${encodeURIComponent(lines.join('\n'))}`,'_blank','noopener,noreferrer')});const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.1});$$('.reveal').forEach(el=>observer.observe(el));const onScroll=()=>{const y=window.scrollY,max=document.documentElement.scrollHeight-innerHeight;$('[data-header]').classList.toggle('scrolled',y>28);$('[data-progress]').style.width=`${max>0?Math.min(100,y/max*100):0}%`};window.addEventListener('scroll',onScroll,{passive:true});onScroll();document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeEnquiry();closeMenu()}})}document.addEventListener('DOMContentLoaded',init);
