@@ -43,21 +43,21 @@
       <div class="actions">
         <div class="langs" aria-label="Idioma"><button class="on" data-lang="es" type="button">ES</button><button data-lang="en" type="button">EN</button></div>
         <button class="navcta open-book" type="button" data-t="privateEnquiry">Consulta privada</button>
-        <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu">Menú</button>
+        <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu" data-t="menu">Menú</button>
       </div>
     </div>
   </header>
 
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-    <div class="mobile-top"><img src="assets/images/bm-logo-horizontal.png" alt="B&M Exclusive"><button class="mobile-close" id="menuClose" type="button">Cerrar</button></div>
+    <div class="mobile-top"><img src="assets/images/bm-logo-horizontal.png" alt="B&M Exclusive"><button class="mobile-close" id="menuClose" type="button" data-t="close">Cerrar</button></div>
     <nav class="mobile-links">
       <a href="#fleet" data-mobile-link data-t="navFleet">Flota</a>
       <a href="#process" data-mobile-link data-t="navHow">Cómo funciona</a>
       <a href="#concierge" data-mobile-link data-t="navService">Concierge</a>
       <a href="#marbella" data-mobile-link>Marbella</a>
-      <a href="#contact" data-mobile-link>Contacto</a>
+      <a href="#contact" data-mobile-link data-t="contactLabel">Contacto</a>
     </nav>
-    <div class="mobile-foot">Marbella · Costa del Sol · España</div>
+    <div class="mobile-foot" data-t="mobileFoot">Marbella · Costa del Sol · España</div>
   </div>
 
   <main id="main">
@@ -115,7 +115,7 @@
         <div class="fleet-stage reveal">
           <div class="fleet-visual" id="fleetVisual">
             <div id="activeImage" class="fleet-photo ferrari" role="img" aria-label="Ferrari negro bajo iluminación de estudio"></div>
-            <div class="fleet-visual-top"><span id="activeIndex">01</span><span id="activeCategory">Grand Tourer</span></div>
+            <div class="fleet-visual-top"><span id="activeIndex">01</span><span id="activeCategory">Gran turismo</span></div>
             <div class="fleet-caption">
               <div><span class="eyebrow" id="activeBrand">Ferrari</span><h3 class="display" id="activeName">Ferrari</h3></div>
               <div class="fleet-specs" id="activeSpecs"><span>Gran turismo</span><span>2 plazas</span><span>Marbella</span></div>
@@ -156,7 +156,7 @@
     <section class="concierge" id="concierge" aria-labelledby="concierge-title">
       <div class="wrap">
         <div class="concierge-head reveal">
-          <div><p class="eyebrow" data-t="conciergeKicker">Private concierge</p><h2 id="concierge-title" class="display" data-th="conciergeTitle">El coche no debería complicar el plan.</h2></div>
+          <div><p class="eyebrow" data-t="conciergeKicker">Concierge privado</p><h2 id="concierge-title" class="display" data-th="conciergeTitle">El coche no debería complicar el plan.</h2></div>
           <p data-t="conciergeLead">La capa de servicio existe para que el vehículo llegue a tu agenda, no para que tu agenda se adapte a la reserva.</p>
         </div>
         <div class="concierge-grid">
@@ -181,8 +181,8 @@
 
     <section class="contact" id="contact" aria-labelledby="contact-title">
       <div class="wrap contact-grid reveal">
-        <div><p class="eyebrow" data-t="contactKicker">Private enquiry</p><h2 id="contact-title" class="display" data-th="contactTitle">Dinos qué necesitas.<br>Te decimos qué encaja.</h2></div>
-        <div class="contact-side"><p data-t="contactText">Consulta disponibilidad y recibe una respuesta personal con vehículo, condiciones y entrega adaptados a tu plan.</p><button class="btn open-book" type="button" data-t="contactCTA">Consultar por WhatsApp</button><div class="contact-meta">+34 952 77 75 68 · Marbella · Lun–Sáb 09:00–20:00</div></div>
+        <div><p class="eyebrow" data-t="contactKicker">Consulta privada</p><h2 id="contact-title" class="display" data-th="contactTitle">Dinos qué necesitas.<br>Te decimos qué encaja.</h2></div>
+        <div class="contact-side"><p data-t="contactText">Consulta disponibilidad y recibe una respuesta personal con vehículo, condiciones y entrega adaptados a tu plan.</p><button class="btn open-book" type="button" data-t="contactCTA">Consultar por WhatsApp</button><div class="contact-meta">+34 952 77 75 68 · Marbella</div></div>
       </div>
     </section>
   </main>
@@ -193,7 +193,7 @@
         <div class="footer-brand"><img src="assets/images/bm-logo-horizontal.png" alt="B&M Exclusive"><p>Luxury car rental & private mobility.<br>Marbella · Costa del Sol.</p></div>
         <div><h4 data-t="navFleet">Flota</h4><a href="fleet.html">Ferrari</a><a href="fleet.html">Lamborghini</a><a href="fleet.html">Porsche</a></div>
         <div><h4 data-t="navService">Concierge</h4><a href="#concierge" data-t="service1">Hotel, villa y aeropuerto</a><a href="#concierge" data-t="service2">Eventos y ocasiones</a><a href="#concierge" data-t="service3">Estancias largas</a></div>
-        <div><h4>Contacto</h4><a href="tel:+34952777568">+34 952 77 75 68</a><a href="https://wa.me/34952777568" target="_blank" rel="noopener">WhatsApp</a><a href="legal.html">Legal</a></div>
+        <div><h4 data-t="contactLabel">Contacto</h4><a href="tel:+34952777568">+34 952 77 75 68</a><a href="https://wa.me/34952777568" target="_blank" rel="noopener">WhatsApp</a><a href="legal.html">Legal</a></div>
       </div>
       <div class="footer-bottom"><span>© 2026 B&M Exclusive Marbella</span><span>Marbella · Spain</span></div>
     </div>
@@ -204,7 +204,7 @@
   <div class="booking" id="booking" aria-hidden="true">
     <div class="booking-backdrop" id="bookingBackdrop"></div>
     <aside class="panel" role="dialog" aria-modal="true" aria-labelledby="bookTitle">
-      <div class="panel-top"><img src="assets/images/bm-logo-horizontal.png" alt="B&M Exclusive"><button class="panel-close" id="bookClose" type="button">Cerrar</button></div>
+      <div class="panel-top"><img src="assets/images/bm-logo-horizontal.png" alt="B&M Exclusive"><button class="panel-close" id="bookClose" type="button" data-t="close">Cerrar</button></div>
       <p class="eyebrow">B&M Exclusive · Marbella</p>
       <h2 class="display" id="bookTitle" data-t="bookTitle">Consulta privada</h2>
       <p class="panel-lead" data-t="bookLead">Completa lo esencial. Prepararemos el mensaje y continuarás directamente con B&M por WhatsApp.</p>
