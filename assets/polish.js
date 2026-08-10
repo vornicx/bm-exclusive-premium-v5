@@ -26,11 +26,11 @@
     const hero = document.querySelector('.hero');
     const heroImage = document.querySelector('.hero-media img');
 
-    // Use Mfinity's Audi R8 in the Marbella lifestyle section.
+    // Use Mfinity's Mercedes-AMG G63 in the Marbella lifestyle section.
     const marbellaImage = document.querySelector('.marbella-image img');
     if (marbellaImage) {
-      marbellaImage.src = 'https://mfinity.es/wp-content/uploads/2024/04/audi-r8-marbella-rental-main-768x576.jpg';
-      marbellaImage.alt = 'Audi R8 by Mfinity in Marbella';
+      marbellaImage.src = 'https://mfinity.es/wp-content/uploads/2024/09/u3446499754_Mercedes_gelik_g63_2022_blac_front_in_marbellasho_50e7cc59-3823-493b-8f40-b1882b1ec00d_2-768x768.png';
+      marbellaImage.alt = 'Mercedes-AMG G63 by Mfinity in Marbella';
       marbellaImage.removeAttribute('srcset');
       marbellaImage.style.objectPosition = 'center center';
     }
