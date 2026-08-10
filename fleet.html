@@ -2,52 +2,54 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Flota | B&M Exclusive Marbella</title>
-  <meta name="description" content="Explora la selección de deportivos, cabrios y SUV de lujo de B&M Exclusive Marbella.">
-  <meta name="theme-color" content="#070808">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#080806">
+  <title>Selección | B&M Exclusive Marbella</title>
+  <meta name="description" content="Selección de referencia de coches de lujo B&M Exclusive Marbella. Consulta disponibilidad y condiciones directamente con B&M.">
+  <link rel="icon" href="assets/images/bm-logo-stacked.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="icon" href="assets/images/bm-logo-stacked.png">
-  <link rel="stylesheet" href="assets/styles.css">
-  <link rel="stylesheet" href="assets/premium.css">
+  <link rel="preconnect" href="https://images.pexels.com">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/bm-v12.css">
 </head>
 <body>
   <header class="site-header is-scrolled" data-header>
-    <div class="nav-shell">
-      <a class="logo-link" href="index.html" aria-label="B&M Exclusive, inicio"><img src="assets/images/bm-logo-horizontal.png" alt="B&M Exclusive"></a>
-      <nav class="desktop-nav" aria-label="Navegación principal"><a href="fleet.html">Flota</a><a href="index.html#experience">Experiencia</a><a href="index.html#concierge">Servicios</a><a href="index.html#contact">Contacto</a></nav>
-      <div class="header-actions"><a class="button button-gold" href="index.html#quote">Consultar disponibilidad</a><button class="menu-button" type="button" aria-expanded="false" aria-controls="mobileMenu" data-menu-button><span></span><span></span><span></span><span class="sr-only">Abrir menú</span></button></div>
+    <div class="shell nav">
+      <a class="brand" href="index.html" aria-label="B&M Exclusive, inicio"><img src="assets/images/bm-logo-horizontal.png" alt="B&M Exclusive"></a>
+      <nav class="nav-links"><a href="index.html#collection" data-t="navCollection">Colección</a><a href="index.html#service" data-t="navService">Servicio</a><a href="index.html#marbella">Marbella</a><a href="index.html#process" data-t="navProcess">Cómo funciona</a></nav>
+      <div class="nav-actions"><div class="lang"><button type="button" class="is-active" data-lang="es">ES</button><button type="button" data-lang="en">EN</button></div><button class="header-cta" type="button" data-open-drawer data-t="privateEnquiry">Consulta privada</button><button class="menu-toggle" type="button" data-menu-open data-t="menu">Menú</button></div>
     </div>
-    <nav class="mobile-nav" id="mobileMenu" data-mobile-menu><a href="fleet.html">Flota</a><a href="index.html#experience">Experiencia</a><a href="index.html#concierge">Servicios</a><a href="index.html#contact">Contacto</a><a href="index.html#quote">Consultar disponibilidad</a></nav>
+    <div class="scroll-line" data-scroll-line></div>
   </header>
 
+  <div class="mobile-nav" data-mobile-nav aria-hidden="true"><div class="mobile-nav-top"><img src="assets/images/bm-logo-horizontal.png" alt="B&M Exclusive"><button class="mobile-close" type="button" data-menu-close data-t="close">Cerrar</button></div><nav class="mobile-links"><a href="index.html#collection" data-mobile-link data-t="navCollection">Colección</a><a href="index.html#service" data-mobile-link data-t="navService">Servicio</a><a href="index.html#marbella" data-mobile-link>Marbella</a><a href="index.html#contact" data-mobile-link data-t="navContact">Contacto</a></nav><div class="mobile-nav-bottom"><span>B&M Exclusive</span><span>Marbella · Costa del Sol</span></div></div>
+
   <main>
-    <section class="page-hero">
-      <img class="page-hero-media" src="assets/images/bm-sls-hero.webp" alt="Detalle de coche deportivo de B&M Exclusive">
-      <div class="container reveal">
-        <p class="eyebrow">Nuestra flota</p>
-        <h1>Elige cómo quieres<br><em>ser recordado.</em></h1>
-        <p>Deportivos, cabrios y SUV premium disponibles desde Marbella, con entrega coordinada donde lo necesites.</p>
+    <section class="subhero">
+      <div class="subhero-media"></div>
+      <div class="shell subhero-inner reveal"><p class="kicker" data-t="fleetKicker">Selección de referencia</p><h1 data-t="fleetTitle">Empieza por cómo quieres conducir.</h1><p data-t="fleetLead">Explora categorías y marcas para orientar la consulta. La disponibilidad real y las condiciones se confirman directamente con B&M.</p></div>
+    </section>
+
+    <section class="catalog-page">
+      <div class="shell">
+        <div class="catalog-top reveal"><div><p class="kicker" data-t="navCollection">Colección</p></div><p data-t="fleetIntro">La colección pública es una guía visual, no un inventario en tiempo real.</p></div>
+        <div class="catalog-grid">
+          <article class="catalog-card reveal" data-car-card data-car="Ferrari"><img src="https://images.pexels.com/photos/9596563/pexels-photo-9596563.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="Ferrari negro frente a arquitectura contemporánea"><div class="catalog-card-top"><span>01 / GT · SUPERCAR</span><span>MARBELLA</span></div><div class="catalog-card-content"><p class="kicker">Ferrari</p><h2>Ferrari</h2><p data-t="fleetCard1">Gran turismo y superdeportivos con una experiencia intensa y refinada.</p></div></article>
+          <article class="catalog-card reveal" data-car-card data-car="Lamborghini"><img src="https://images.pexels.com/photos/17145770/pexels-photo-17145770.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="Lamborghini negro en garaje"><div class="catalog-card-top"><span>02 / SUPERCAR</span><span>COSTA DEL SOL</span></div><div class="catalog-card-content"><p class="kicker">Lamborghini</p><h2>Lamborghini</h2><p data-t="fleetCard2">Diseño radical, sonido y presencia para una experiencia sin discreción.</p></div></article>
+          <article class="catalog-card reveal" data-car-card data-car="Porsche"><img src="https://images.pexels.com/photos/8105778/pexels-photo-8105778.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="Porsche negro saliendo de un garaje"><div class="catalog-card-top"><span>03 / PERFORMANCE</span><span>COSTA DEL SOL</span></div><div class="catalog-card-content"><p class="kicker">Porsche</p><h2>Porsche</h2><p data-t="fleetCard3">Precisión, prestaciones y una versatilidad excepcional en carretera.</p></div></article>
+          <article class="catalog-card reveal" data-car-card data-car="Mercedes-AMG"><img src="https://images.pexels.com/photos/18589713/pexels-photo-18589713.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="Mercedes-AMG GT negro junto a arquitectura contemporánea"><div class="catalog-card-top"><span>04 / GT · SUV</span><span>MARBELLA</span></div><div class="catalog-card-content"><p class="kicker">Mercedes-AMG</p><h2>Mercedes-AMG</h2><p data-t="fleetCard4">SUV y gran turismo para combinar presencia, confort y uso diario.</p></div></article>
+        </div>
+        <div class="catalog-cta reveal"><div><h3 data-t="fleetAskTitle">¿No ves lo que buscas?</h3><p data-t="fleetAskText">Dinos el modelo, categoría o tipo de experiencia. B&M confirmará qué puede ofrecer para tus fechas.</p></div><button class="primary-btn" type="button" data-open-drawer data-car="Recomendación" data-t="fleetAskCTA">Pedir una propuesta</button></div>
       </div>
     </section>
-    <div class="filters">
-      <div class="container filter-row" id="filters">
-        <button class="filter-button active" type="button" data-filter="all">Todos</button>
-        <button class="filter-button" type="button" data-filter="Supercar">Supercars</button>
-        <button class="filter-button" type="button" data-filter="Cabrio">Cabrios</button>
-        <button class="filter-button" type="button" data-filter="Luxury SUV">SUV Luxury</button>
-        <button class="filter-button" type="button" data-filter="Grand Tourer">Grand Tourer</button>
-        <button class="filter-button" type="button" data-filter="offer">Ofertas</button>
-        <span class="results-count" id="count"></span>
-      </div>
-    </div>
-    <section class="catalog-section"><div class="container catalog" id="catalog" aria-live="polite"></div></section>
-    <section class="page-cta"><div class="container page-cta-inner"><h2>¿No sabes cuál elegir?<br><em>Te asesoramos.</em></h2><a class="button button-gold" href="index.html#quote">Hablar con B&M</a></div></section>
   </main>
 
-  <footer class="site-footer"><div class="container footer-bottom" style="margin-top:0"><span>© 2026 B&M Exclusive Marbella</span><a href="index.html">Volver al inicio</a></div></footer>
-  <script src="assets/data.js"></script><script src="assets/site.js"></script><script src="assets/fleet.js"></script>
+  <footer class="footer"><div class="shell"><div class="footer-grid"><div class="footer-brand"><img src="assets/images/bm-logo-horizontal.png" alt="B&M Exclusive"><p data-th="footerTag">Luxury car rental & private mobility.<br>Marbella · Costa del Sol.</p></div><div><h4 data-t="footerExplore">Explorar</h4><a href="index.html">Home</a><a href="index.html#collection" data-t="navCollection">Colección</a><a href="index.html#marbella">Marbella</a></div><div><h4 data-t="footerService">Servicio</h4><a href="index.html#service" data-t="navService">Servicio</a><a href="index.html#process" data-t="navProcess">Cómo funciona</a></div><div><h4 data-t="footerContact">Contacto</h4><a href="tel:+34952777568">+34 952 77 75 68</a><a href="https://wa.me/34952777568" target="_blank" rel="noopener">WhatsApp</a><a href="legal.html" data-t="legal">Aviso legal</a></div></div><div class="footer-bottom"><span>© 2026 B&M Exclusive Marbella</span><span>Marbella · Spain</span></div></div></footer>
+
+  <button class="mobile-book" type="button" data-open-drawer data-t="mobileCTA">Consultar disponibilidad</button>
+  <div class="drawer" data-drawer aria-hidden="true"><div class="drawer-backdrop" data-drawer-backdrop></div><aside class="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="drawer-title"><div class="drawer-top"><img src="assets/images/bm-logo-horizontal.png" alt="B&M Exclusive"><button class="drawer-close" type="button" data-drawer-close data-t="close">Cerrar</button></div><div class="drawer-copy"><p class="kicker" data-t="drawerKicker">B&M Exclusive · Marbella</p><h2 id="drawer-title" data-t="drawerTitle">Consulta privada</h2><p data-t="drawerLead">Completa solo lo esencial. Prepararemos el mensaje y continuarás directamente con B&M por WhatsApp.</p></div><form class="enquiry-form" data-enquiry-form><label class="field"><span data-t="fieldCar">Preferencia</span><select name="car" data-car-select><option>Ferrari</option><option>Lamborghini</option><option>Porsche</option><option>Mercedes-AMG</option><option>SUV</option><option value="Recomendación" data-t="recommend">Quiero una recomendación</option></select></label><div class="field-row"><label class="field"><span data-t="fieldFrom">Desde</span><input type="date" name="start" required></label><label class="field"><span data-t="fieldTo">Hasta</span><input type="date" name="end" required></label></div><label class="field"><span data-t="fieldDelivery">Lugar de entrega</span><input name="delivery" placeholder="Hotel, villa, aeropuerto..." required></label><label class="field"><span data-t="fieldName">Nombre</span><input name="name" autocomplete="name" required></label><label class="field"><span data-t="fieldNotes">Notas opcionales</span><textarea name="notes" placeholder="Ocasión, preferencias, horario..."></textarea></label><button class="primary-btn form-submit" type="submit" data-t="send">Continuar por WhatsApp</button><div class="form-note" data-t="formNote">No se realiza ningún cargo online. B&M confirma disponibilidad y condiciones personalmente.</div></form></aside></div>
+
+  <script src="assets/bm-v12.js"></script>
 </body>
 </html>
