@@ -14,10 +14,11 @@
   const carSelect = $('[data-car-select]');
   let lang = localStorage.getItem('bm-lang') || 'es';
   let lastFocus = null;
+  let menuLastFocus = null;
 
   const copy = {
     es: {
-      navCollection:'Colección',navService:'Servicio',navMarbella:'Marbella',navProcess:'Cómo funciona',navContact:'Contacto',menu:'Menú',close:'Cerrar',privateEnquiry:'Consulta privada',
+      navCollection:'Colección',navService:'Servicio',navMarbella:'Marbella',navProcess:'Cómo funciona',navContact:'Contacto',menu:'Menú',close:'Cerrar',privateEnquiry:'Consulta privada',fleetPage:'Selección completa',
       heroKicker:'B&M Exclusive · Marbella',heroTitle:'Marbella.<br>A tu manera.',heroLead:'Superdeportivos, gran turismo y SUV de lujo con atención directa y entrega coordinada alrededor de tu plan.',heroPrimary:'Consultar disponibilidad',heroSecondary:'Explorar selección',heroPoint1:'Selección cuidada',heroPoint1p:'Ferrari, Lamborghini y otras categorías premium bajo disponibilidad.',heroPoint2:'Entrega coordinada',heroPoint2p:'Hotel, villa, aeropuerto o ubicación acordada.',heroPoint3:'Trato directo',heroPoint3p:'Una persona, una propuesta clara y confirmación personalizada.',scroll:'Descubrir',
       rail1:'Marbella · Costa del Sol',rail2:'Ferrari · Lamborghini',rail3:'Entrega bajo petición',rail4:'Atención directa',
       manifestoKicker:'Private mobility',manifestoAside:'Un alquiler premium no debería sentirse como un proceso administrativo.',manifestoTitle:'No alquilamos una categoría.<br><span>Organizamos el coche alrededor de tu plan.</span>',manifesto1:'Criterio',manifesto1p:'Menos ruido, mejor selección.',manifesto2:'Coordinación',manifesto2p:'El vehículo llega donde tiene sentido.',manifesto3:'Claridad',manifesto3p:'Disponibilidad y condiciones antes de confirmar.',
@@ -32,7 +33,7 @@
       legalKicker:'Información legal',legalTitle:'Aviso legal',legalWarning:'Documento provisional. Antes de publicar la web deben incorporarse la razón social, NIF, domicilio y datos registrales reales del titular.',legal1:'1. Titular del sitio',legal1p:'Este sitio web presenta los servicios de B&M Exclusive Marbella. Los datos identificativos completos del titular deberán ser facilitados y validados por el negocio antes de la publicación definitiva.',legal2:'2. Objeto',legal2p:'La web ofrece información comercial sobre alquiler de vehículos de lujo y permite solicitar propuestas de disponibilidad. Las solicitudes no constituyen una reserva ni un contrato hasta que sean confirmadas expresamente por B&M Exclusive.',legal3:'3. Propiedad intelectual',legal3p:'Los textos, identidad visual, fotografías y elementos gráficos pertenecen a sus respectivos titulares. No se autoriza su reproducción sin permiso.',legal4:'4. Responsabilidad',legal4p:'La disponibilidad, tarifas, características y condiciones de los vehículos deben confirmarse en la propuesta individual enviada al cliente.',backHome:'Volver al inicio'
     },
     en: {
-      navCollection:'Collection',navService:'Service',navMarbella:'Marbella',navProcess:'How it works',navContact:'Contact',menu:'Menu',close:'Close',privateEnquiry:'Private enquiry',
+      navCollection:'Collection',navService:'Service',navMarbella:'Marbella',navProcess:'How it works',navContact:'Contact',menu:'Menu',close:'Close',privateEnquiry:'Private enquiry',fleetPage:'Full selection',
       heroKicker:'B&M Exclusive · Marbella',heroTitle:'Marbella.<br>On your terms.',heroLead:'Supercars, grand tourers and luxury SUVs with direct service and delivery coordinated around your plans.',heroPrimary:'Check availability',heroSecondary:'Explore selection',heroPoint1:'Curated selection',heroPoint1p:'Ferrari, Lamborghini and other premium categories subject to availability.',heroPoint2:'Coordinated delivery',heroPoint2p:'Hotel, villa, airport or agreed location.',heroPoint3:'Direct service',heroPoint3p:'One person, a clear proposal and personal confirmation.',scroll:'Discover',
       rail1:'Marbella · Costa del Sol',rail2:'Ferrari · Lamborghini',rail3:'Delivery on request',rail4:'Direct service',
       manifestoKicker:'Private mobility',manifestoAside:'A premium rental should not feel like an administrative process.',manifestoTitle:'We do not rent a category.<br><span>We arrange the car around your plans.</span>',manifesto1:'Judgement',manifesto1p:'Less noise, a better selection.',manifesto2:'Coordination',manifesto2p:'The vehicle arrives where it makes sense.',manifesto3:'Clarity',manifesto3p:'Availability and terms before confirmation.',
@@ -49,16 +50,17 @@
   };
 
   const fleetCopy = {
-    es:{
-      ferrari:{category:'Gran turismo / Supercar',specs:['Emocional','2 plazas','Marbella']},
-      lamborghini:{category:'Supercar',specs:['Presencia','2 plazas','Costa del Sol']},
-      porsche:{category:'Performance',specs:['Precisión','2–4 plazas','Costa del Sol']}
-    },
-    en:{
-      ferrari:{category:'Grand tourer / Supercar',specs:['Emotional','2 seats','Marbella']},
-      lamborghini:{category:'Supercar',specs:['Presence','2 seats','Costa del Sol']},
-      porsche:{category:'Performance',specs:['Precision','2–4 seats','Costa del Sol']}
-    }
+    es:{ferrari:{category:'Gran turismo / Supercar',specs:['Emocional','2 plazas','Marbella']},lamborghini:{category:'Supercar',specs:['Presencia','2 plazas','Costa del Sol']},porsche:{category:'Performance',specs:['Precisión','2–4 plazas','Costa del Sol']}},
+    en:{ferrari:{category:'Grand tourer / Supercar',specs:['Emotional','2 seats','Marbella']},lamborghini:{category:'Supercar',specs:['Presence','2 seats','Costa del Sol']},porsche:{category:'Performance',specs:['Precision','2–4 seats','Costa del Sol']}}
+  };
+
+  const focusables = root => root ? $$('a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])', root).filter(el => !el.hidden) : [];
+  const localToday = () => {
+    const now = new Date();
+    const y = now.getFullYear();
+    const m = String(now.getMonth() + 1).padStart(2,'0');
+    const d = String(now.getDate()).padStart(2,'0');
+    return `${y}-${m}-${d}`;
   };
 
   function applyLang(next){
@@ -66,66 +68,70 @@
     localStorage.setItem('bm-lang', lang);
     document.documentElement.lang = lang;
     $$('[data-lang]').forEach(button => button.classList.toggle('is-active', button.dataset.lang === lang));
-    $$('[data-t]').forEach(el => {
-      const value = copy[lang][el.dataset.t];
-      if(value) el.textContent = value;
-    });
-    $$('[data-th]').forEach(el => {
-      const value = copy[lang][el.dataset.th];
-      if(value) el.innerHTML = value;
-    });
+    $$('[data-t]').forEach(el => { const value = copy[lang][el.dataset.t]; if(value) el.textContent = value; });
+    $$('[data-th]').forEach(el => { const value = copy[lang][el.dataset.th]; if(value) el.innerHTML = value; });
     const delivery = $('[name="delivery"]', form);
     const notes = $('[name="notes"]', form);
     if(delivery) delivery.placeholder = copy[lang].deliveryPlaceholder;
     if(notes) notes.placeholder = copy[lang].notesPlaceholder;
+    $$('[data-car-card]').forEach(card => card.setAttribute('aria-label', `${lang === 'es' ? 'Consultar' : 'Enquire about'} ${card.dataset.car || ''}`.trim()));
     syncCollection($('.car-choice.is-active'));
   }
 
   $$('[data-lang]').forEach(button => button.addEventListener('click', () => applyLang(button.dataset.lang)));
 
-  function lock(){ body.classList.add('is-locked'); }
-  function unlock(){ body.classList.remove('is-locked'); }
+  function syncBodyLock(){ body.classList.toggle('is-locked', !!mobileNav?.classList.contains('is-open') || !!drawer?.classList.contains('is-open')); }
 
   function openMenu(){
     if(!mobileNav) return;
+    if(drawer?.classList.contains('is-open')) closeDrawer(false);
+    menuLastFocus = document.activeElement;
     mobileNav.classList.add('is-open');
     mobileNav.setAttribute('aria-hidden','false');
     menuOpen?.setAttribute('aria-expanded','true');
-    lock();
+    syncBodyLock();
+    setTimeout(() => menuClose?.focus(), 40);
   }
-  function closeMenu(){
+  function closeMenu(restoreFocus = true){
     if(!mobileNav) return;
     mobileNav.classList.remove('is-open');
     mobileNav.setAttribute('aria-hidden','true');
     menuOpen?.setAttribute('aria-expanded','false');
-    unlock();
+    syncBodyLock();
+    if(restoreFocus) menuLastFocus?.focus?.();
   }
   menuOpen?.addEventListener('click', openMenu);
-  menuClose?.addEventListener('click', closeMenu);
-  $$('[data-mobile-link]').forEach(link => link.addEventListener('click', closeMenu));
+  menuClose?.addEventListener('click', () => closeMenu());
+  $$('[data-mobile-link]').forEach(link => link.addEventListener('click', () => closeMenu(false)));
 
   function openDrawer(car){
     if(!drawer) return;
+    if(mobileNav?.classList.contains('is-open')) closeMenu(false);
     lastFocus = document.activeElement;
     drawer.classList.add('is-open');
     drawer.setAttribute('aria-hidden','false');
-    lock();
+    $$('[data-open-drawer]').forEach(button => button.setAttribute('aria-expanded','true'));
+    syncBodyLock();
     if(car && carSelect){
       const option = [...carSelect.options].find(o => o.value.toLowerCase() === car.toLowerCase() || o.textContent.toLowerCase().includes(car.toLowerCase()));
       if(option) carSelect.value = option.value;
     }
-    setTimeout(() => carSelect?.focus(), 30);
+    setTimeout(() => carSelect?.focus(), 60);
   }
-  function closeDrawer(){
+  function closeDrawer(restoreFocus = true){
     if(!drawer) return;
     drawer.classList.remove('is-open');
     drawer.setAttribute('aria-hidden','true');
-    unlock();
-    lastFocus?.focus?.();
+    $$('[data-open-drawer]').forEach(button => button.setAttribute('aria-expanded','false'));
+    syncBodyLock();
+    if(restoreFocus) lastFocus?.focus?.();
   }
-  $$('[data-open-drawer]').forEach(button => button.addEventListener('click', () => openDrawer(button.dataset.car || '')));
-  drawerClose?.addEventListener('click', closeDrawer);
-  drawerBackdrop?.addEventListener('click', closeDrawer);
+  $$('[data-open-drawer]').forEach(button => {
+    button.setAttribute('aria-expanded','false');
+    button.addEventListener('click', () => openDrawer(button.dataset.car || ''));
+  });
+  drawerClose?.addEventListener('click', () => closeDrawer());
+  drawerBackdrop?.addEventListener('click', () => closeDrawer());
 
   const collectionVisual = $('[data-collection-visual]');
   const collectionPhoto = $('[data-collection-photo]');
@@ -158,25 +164,25 @@
     }, 220);
   }));
 
-  $$('[data-car-card]').forEach(card => card.addEventListener('click', e => {
-    if(e.target.closest('a,button')) return;
-    openDrawer(card.dataset.car || '');
-  }));
+  $$('[data-car-card]').forEach(card => {
+    const openCard = event => {
+      if(event?.target?.closest?.('a,button')) return;
+      openDrawer(card.dataset.car || '');
+    };
+    card.addEventListener('click', openCard);
+    card.addEventListener('keydown', event => {
+      if(event.key === 'Enter' || event.key === ' '){ event.preventDefault(); openCard(event); }
+    });
+  });
 
   $$('.faq-q').forEach(button => button.addEventListener('click', () => {
     const item = button.closest('.faq-item');
     const wasOpen = item?.classList.contains('is-open');
-    $$('.faq-item').forEach(row => {
-      row.classList.remove('is-open');
-      $('.faq-q', row)?.setAttribute('aria-expanded','false');
-    });
-    if(item && !wasOpen){
-      item.classList.add('is-open');
-      button.setAttribute('aria-expanded','true');
-    }
+    $$('.faq-item').forEach(row => { row.classList.remove('is-open'); $('.faq-q', row)?.setAttribute('aria-expanded','false'); });
+    if(item && !wasOpen){ item.classList.add('is-open'); button.setAttribute('aria-expanded','true'); }
   }));
 
-  const today = new Date().toISOString().slice(0,10);
+  const today = localToday();
   $$('input[type="date"]').forEach(input => input.min = today);
   const start = $('[name="start"]', form);
   const end = $('[name="end"]', form);
@@ -213,31 +219,33 @@
   if('IntersectionObserver' in window){
     const navObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if(entry.isIntersecting){
-          navLinks.forEach(link => link.classList.toggle('is-active', link.getAttribute('href') === `#${entry.target.id}`));
-        }
+        if(entry.isIntersecting) navLinks.forEach(link => link.classList.toggle('is-active', link.getAttribute('href') === `#${entry.target.id}`));
       });
     }, {rootMargin:'-32% 0px -58% 0px'});
     sections.forEach(section => navObserver.observe(section));
 
     const revealObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.classList.add('is-in');
-          revealObserver.unobserve(entry.target);
-        }
+        if(entry.isIntersecting){ entry.target.classList.add('is-in'); revealObserver.unobserve(entry.target); }
       });
     }, {threshold:.12, rootMargin:'0px 0px -28px'});
     $$('.reveal').forEach(el => revealObserver.observe(el));
-  } else {
-    $$('.reveal').forEach(el => el.classList.add('is-in'));
-  }
+  } else $$('.reveal').forEach(el => el.classList.add('is-in'));
 
   addEventListener('keydown', event => {
     if(event.key === 'Escape'){
-      closeMenu();
-      closeDrawer();
+      if(drawer?.classList.contains('is-open')) closeDrawer();
+      else if(mobileNav?.classList.contains('is-open')) closeMenu();
+      return;
     }
+    if(event.key !== 'Tab') return;
+    const activeLayer = drawer?.classList.contains('is-open') ? drawer : mobileNav?.classList.contains('is-open') ? mobileNav : null;
+    if(!activeLayer) return;
+    const items = focusables(activeLayer);
+    if(items.length < 2) return;
+    const first = items[0], last = items[items.length - 1];
+    if(event.shiftKey && document.activeElement === first){ event.preventDefault(); last.focus(); }
+    else if(!event.shiftKey && document.activeElement === last){ event.preventDefault(); first.focus(); }
   });
 
   applyLang(lang);
