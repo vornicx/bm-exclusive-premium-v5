@@ -2,6 +2,12 @@
 (() => {
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // Load the shared real-catalog system on the homepage as well as on dedicated routes.
+  const catalogScript = document.createElement('script');
+  catalogScript.src = '/assets/catalog-system.js';
+  catalogScript.async = true;
+  document.head.appendChild(catalogScript);
+
   // Replace the generic G63 visual with Mfinity's own published vehicle image.
   try {
     if (typeof cars !== 'undefined' && cars[3]) {
