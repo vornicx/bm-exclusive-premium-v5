@@ -1,254 +1,54 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>B&M Exclusive Marbella | Luxury Car Rental & Private Mobility</title>
-  <meta name="description" content="Alquiler de coches deportivos y de lujo en Marbella con atención personal, entrega coordinada y experiencias privadas a medida.">
-  <meta name="theme-color" content="#050606">
-  <meta property="og:title" content="B&M Exclusive Marbella">
-  <meta property="og:description" content="Conduce algo inolvidable.">
-  <meta property="og:image" content="assets/images/bm-sls-hero.webp">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="icon" href="assets/images/bm-logo-stacked.png">
-  <link rel="stylesheet" href="assets/styles.css">
-  <link rel="stylesheet" href="assets/premium.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#070707">
+<title>B&M Exclusive Marbella — Luxury Car Rental</title>
+<meta name="description" content="B&M Exclusive Marbella. Ferrari, Lamborghini, Porsche y Mercedes-Benz con atención privada y entrega coordinada en Marbella y Costa del Sol.">
+<meta property="og:title" content="B&M Exclusive Marbella">
+<meta property="og:description" content="Don't rent. Choose how you arrive.">
+<meta property="og:image" content="assets/images/bm-sls-hero.webp">
+<link rel="icon" href="assets/images/bm-logo-stacked.png">
+<style>
+:root{--black:#070707;--black2:#0d0d0d;--ivory:#eeeae1;--ink:#191816;--muted:#99958d;--line:rgba(255,255,255,.14);--gold:#b99a65;--ease:cubic-bezier(.16,1,.3,1);--max:1540px}*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--black)}body{margin:0;background:var(--black);color:#f4f1ea;font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}body.lock{overflow:hidden}a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}button{color:inherit}img{display:block;width:100%}.wrap{width:min(var(--max),calc(100% - 88px));margin:auto}.micro{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#9d9991}.serif{font-family:Georgia,'Times New Roman',serif;font-weight:400}.reveal{opacity:0;transform:translateY(28px);transition:.85s var(--ease)}.reveal.in{opacity:1;transform:none}
+.header{height:82px;position:fixed;z-index:50;left:0;right:0;top:0;border-bottom:1px solid transparent;transition:.35s}.header:before{content:"";position:absolute;inset:0;background:linear-gradient(#000b,transparent);transition:.35s}.header.scrolled{border-color:var(--line)}.header.scrolled:before{background:#070707e8;backdrop-filter:blur(16px)}.nav{height:82px;display:grid;grid-template-columns:190px 1fr 300px;align-items:center;position:relative;z-index:1}.brand img{height:39px;width:134px;object-fit:contain;object-position:left center}.navlinks{display:flex;justify-self:center;gap:34px}.navlinks a,.navcta,.langs button{font-size:9px;letter-spacing:.17em;text-transform:uppercase}.navlinks a{color:#c4c0b8}.actions{justify-self:end;display:flex;align-items:center;gap:16px}.langs{display:flex;gap:7px;align-items:center}.langs button{background:0;border:0;padding:5px 1px;color:#666;cursor:pointer}.langs button.on{color:#fff}.navcta{border:1px solid #ffffff58;padding:12px 15px;background:transparent;cursor:pointer}.navcta:hover{background:#fff;color:#111}.menubtn{display:none;background:0;border:0;font-size:9px;letter-spacing:.18em;text-transform:uppercase;cursor:pointer}
+.hero{min-height:100svh;position:relative;overflow:hidden;display:flex;align-items:flex-end}.hero-media{position:absolute;inset:0}.hero-media img{height:100%;object-fit:cover;object-position:50% 48%;filter:saturate(.84) contrast(1.06);transform:scale(1.03);animation:drift 18s ease-in-out infinite alternate}@keyframes drift{to{transform:scale(1.07) translateX(-.8%)}}.hero-media:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#000d 0%,#0006 44%,#0001 74%),linear-gradient(180deg,#0004,transparent 36%,transparent 58%,#000d)}.hero-grid{position:relative;z-index:2;padding:160px 0 70px;display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:70px;align-items:end}.hero-kicker{display:flex;align-items:center;gap:14px;margin-bottom:27px}.hero-kicker:before{content:"";width:40px;height:1px;background:#fff9}.hero h1{font-size:clamp(64px,8.5vw,142px);font-weight:650;line-height:.79;letter-spacing:-.075em;text-transform:uppercase;margin:0;max-width:1050px}.hero h1 .shift{display:block;margin-left:.58em}.hero h1 em{font-family:Georgia,serif;text-transform:none;font-weight:400;font-size:.58em;letter-spacing:-.045em;color:#ddd7cc;display:block;margin:.18em 0 0 2.18em}.hero-bottom{max-width:870px;border-top:1px solid #ffffff42;margin-top:47px;padding-top:24px;display:flex;gap:42px;justify-content:space-between;align-items:flex-end}.hero-bottom p{margin:0;color:#c0bbb3;font-size:13px;line-height:1.72;max-width:560px}.link{display:inline-flex;gap:13px;align-items:center;font-size:9px;letter-spacing:.18em;text-transform:uppercase;border-bottom:1px solid #ffffff70;padding-bottom:7px;white-space:nowrap}.link i{font-style:normal;transition:.3s}.link:hover i{transform:translateX(4px)}.hero-aside{border-left:1px solid #ffffff45;padding-left:28px}.hero-aside b{font-family:Georgia,serif;font-size:42px;font-weight:400;display:block;margin-bottom:18px}.hero-aside strong{font-weight:500;font-size:15px;line-height:1.35;display:block}.hero-aside p{font-size:11px;line-height:1.65;color:#aaa59d;max-width:270px}.hero-meta{position:absolute;z-index:2;left:44px;right:44px;bottom:23px;display:flex;justify-content:space-between;font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:#77726b}
+.statement{background:var(--ivory);color:var(--ink);padding:150px 0 142px}.statement-grid{display:grid;grid-template-columns:180px 1fr;gap:56px}.statement h2{font-size:clamp(55px,7vw,110px);line-height:.88;letter-spacing:-.068em;margin:0;font-weight:580;max-width:1220px}.statement h2 em{font-family:Georgia,serif;font-weight:400;color:#71695d}.statement-note{max-width:1050px;margin:72px 0 0 auto;padding-top:24px;border-top:1px solid #0003;display:grid;grid-template-columns:1fr 1fr;gap:80px}.statement-note p{margin:0;font-size:14px;line-height:1.8;color:#625e57}.signature{font-family:Georgia,serif;font-size:20px;text-align:right}
+.collection{padding:138px 0 145px}.section-head{display:grid;grid-template-columns:1fr 430px;gap:80px;align-items:end;margin-bottom:58px}.section-head h2{font-size:clamp(54px,6.2vw,98px);line-height:.88;letter-spacing:-.065em;margin:14px 0 0}.section-head p{font-size:13px;line-height:1.76;color:#908c84;margin:0}.cars{display:grid;grid-template-columns:1fr 1fr;gap:12px}.car{min-height:700px;position:relative;overflow:hidden;background:#111;cursor:pointer}.car img{position:absolute;inset:0;height:100%;object-fit:cover;filter:saturate(.82) contrast(1.03);transition:1s var(--ease)}.car:hover img{transform:scale(1.035);filter:saturate(.98)}.car:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,#000d)}.car:nth-child(2){margin-top:105px}.car:nth-child(3){margin-top:-105px}.car-top,.car-copy{position:absolute;z-index:2;left:28px;right:28px;display:flex;justify-content:space-between}.car-top{top:26px}.car-no{font-family:Georgia,serif;font-size:18px}.badge{font-size:8px;letter-spacing:.17em;text-transform:uppercase;border:1px solid #ffffff50;padding:8px 10px}.car-copy{bottom:28px;align-items:flex-end;gap:24px}.car-copy h3{font-size:clamp(38px,4vw,63px);letter-spacing:-.05em;line-height:.92;margin:0;font-weight:560}.car-copy p{font-size:10px;line-height:1.6;color:#b9b4ac;max-width:250px;margin:0}.collection-foot{border-top:1px solid var(--line);padding-top:22px;margin-top:52px;display:flex;justify-content:space-between;align-items:center}.collection-foot p{font-size:11px;line-height:1.7;color:#77736c;margin:0;max-width:650px}
+.cinema{height:min(920px,100svh);min-height:720px;position:relative;overflow:hidden}.cinema img{height:100%;object-fit:cover;object-position:center 52%;filter:saturate(.84)}.cinema:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#000c,#0002 62%),linear-gradient(0deg,#000a,transparent 50%)}.cin-copy{position:absolute;z-index:2;left:max(44px,calc((100vw - min(var(--max),calc(100vw - 88px)))/2));bottom:68px;max-width:810px}.cin-copy h2{font-size:clamp(58px,7.3vw,116px);line-height:.84;letter-spacing:-.07em;margin:16px 0 24px;font-weight:590}.cin-copy h2 em{font-family:Georgia,serif;font-size:.66em;font-weight:400;display:block;color:#dcd6cb}.cin-copy p{font-size:13px;line-height:1.75;color:#c2bdb5;max-width:520px;margin:0}
+.service{background:var(--ivory);color:var(--ink);padding:145px 0}.service-head{display:grid;grid-template-columns:180px 1fr;gap:56px;margin-bottom:72px}.service h2{font-size:clamp(54px,6.4vw,100px);line-height:.88;letter-spacing:-.067em;margin:0;font-weight:580}.service h2 em{font-family:Georgia,serif;font-weight:400;color:#746b5f}.service-grid{display:grid;grid-template-columns:1.04fr .96fr;border-top:1px solid #0003;border-bottom:1px solid #0003;min-height:690px}.service-photo img{height:100%;object-fit:cover;filter:saturate(.8)}.service-list{padding:25px 0 25px 60px;display:flex;flex-direction:column;justify-content:center}.service-item{display:grid;grid-template-columns:58px 1fr;padding:27px 0;border-bottom:1px solid #0002}.service-item:last-child{border:0}.service-item span{font-family:Georgia,serif;color:#9b9183}.service-item h3{font-size:24px;margin:0 0 9px;font-weight:520}.service-item p{font-size:12px;line-height:1.72;color:#6f6a62;margin:0;max-width:450px}
+.final{padding:150px 0 140px;text-align:center}.final h2{font-size:clamp(68px,9vw,150px);line-height:.78;letter-spacing:-.078em;text-transform:uppercase;margin:18px auto 35px;max-width:1200px}.final h2 em{font-family:Georgia,serif;font-weight:400;text-transform:none;font-size:.56em;display:block;letter-spacing:-.04em;color:#d8d2c7}.final p{max-width:600px;margin:0 auto 33px;color:#99958d;font-size:13px;line-height:1.75}.bigcta{border:1px solid #ffffff55;background:#fff;color:#111;padding:15px 20px;font-size:9px;letter-spacing:.19em;text-transform:uppercase;cursor:pointer}.bigcta:hover{background:transparent;color:#fff}.footer{border-top:1px solid var(--line);padding:54px 0 28px}.footer-grid{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:55px}.footer img{width:150px;height:48px;object-fit:contain;object-position:left center;margin-bottom:17px}.footer p,.footer a{font-size:11px;line-height:1.75;color:#8f8b83}.footer h4{font-size:9px;letter-spacing:.18em;text-transform:uppercase;margin:0 0 16px;color:#d2cec6}.footer a{display:block;margin:6px 0}.footer-bottom{border-top:1px solid var(--line);margin-top:45px;padding-top:20px;display:flex;justify-content:space-between;font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:#625f5a}
+.mobilemenu{position:fixed;inset:0;background:#080808;z-index:80;padding:26px 28px;display:none;flex-direction:column}.mobilemenu.open{display:flex}.mobilemenu .top{display:flex;justify-content:space-between;align-items:center}.mobilemenu .top img{width:120px;height:42px;object-fit:contain}.close{background:0;border:0;font-size:9px;letter-spacing:.18em;text-transform:uppercase}.mobilelinks{margin:auto 0;display:flex;flex-direction:column}.mobilelinks a{font-size:clamp(39px,12vw,65px);line-height:1.08;letter-spacing:-.04em}.mobilebottom{border-top:1px solid var(--line);padding-top:20px;font-size:10px;color:#888}.booking{position:fixed;inset:0;z-index:120;background:#000b;backdrop-filter:blur(8px);display:none;justify-content:flex-end}.booking.open{display:flex}.panel{width:min(600px,100%);height:100%;overflow:auto;background:#ece8df;color:#171613;padding:44px}.panel-top{display:flex;justify-content:space-between}.panel .close{color:#171613}.panel h2{font-size:64px;line-height:.87;letter-spacing:-.06em;margin:80px 0 20px}.panel h2 em{font-family:Georgia,serif;font-weight:400;color:#6d655a}.panel>p{font-size:13px;line-height:1.7;color:#666057;max-width:460px}.form{margin-top:40px;display:grid;gap:18px}.form label{display:grid;gap:8px;font-size:9px;letter-spacing:.15em;text-transform:uppercase}.form input,.form select,.form textarea{width:100%;border:0;border-bottom:1px solid #0004;background:transparent;padding:11px 0;outline:0;color:#171613}.form textarea{min-height:70px;resize:vertical}.send{margin-top:12px;border:0;background:#111;color:#fff;padding:15px 18px;text-transform:uppercase;font-size:9px;letter-spacing:.18em;cursor:pointer}.booknote{font-size:9px!important;color:#8a847b!important;margin-top:14px!important}
+@media(max-width:1000px){.wrap{width:calc(100% - 44px)}.nav{grid-template-columns:150px 1fr}.navlinks,.navcta{display:none}.actions{gap:10px}.menubtn{display:block}.hero-grid{grid-template-columns:1fr;padding-bottom:76px}.hero-aside{display:none}.statement-grid,.service-head{grid-template-columns:1fr}.statement-grid>.micro,.service-head>.micro{margin-bottom:-20px}.section-head{grid-template-columns:1fr;gap:25px}.cars{grid-template-columns:1fr}.car,.car:nth-child(2),.car:nth-child(3){margin:0;min-height:76svh}.service-grid{grid-template-columns:1fr}.service-photo{height:62svh}.service-list{padding:24px}.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:650px){.wrap{width:calc(100% - 30px)}.header,.nav{height:70px}.brand img{width:112px}.langs{display:none}.hero{min-height:96svh}.hero-media img{object-position:58% 50%}.hero-grid{padding:130px 0 70px}.hero h1{font-size:clamp(54px,17vw,80px)}.hero h1 .shift{margin-left:.22em}.hero h1 em{margin-left:.7em}.hero-bottom{display:block;margin-top:35px}.hero-bottom .link{margin-top:22px}.hero-meta{left:15px;right:15px;bottom:14px}.statement,.collection,.service,.final{padding:105px 0}.statement h2,.section-head h2,.service h2{font-size:clamp(48px,15vw,70px)}.statement-note{grid-template-columns:1fr;gap:28px;margin-top:45px}.signature{text-align:left}.car{min-height:620px}.car-copy{display:block}.car-copy p{margin-top:12px}.collection-foot{align-items:flex-start;gap:25px;flex-direction:column}.cinema{min-height:690px;height:88svh}.cin-copy{left:20px;right:20px;bottom:45px}.cin-copy h2{font-size:clamp(52px,17vw,80px)}.service-photo{height:54svh}.service-item{grid-template-columns:42px 1fr}.final h2{font-size:clamp(62px,19vw,90px)}.footer-grid{grid-template-columns:1fr}.footer-bottom{display:block;line-height:2}.panel{padding:28px 22px}.panel h2{font-size:52px;margin-top:65px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero-media img{animation:none}.reveal{opacity:1;transform:none;transition:none}}
+</style>
 </head>
-<body class="premium-home is-loading">
-  <div class="page-loader" data-page-loader aria-hidden="true"><div class="loader-inner"><img src="assets/images/bm-logo-stacked.png" alt=""><span></span><small>Marbella · Spain</small></div></div>
-  <a class="skip-link" href="#contenido">Saltar al contenido</a>
-  <div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
-
-  <header class="site-header premium-header" data-header>
-    <div class="nav-shell">
-      <a class="logo-link" href="index.html" aria-label="B&M Exclusive, inicio">
-        <img src="assets/images/bm-logo-horizontal.png" alt="B&M Exclusive Marbella">
-      </a>
-      <nav class="desktop-nav" aria-label="Navegación principal">
-        <a href="fleet.html">Flota</a>
-        <a href="#experience">Experiencia</a>
-        <a href="#concierge">Servicios</a>
-        <a href="#contact">Contacto</a>
-      </nav>
-      <div class="header-actions">
-        <a class="header-phone" href="tel:+34952777568"><span>Concierge</span> +34 952 77 75 68</a>
-        <a class="button button-gold" href="#quote">Consultar disponibilidad</a>
-        <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobileMenu" data-menu-button>
-          <span></span><span></span><span></span><span class="sr-only">Abrir menú</span>
-        </button>
-      </div>
-    </div>
-    <nav class="mobile-nav" id="mobileMenu" aria-label="Navegación móvil" data-mobile-menu>
-      <a href="fleet.html">Flota</a>
-      <a href="#experience">Experiencia</a>
-      <a href="#concierge">Servicios</a>
-      <a href="#contact">Contacto</a>
-      <a href="#quote">Consultar disponibilidad</a>
-    </nav>
-  </header>
-
-  <main id="contenido">
-    <section class="hero-home hero-v5" aria-labelledby="hero-title">
-      <img class="hero-media" src="assets/images/bm-sls-hero.webp" alt="Mercedes-Benz SLS Roadster rojo de B&M Exclusive junto al agua">
-      <div class="hero-shade"></div>
-      <div class="hero-grain"></div>
-      <div class="hero-rail" aria-hidden="true">
-        <span>01</span><span>Marbella · Spain</span>
-      </div>
-      <div class="container hero-layout">
-        <div class="hero-copy-block reveal">
-          <p class="eyebrow">Luxury car rental · Marbella</p>
-          <h1 id="hero-title">Conduce algo<br><em>inolvidable.</em></h1>
-          <p class="hero-lead">Vehículos extraordinarios, atención directa y cada detalle coordinado con precisión. Desde Marbella, para cualquier lugar de España.</p>
-          <div class="hero-cta">
-            <a class="button button-gold button-arrow" href="fleet.html"><span>Explorar la flota</span><i aria-hidden="true">↗</i></a>
-            <a class="button button-glass" href="https://wa.me/34952777568" target="_blank" rel="noopener"><span class="whatsapp-dot" aria-hidden="true"></span>Hablar por WhatsApp</a>
-          </div>
-          <div class="hero-assurance" aria-label="Garantías del servicio">
-            <span>Atención personal</span><span>Entrega coordinada</span><span>Discreción</span>
-          </div>
-        </div>
-        <div class="hero-side reveal">
-          <p>Private mobility</p>
-          <div class="hero-car-signature"><span>Featured vehicle</span><strong>Mercedes-Benz<br>SLS AMG Roadster</strong><i></i></div>
-          <dl class="hero-facts" aria-label="Información del servicio">
-            <div><dt>Base</dt><dd>Marbella</dd></div>
-            <div><dt>Entrega</dt><dd>Toda España</dd></div>
-            <div><dt>Horario</dt><dd>Lun–Sáb · 09:00–20:00</dd></div>
-          </dl>
-        </div>
-      </div>
-      <div class="hero-bottomline">
-        <span>B&M Exclusive Marbella</span>
-        <span class="hero-edition">Private collection · MMXXVI</span>
-        <a href="#statement">Descubrir <i></i></a>
-      </div>
-    </section>
-
-    <section class="brand-statement" id="statement">
-      <div class="container statement-grid">
-        <div class="statement-mark reveal" aria-hidden="true">B&amp;M</div>
-        <div class="statement-main reveal">
-          <p class="eyebrow">B&M Exclusive</p>
-          <h2>La diferencia no está solo en el coche. Está en <em>todo lo que ocurre alrededor.</em></h2>
-        </div>
-        <div class="statement-copy reveal">
-          <p>Seleccionamos el vehículo adecuado, coordinamos la entrega y permanecemos disponibles durante toda la experiencia. Sin procesos impersonales. Sin detalles al azar.</p>
-          <a class="text-link" href="#experience">Conocer el servicio <span>→</span></a>
-        </div>
-      </div>
-      <div class="container principle-grid">
-        <article class="principle reveal"><span>01</span><h3>Personal</h3><p>Un único interlocutor, desde la primera consulta hasta la recogida.</p><small>One-to-one concierge</small></article>
-        <article class="principle reveal"><span>02</span><h3>Discreto</h3><p>Privacidad, puntualidad y atención sin protagonismo innecesario.</p><small>Privacy by default</small></article>
-        <article class="principle reveal"><span>03</span><h3>Preciso</h3><p>Vehículo, ubicación y horario coordinados exactamente como se acuerdan.</p><small>Every detail considered</small></article>
-      </div>
-      <div class="statement-word" aria-hidden="true">EXCLUSIVE</div>
-    </section>
-
-    <section class="experience-editorial" id="experience">
-      <div class="experience-media reveal">
-        <img src="assets/images/bm-ferrari-lifestyle.webp" alt="Pareja caminando junto a un Ferrari descapotable rojo en Marbella" loading="lazy">
-        <div class="experience-index"><span>02</span><small>Experience</small></div>
-        <div class="experience-caption">Marbella · Costa del Sol</div>
-      </div>
-      <div class="experience-copy reveal">
-        <p class="eyebrow">Exclusividad en cada detalle</p>
-        <h2>No es solo un coche.<br><em>Es tu experiencia.</em></h2>
-        <div class="gold-rule"></div>
-        <p class="experience-lead">Una llegada especial, una escapada por la costa, una celebración privada o simplemente el placer de conducir algo excepcional.</p>
-        <div class="experience-details">
-          <div><span>01</span><p>Recomendación del vehículo según la ocasión y el recorrido.</p></div>
-          <div><span>02</span><p>Entrega coordinada en hotel, villa, aeropuerto o ubicación privada.</p></div>
-          <div><span>03</span><p>Atención directa antes, durante y después de la experiencia.</p></div>
-        </div>
-        <a class="text-link" href="#concierge">Descubrir el servicio <span>→</span></a>
-      </div>
-    </section>
-
-    <section class="fleet-showcase fleet-v5" aria-labelledby="fleet-title">
-      <div class="fleet-dark-intro">
-        <div class="container fleet-heading reveal">
-          <div>
-            <p class="eyebrow">The collection</p>
-            <h2 id="fleet-title">Elige tu próxima <em>pasión.</em></h2>
-          </div>
-          <div class="fleet-intro-copy">
-            <p>Una selección de deportivos, cabrios y SUV de lujo para vivir Marbella y mucho más allá.</p>
-            <a class="text-link" href="fleet.html">Ver toda la flota <span>→</span></a>
-          </div>
-        </div>
-      </div>
-      <div class="fleet-paper">
-        <div class="fleet-toolbar container">
-          <div class="fleet-tabs" aria-label="Categorías destacadas">
-            <button class="active" type="button" data-feature-filter="all" aria-pressed="true">Todos</button>
-            <button type="button" data-feature-filter="Supercar" aria-pressed="false">Supercars</button>
-            <button type="button" data-feature-filter="Cabrio" aria-pressed="false">Cabrios</button>
-            <button type="button" data-feature-filter="Luxury SUV" aria-pressed="false">SUV Luxury</button>
-            <button type="button" data-feature-filter="Grand Tourer" aria-pressed="false">Grand Tourer</button>
-          </div>
-          <div class="fleet-count"><span data-feature-count>06</span><small>vehículos destacados</small></div>
-        </div>
-        <div class="fleet-card-grid container" id="featuredFleet" aria-live="polite"></div>
-      </div>
-    </section>
-
-    <section class="concierge-section" id="concierge">
-      <div class="concierge-bg" aria-hidden="true"></div>
-      <div class="concierge-monogram" aria-hidden="true">B&amp;M</div>
-      <div class="container concierge-shell">
-        <div class="concierge-title reveal">
-          <p class="eyebrow">B&M Private Concierge</p>
-          <h2>Un servicio diseñado para que <em>todo resulte sencillo.</em></h2>
-          <p>La exclusividad real no consiste en añadir más. Consiste en eliminar fricción.</p>
-        </div>
-        <div class="concierge-list">
-          <article class="concierge-item reveal"><span>01</span><div><h3>Entrega privada</h3><p>Hotel, villa, aeropuerto o cualquier ubicación acordada.</p></div></article>
-          <article class="concierge-item reveal"><span>02</span><div><h3>Ocasiones especiales</h3><p>Bodas, eventos, producciones, estancias y experiencias a medida.</p></div></article>
-          <article class="concierge-item reveal"><span>03</span><div><h3>Movilidad nacional</h3><p>Coordinación de entrega fuera de Marbella bajo petición previa.</p></div></article>
-          <article class="concierge-item reveal"><span>04</span><div><h3>Atención directa</h3><p>Una persona responsable de tu solicitud de principio a fin.</p></div></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="standard-section" aria-labelledby="standard-title">
-      <div class="container standard-grid">
-        <div class="standard-heading reveal">
-          <p class="eyebrow">The B&M standard</p>
-          <h2 id="standard-title">La calidad se siente en los <em>detalles que no tienes que pedir.</em></h2>
-        </div>
-        <div class="standard-list">
-          <article class="standard-row reveal"><span>01</span><h3>Vehículo preparado</h3><p>Revisado, presentado y listo para la hora acordada.</p></article>
-          <article class="standard-row reveal"><span>02</span><h3>Condiciones claras</h3><p>Precio, depósito, kilometraje y requisitos explicados antes de confirmar.</p></article>
-          <article class="standard-row reveal"><span>03</span><h3>Entrega cuidada</h3><p>Coordinación precisa y explicación personal del vehículo.</p></article>
-          <article class="standard-row reveal"><span>04</span><h3>Soporte real</h3><p>Atención directa durante toda la reserva.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="process-section process-v5">
-      <div class="container process-layout">
-        <div class="process-intro reveal">
-          <p class="eyebrow">How it works</p>
-          <h2>Tres pasos. Ninguna <em>complicación.</em></h2>
-          <p>Una experiencia premium debe empezar mucho antes de arrancar el motor.</p>
-        </div>
-        <ol class="process-list">
-          <li class="reveal"><span>01</span><div><small>Consulta</small><h3>Cuéntanos el plan</h3><p>Fechas, destino, ocasión y preferencias.</p></div></li>
-          <li class="reveal"><span>02</span><div><small>Propuesta</small><h3>Recibe una recomendación personal</h3><p>Disponibilidad, condiciones y precio final explicados con claridad.</p></div></li>
-          <li class="reveal"><span>03</span><div><small>Entrega</small><h3>Nos ocupamos del resto</h3><p>El vehículo preparado en el lugar y la hora acordados.</p></div></li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="contact-cta contact-v5" id="quote">
-      <div class="contact-image" aria-hidden="true"></div>
-      <div class="contact-content reveal">
-        <p class="eyebrow">Private enquiry</p>
-        <h2>Tu próximo viaje empieza <em>aquí.</em></h2>
-        <p>Cuéntanos qué necesitas. Responderemos con una propuesta personal y disponibilidad real.</p>
-        <div class="contact-kicker"><span>Respuesta personal</span><span>Sin compromiso</span><span>Disponibilidad real</span></div>
-        <form class="quick-form" id="quickQuote">
-          <label><span>Vehículo</span><select name="car" id="quoteCar"></select></label>
-          <div class="date-row">
-            <label><span>Desde</span><input type="date" name="start" required></label>
-            <label><span>Hasta</span><input type="date" name="end" required></label>
-          </div>
-          <label><span>Nombre</span><input name="name" autocomplete="name" placeholder="Nombre y apellidos" required></label>
-          <button class="button button-gold" type="submit">Consultar por WhatsApp</button>
-          <small>Consulta sin compromiso. No se realiza ningún cargo online.</small>
-        </form>
-      </div>
-      <div class="contact-signature">
-        <img src="assets/images/bm-logo-stacked.png" alt="B&M Exclusive" loading="lazy">
-        <p>Marbella · España</p>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer footer-v5" id="contact">
-    <div class="container footer-top">
-      <div class="footer-identity">
-        <img src="assets/images/bm-logo-horizontal.png" alt="B&M Exclusive Marbella">
-        <p>Luxury car rental & private mobility.<br>Marbella, Costa del Sol.</p>
-      </div>
-      <div class="footer-column"><h3>Explore</h3><a href="fleet.html">Flota</a><a href="#experience">Experiencia</a><a href="#concierge">Servicios</a></div>
-      <div class="footer-column"><h3>Concierge</h3><a href="tel:+34952777568">+34 952 77 75 68</a><a href="https://wa.me/34952777568" target="_blank" rel="noopener">WhatsApp</a><span>Nueva Andalucía · Marbella</span></div>
-      <div class="footer-column"><h3>Información</h3><a href="legal.html">Aviso legal</a><a href="privacy.html">Privacidad</a><a href="cookies.html">Cookies</a><a href="admin.html">Área privada</a></div>
-    </div>
-    <div class="container footer-bottom"><span>© 2026 B&M Exclusive Marbella</span><span>Luxury car rental · Marbella · Spain</span></div>
-  </footer>
-
-  <a class="floating-concierge" href="https://wa.me/34952777568" target="_blank" rel="noopener" aria-label="Consultar por WhatsApp"><span></span><div><small>Private concierge</small><strong>Consultar ahora</strong></div></a>
-
-  <div class="cookie-banner" data-cookie-banner hidden>
-    <p>Usamos cookies técnicas necesarias para el funcionamiento de esta demostración.</p>
-    <div><a href="cookies.html">Más información</a><button type="button" data-cookie-accept>Aceptar</button></div>
-  </div>
-
-  <script src="assets/data.js"></script>
-  <script src="assets/site.js"></script>
+<body>
+<header class="header" id="header"><div class="nav wrap"><a class="brand" href="#top"><img src="assets/images/bm-logo-horizontal.png" alt="B&M Exclusive"></a><nav class="navlinks"><a href="#collection" data-t="navCollection">Colección</a><a href="#experience" data-t="navExperience">Experiencia</a><a href="#service" data-t="navService">Servicio</a><a href="#contact" data-t="navContact">Contacto</a></nav><div class="actions"><div class="langs"><button class="on" data-lang="es">ES</button><span>/</span><button data-lang="en">EN</button></div><button class="navcta openbook" data-t="consult">Consultar disponibilidad</button><button class="menubtn" id="menubtn" data-t="menu">Menú</button></div></div></header>
+<div class="mobilemenu" id="mobilemenu"><div class="top"><img src="assets/images/bm-logo-horizontal.png" alt="B&M Exclusive"><button class="close" id="menuclose">Cerrar</button></div><nav class="mobilelinks"><a href="#collection" data-menu data-t="navCollection">Colección</a><a href="#experience" data-menu data-t="navExperience">Experiencia</a><a href="#service" data-menu data-t="navService">Servicio</a><a href="#contact" data-menu data-t="navContact">Contacto</a></nav><div class="mobilebottom">Marbella · Costa del Sol · Spain</div></div>
+<main id="top">
+<section class="hero"><div class="hero-media"><img src="assets/images/bm-sls-hero.webp" alt="Mercedes-Benz SLS Roadster B&M Exclusive Marbella"></div><div class="hero-grid wrap"><div class="reveal"><div class="hero-kicker micro" data-t="heroKicker">Sport & luxury car rental · Marbella</div><h1 data-th="heroTitle">No alquiles.<span class="shift">Elige cómo</span><em>quieres llegar.</em></h1><div class="hero-bottom"><p data-t="heroLead">Una colección seleccionada, atención directa y entrega coordinada en Marbella y Costa del Sol. Sin procesos impersonales ni intermediarios innecesarios.</p><a class="link" href="#collection"><span data-t="discover">Descubrir colección</span><i>→</i></a></div></div><aside class="hero-aside reveal"><b>01</b><div class="micro">B&M Exclusive</div><strong data-t="heroAsideTitle">El coche adecuado cambia toda la escena.</strong><p data-t="heroAsideText">Deportivo, cabrio o gran turismo. La disponibilidad se confirma personalmente.</p></aside></div><div class="hero-meta"><span>B&M EXCLUSIVE · MARBELLA</span><span data-t="heroMeta">PRIVATE DRIVING · COSTA DEL SOL</span></div></section>
+<section class="statement"><div class="wrap statement-grid reveal"><div class="micro" data-t="statementKicker">02 — La diferencia</div><div><h2 data-th="statementTitle">Menos catálogo.<br><em>Más criterio.</em></h2><div class="statement-note"><p data-t="statementText">B&M no necesita enseñarte cien coches. Necesita entender el plan, proponerte la pieza adecuada y hacer que el resto ocurra con naturalidad: fecha, entrega y atención directa.</p><div class="signature">B&M Exclusive · Marbella</div></div></div></div></section>
+<section class="collection" id="collection"><div class="wrap"><div class="section-head reveal"><div><div class="micro" data-t="collectionKicker">03 — Collection</div><h2 data-th="collectionTitle">Cuatro formas<br>de hacer una entrada.</h2></div><p data-t="collectionIntro">Ferrari, Lamborghini, Porsche y Mercedes-Benz. No como una cuadrícula de stock, sino como cuatro caracteres distintos para cuatro tipos de plan.</p></div><div class="cars">
+<article class="car reveal openbook" data-car="Ferrari"><img src="assets/images/ferrari.webp" alt="Ferrari B&M Exclusive"><div class="car-top"><span class="car-no">01</span><span class="badge" data-t="onRequest">Disponibilidad privada</span></div><div class="car-copy"><h3>Ferrari</h3><p data-t="ferrariText">La opción cuando pasar desapercibido no forma parte del plan.</p></div></article>
+<article class="car reveal openbook" data-car="Lamborghini"><img src="assets/images/lamborghini.webp" alt="Lamborghini B&M Exclusive"><div class="car-top"><span class="car-no">02</span><span class="badge" data-t="onRequest">Disponibilidad privada</span></div><div class="car-copy"><h3>Lamborghini</h3><p data-t="lamboText">Más teatral, más extremo. El coche se convierte en parte del destino.</p></div></article>
+<article class="car reveal openbook" data-car="Porsche"><img src="assets/images/porsche.webp" alt="Porsche B&M Exclusive"><div class="car-top"><span class="car-no">03</span><span class="badge" data-t="onRequest">Disponibilidad privada</span></div><div class="car-copy"><h3>Porsche</h3><p data-t="porscheText">Rápido sin necesidad de gritar. Para quien valora más cómo conduce que cómo posa.</p></div></article>
+<article class="car reveal openbook" data-car="Mercedes-Benz"><img src="assets/images/mercedes.webp" alt="Mercedes-Benz B&M Exclusive"><div class="car-top"><span class="car-no">04</span><span class="badge" data-t="onRequest">Disponibilidad privada</span></div><div class="car-copy"><h3>Mercedes-Benz</h3><p data-t="mercedesText">Presencia y comodidad para recorrer la Costa del Sol con otro ritmo.</p></div></article></div><div class="collection-foot"><p data-t="collectionFoot">La colección real y las fechas disponibles se confirman directamente con B&M antes de cerrar cualquier solicitud.</p><button class="navcta openbook" data-t="askAvailability">Consultar disponibilidad</button></div></div></section>
+<section class="cinema" id="experience"><img src="assets/images/bm-ferrari-lifestyle.webp" alt="Ferrari en Marbella"><div class="cin-copy reveal"><div class="micro" data-t="experienceKicker">04 — Marbella, in motion</div><h2 data-th="experienceTitle">El coche no es<br><em>el destino.</em></h2><p data-t="experienceText">Una cena, una villa, un fin de semana, una llegada al hotel. B&M encaja el coche dentro del plan para que recogerlo no sea la parte que recuerdes.</p></div></section>
+<section class="service" id="service"><div class="wrap"><div class="service-head reveal"><div class="micro" data-t="serviceKicker">05 — Service</div><h2 data-th="serviceTitle">Pídelo una vez.<br><em>Que ocurra bien.</em></h2></div><div class="service-grid reveal"><div class="service-photo"><img src="assets/images/fleet.webp" alt="B&M Exclusive private mobility"></div><div class="service-list"><article class="service-item"><span>01</span><div><h3 data-t="s1t">Atención directa</h3><p data-t="s1p">Hablas con una persona desde el principio. La petición no se pierde entre capas ni procesos innecesarios.</p></div></article><article class="service-item"><span>02</span><div><h3 data-t="s2t">Entrega coordinada</h3><p data-t="s2p">Hotel, villa, residencia o punto acordado en Marbella y Costa del Sol.</p></div></article><article class="service-item"><span>03</span><div><h3 data-t="s3t">Privacidad</h3><p data-t="s3p">Un servicio discreto, simple y adaptado a tu estancia, sin hacer ruido alrededor de la experiencia.</p></div></article><article class="service-item"><span>04</span><div><h3 data-t="s4t">Disponibilidad real</h3><p data-t="s4p">El coche y las fechas se confirman personalmente antes de cerrar la reserva.</p></div></article></div></div></div></section>
+<section class="final" id="contact"><div class="wrap reveal"><div class="micro" data-t="finalKicker">Private enquiry · Marbella</div><h2 data-th="finalTitle">Tu coche.<em>Tu llegada.</em></h2><p data-t="finalText">Fechas, coche y lugar de entrega. Con eso basta para empezar. La disponibilidad se confirma directamente con B&M.</p><button class="bigcta openbook" data-t="startRequest">Iniciar solicitud</button></div></section>
+</main>
+<footer class="footer"><div class="wrap footer-grid"><div><img src="assets/images/bm-logo-horizontal.png" alt="B&M Exclusive"><p>Sport & luxury car rental<br>Marbella · Costa del Sol</p></div><div><h4>Collection</h4><a href="#collection">Ferrari</a><a href="#collection">Lamborghini</a><a href="#collection">Porsche</a><a href="#collection">Mercedes-Benz</a></div><div><h4 data-t="navContact">Contacto</h4><a href="tel:+34608336645">+34 608 336 645</a><a href="mailto:info@bymexclusive.com">info@bymexclusive.com</a><a href="https://www.facebook.com/ByMExclusive/" target="_blank" rel="noopener">Facebook</a></div><div><h4>B&M</h4><a href="fleet.html">Fleet</a><a href="legal.html">Legal</a><a href="privacy.html">Privacy</a><a href="admin.html">Private area</a></div></div><div class="wrap footer-bottom"><span>© 2026 B&M Exclusive</span><span>Marbella · Spain</span></div></footer>
+<div class="booking" id="booking" aria-hidden="true"><div class="panel"><div class="panel-top"><div class="micro">B&M private enquiry</div><button class="close" id="bookclose">Cerrar</button></div><h2 data-th="bookingTitle">Cuéntanos<br><em>el plan.</em></h2><p data-t="bookingIntro">Completa lo esencial. Prepararemos el mensaje y continuarás directamente con B&M por WhatsApp.</p><div class="form"><label><span data-t="labelCar">Coche</span><select id="car"><option value="">Quiero recomendación</option><option>Ferrari</option><option>Lamborghini</option><option>Porsche</option><option>Mercedes-Benz</option></select></label><label><span data-t="labelDate">Fecha</span><input id="date" type="date"></label><label><span data-t="labelPlace">Entrega</span><input id="place" data-ph="placePh" placeholder="Hotel, villa, Marbella…"></label><label><span data-t="labelName">Nombre</span><input id="name" data-ph="namePh" placeholder="Tu nombre"></label><label><span data-t="labelNotes">Notas</span><textarea id="notes" data-ph="notesPh" placeholder="Horario, duración, preferencias…"></textarea></label><button class="send" id="send" data-t="sendWhatsApp">Continuar por WhatsApp</button><p class="booknote" data-t="bookingNote">No se confirma ninguna reserva desde esta web. B&M verificará disponibilidad y condiciones contigo.</p></div></div></div>
+<script>
+const T={es:{navCollection:'Colección',navExperience:'Experiencia',navService:'Servicio',navContact:'Contacto',consult:'Consultar disponibilidad',menu:'Menú',heroKicker:'Sport & luxury car rental · Marbella',heroTitle:'No alquiles.<span class="shift">Elige cómo</span><em>quieres llegar.</em>',heroLead:'Una colección seleccionada, atención directa y entrega coordinada en Marbella y Costa del Sol. Sin procesos impersonales ni intermediarios innecesarios.',discover:'Descubrir colección',heroAsideTitle:'El coche adecuado cambia toda la escena.',heroAsideText:'Deportivo, cabrio o gran turismo. La disponibilidad se confirma personalmente.',heroMeta:'PRIVATE DRIVING · COSTA DEL SOL',statementKicker:'02 — La diferencia',statementTitle:'Menos catálogo.<br><em>Más criterio.</em>',statementText:'B&M no necesita enseñarte cien coches. Necesita entender el plan, proponerte la pieza adecuada y hacer que el resto ocurra con naturalidad: fecha, entrega y atención directa.',collectionKicker:'03 — Collection',collectionTitle:'Cuatro formas<br>de hacer una entrada.',collectionIntro:'Ferrari, Lamborghini, Porsche y Mercedes-Benz. No como una cuadrícula de stock, sino como cuatro caracteres distintos para cuatro tipos de plan.',onRequest:'Disponibilidad privada',ferrariText:'La opción cuando pasar desapercibido no forma parte del plan.',lamboText:'Más teatral, más extremo. El coche se convierte en parte del destino.',porscheText:'Rápido sin necesidad de gritar. Para quien valora más cómo conduce que cómo posa.',mercedesText:'Presencia y comodidad para recorrer la Costa del Sol con otro ritmo.',collectionFoot:'La colección real y las fechas disponibles se confirman directamente con B&M antes de cerrar cualquier solicitud.',askAvailability:'Consultar disponibilidad',experienceKicker:'04 — Marbella, in motion',experienceTitle:'El coche no es<br><em>el destino.</em>',experienceText:'Una cena, una villa, un fin de semana, una llegada al hotel. B&M encaja el coche dentro del plan para que recogerlo no sea la parte que recuerdes.',serviceKicker:'05 — Service',serviceTitle:'Pídelo una vez.<br><em>Que ocurra bien.</em>',s1t:'Atención directa',s1p:'Hablas con una persona desde el principio. La petición no se pierde entre capas ni procesos innecesarios.',s2t:'Entrega coordinada',s2p:'Hotel, villa, residencia o punto acordado en Marbella y Costa del Sol.',s3t:'Privacidad',s3p:'Un servicio discreto, simple y adaptado a tu estancia, sin hacer ruido alrededor de la experiencia.',s4t:'Disponibilidad real',s4p:'El coche y las fechas se confirman personalmente antes de cerrar la reserva.',finalKicker:'Private enquiry · Marbella',finalTitle:'Tu coche.<em>Tu llegada.</em>',finalText:'Fechas, coche y lugar de entrega. Con eso basta para empezar. La disponibilidad se confirma directamente con B&M.',startRequest:'Iniciar solicitud',bookingTitle:'Cuéntanos<br><em>el plan.</em>',bookingIntro:'Completa lo esencial. Prepararemos el mensaje y continuarás directamente con B&M por WhatsApp.',labelCar:'Coche',labelDate:'Fecha',labelPlace:'Entrega',labelName:'Nombre',labelNotes:'Notas',placePh:'Hotel, villa, Marbella…',namePh:'Tu nombre',notesPh:'Horario, duración, preferencias…',sendWhatsApp:'Continuar por WhatsApp',bookingNote:'No se confirma ninguna reserva desde esta web. B&M verificará disponibilidad y condiciones contigo.'},en:{navCollection:'Collection',navExperience:'Experience',navService:'Service',navContact:'Contact',consult:'Check availability',menu:'Menu',heroKicker:'Sport & luxury car rental · Marbella',heroTitle:'Don\'t rent.<span class="shift">Choose how</span><em>you arrive.</em>',heroLead:'A selected collection, direct attention and coordinated delivery across Marbella and Costa del Sol. No impersonal processes. No unnecessary middlemen.',discover:'View collection',heroAsideTitle:'The right car changes the entire scene.',heroAsideText:'Sports car, cabrio or grand tourer. Availability is confirmed personally.',heroMeta:'PRIVATE DRIVING · COSTA DEL SOL',statementKicker:'02 — The difference',statementTitle:'Less catalogue.<br><em>More judgement.</em>',statementText:'B&M does not need to show you a hundred cars. It needs to understand the plan, suggest the right piece and make the rest happen naturally: date, delivery and direct attention.',collectionKicker:'03 — Collection',collectionTitle:'Four ways<br>to make an entrance.',collectionIntro:'Ferrari, Lamborghini, Porsche and Mercedes-Benz. Not as a stock grid, but as four distinct personalities for four kinds of plan.',onRequest:'Private availability',ferrariText:'The choice when blending in is not part of the plan.',lamboText:'More theatrical, more extreme. The car becomes part of the destination.',porscheText:'Fast without shouting. For those who value how it drives more than how it poses.',mercedesText:'Presence and comfort for moving through Costa del Sol at a different pace.',collectionFoot:'The current collection and available dates are confirmed directly with B&M before any request is closed.',askAvailability:'Check availability',experienceKicker:'04 — Marbella, in motion',experienceTitle:'The car is not<br><em>the destination.</em>',experienceText:'Dinner, a villa, a weekend, a hotel arrival. B&M fits the car into the plan so collecting it is not the part you remember.',serviceKicker:'05 — Service',serviceTitle:'Ask once.<br><em>Have it done right.</em>',s1t:'Direct attention',s1p:'You speak to a person from the start. Your request does not disappear between unnecessary layers or processes.',s2t:'Coordinated delivery',s2p:'Hotel, villa, residence or agreed location in Marbella and Costa del Sol.',s3t:'Privacy',s3p:'A discreet, simple service adapted to your stay, without adding noise around the experience.',s4t:'Real availability',s4p:'The car and dates are personally confirmed before the booking is closed.',finalKicker:'Private enquiry · Marbella',finalTitle:'Your car.<em>Your arrival.</em>',finalText:'Dates, car and delivery location. That is enough to begin. Availability is confirmed directly with B&M.',startRequest:'Start enquiry',bookingTitle:'Tell us<br><em>the plan.</em>',bookingIntro:'Complete the essentials. We will prepare the message and you will continue directly with B&M on WhatsApp.',labelCar:'Car',labelDate:'Date',labelPlace:'Delivery',labelName:'Name',labelNotes:'Notes',placePh:'Hotel, villa, Marbella…',namePh:'Your name',notesPh:'Time, duration, preferences…',sendWhatsApp:'Continue on WhatsApp',bookingNote:'No booking is confirmed on this website. B&M will verify availability and conditions with you.'}};
+let lang='es';function apply(l){lang=l;document.documentElement.lang=l;document.querySelectorAll('[data-t]').forEach(e=>{let k=e.dataset.t;if(T[l][k]!=null)e.textContent=T[l][k]});document.querySelectorAll('[data-th]').forEach(e=>{let k=e.dataset.th;if(T[l][k]!=null)e.innerHTML=T[l][k]});document.querySelectorAll('[data-ph]').forEach(e=>{let k=e.dataset.ph;if(T[l][k]!=null)e.placeholder=T[l][k]});document.querySelectorAll('[data-lang]').forEach(b=>b.classList.toggle('on',b.dataset.lang===l))}document.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>apply(b.dataset.lang));
+const head=document.getElementById('header');addEventListener('scroll',()=>head.classList.toggle('scrolled',scrollY>20),{passive:true});const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(e=>obs.observe(e));
+const mm=document.getElementById('mobilemenu');document.getElementById('menubtn').onclick=()=>{mm.classList.add('open');document.body.classList.add('lock')};function closeMenu(){mm.classList.remove('open');document.body.classList.remove('lock')}document.getElementById('menuclose').onclick=closeMenu;document.querySelectorAll('[data-menu]').forEach(a=>a.onclick=closeMenu);
+const book=document.getElementById('booking'),car=document.getElementById('car');function openBook(name=''){if(name)car.value=name;book.classList.add('open');book.setAttribute('aria-hidden','false');document.body.classList.add('lock')}function closeBook(){book.classList.remove('open');book.setAttribute('aria-hidden','true');document.body.classList.remove('lock')}document.querySelectorAll('.openbook').forEach(e=>e.onclick=()=>openBook(e.dataset.car||''));document.getElementById('bookclose').onclick=closeBook;book.onclick=e=>{if(e.target===book)closeBook()};addEventListener('keydown',e=>{if(e.key==='Escape'){closeBook();closeMenu()}});
+const date=document.getElementById('date');date.min=new Date().toISOString().slice(0,10);document.getElementById('send').onclick=()=>{const v={car:car.value||'Por recomendar',date:date.value||'-',place:document.getElementById('place').value||'-',name:document.getElementById('name').value||'-',notes:document.getElementById('notes').value||'-'};const msg=lang==='es'?`Hola B&M Exclusive. Quiero consultar disponibilidad.\n\nCoche: ${v.car}\nFecha: ${v.date}\nEntrega: ${v.place}\nNombre: ${v.name}\nNotas: ${v.notes}`:`Hello B&M Exclusive. I would like to check availability.\n\nCar: ${v.car}\nDate: ${v.date}\nDelivery: ${v.place}\nName: ${v.name}\nNotes: ${v.notes}`;window.open('https://wa.me/34608336645?text='+encodeURIComponent(msg),'_blank','noopener')};apply('es');
+</script>
 </body>
 </html>
