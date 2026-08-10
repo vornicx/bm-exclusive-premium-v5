@@ -8,6 +8,12 @@
   catalogScript.async = true;
   document.head.appendChild(catalogScript);
 
+  // Enforce the final-site rules everywhere: internal Mfinity navigation only and no decorative glyphs.
+  const officialScript = document.createElement('script');
+  officialScript.src = '/assets/official-site.js';
+  officialScript.async = true;
+  document.head.appendChild(officialScript);
+
   // Replace the generic G63 visual with Mfinity's own published vehicle image.
   try {
     if (typeof cars !== 'undefined' && cars[3]) {
