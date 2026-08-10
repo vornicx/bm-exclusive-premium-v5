@@ -26,11 +26,11 @@
     const hero = document.querySelector('.hero');
     const heroImage = document.querySelector('.hero-media img');
 
-    // Use an actual Mfinity car in the Marbella lifestyle section.
+    // Use Mfinity's Audi R8 in the Marbella lifestyle section.
     const marbellaImage = document.querySelector('.marbella-image img');
     if (marbellaImage) {
-      marbellaImage.src = 'https://mfinity.es/wp-content/uploads/2024/04/Ferrari-488-Spyder%E2%80%8B-front-768x576.jpg';
-      marbellaImage.alt = 'Ferrari 488 Spyder by Mfinity in Marbella';
+      marbellaImage.src = 'https://mfinity.es/wp-content/uploads/2024/04/audi-r8-marbella-rental-main-768x576.jpg';
+      marbellaImage.alt = 'Audi R8 by Mfinity in Marbella';
       marbellaImage.removeAttribute('srcset');
       marbellaImage.style.objectPosition = 'center center';
     }
