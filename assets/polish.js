@@ -46,6 +46,7 @@
 
   injectScript('/assets/catalog-system.js', () => injectScript('/assets/media-corrective.js'));
   injectScript('/assets/official-site.js');
+  injectScript('/assets/home-section-nav.js?v=20260811-2207');
   injectStylesheet('https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css');
   injectScript('https://cdn.jsdelivr.net/npm/flatpickr', initDatePickers);
 
