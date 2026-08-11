@@ -82,7 +82,6 @@
   function normalizeControls(root=document){
     root.querySelectorAll?.('[data-prev]').forEach(b=>{b.textContent='Prev';b.setAttribute('aria-label','Previous car')});
     root.querySelectorAll?.('[data-next]').forEach(b=>{b.textContent='Next';b.setAttribute('aria-label','Next car')});
-    root.querySelectorAll?.('[data-catalog-menu]').forEach(b=>{b.textContent='Menu'});
     root.querySelectorAll?.('.catalog-close').forEach(b=>{b.textContent='';b.setAttribute('aria-label','Close');b.classList.add('icon-close')});
     root.querySelectorAll?.('.enquiry-head [data-close-enquiry]').forEach(b=>{b.textContent='';b.setAttribute('aria-label','Close');b.classList.add('icon-close')});
     root.querySelectorAll?.('.step > i,.hero-foot i,.catalog-card-meta i,.catalog-list > a > i').forEach(el=>el.remove());
