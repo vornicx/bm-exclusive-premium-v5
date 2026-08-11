@@ -7,14 +7,14 @@
       'https://mfinity.es/wp-content/uploads/2024/04/BMW-X6M-Competition-Marbella-Rental-768x576.jpg',
       'https://mfinity.es/wp-content/uploads/2024/04/BMW-X6M-Competition-Marbella-Rental2-768x576.jpg',
       'https://mfinity.es/wp-content/uploads/2024/04/BMW-X6M-Competition-Marbella-Rental3-768x576.jpg',
-      'https://mfinity.es/wp-content/uploads/2024/04/BMW-X6M-Competition-Marbella-Rental4-768x576.jpg',
-      'https://images.pexels.com/photos/193991/pexels-photo-193991.jpeg?auto=compress&cs=tinysrgb&w=1800'
+      'https://mfinity.es/wp-content/uploads/2024/04/BMW-X6M-Competition-Marbella-Rental4-768x576.jpg'
     ],
     '/cars/mercedes-c63s-final-edition': [
-      'https://mfinity.es/wp-content/uploads/2024/04/Mercedes-C63S%E2%80%8B-White-Rental-Marbella-768x576.jpg',
-      'https://mfinity.es/wp-content/uploads/2024/04/Mercedes-C63S%E2%80%8B-rental-Marbella-13-768x576.jpg',
-      'https://mfinity.es/wp-content/uploads/2024/04/Mercedes-C63S%E2%80%8B-rental-Marbella-14-768x576.jpg',
-      'https://images.pexels.com/photos/120049/pexels-photo-120049.jpeg?auto=compress&cs=tinysrgb&w=1800'
+      'https://mfinity.es/wp-content/uploads/2024/04/Final-Mercedes-C63S-Final-Edition-Marbella-Car-Rental-1.jpg',
+      'https://mfinity.es/wp-content/uploads/2024/04/Mercedes-C63S-Final-Edition-Marbella-Car-Rental-2.jpg',
+      'https://mfinity.es/wp-content/uploads/2024/04/Mercedes-C63S-Final-Edition-Marbella-Car-Rental-1.jpg',
+      'https://mfinity.es/wp-content/uploads/2024/04/Mercedes-C63S-Final-Edition-Marbella-Car-Rental-3.jpg',
+      'https://mfinity.es/wp-content/uploads/2024/04/Mercedes-C63S-Final-Edition-Marbella-Car-Rental-4.jpg'
     ],
     '/properties/apartment-imara': [
       'https://media.inmobalia.com/imgV1/B95mbh8olwFQm~uCUaVOI2kQT0hb0a8sZ9turUNfnwtvuccYCzs0YVPfPbfkc2VnnN1JFDpiXNU9xzJ~Ag4Bkq8Dwf9938ppZALLMGpg~i~PYxQv7FngtGXA8acMfMPp0n~07D3~d1ZYMTGtw6iYdXsITV97IyPIxJyvIDrNEcdruuSJzWh7_eIZ3fwImC55GLlqb1A9GOFpzQq_DKvhvmtDr97elHaAroeXQgIOAKihFaxCoaUUyFNFNelbO9VBNYoTYuD7JwO9D74AiZFwH2sLZcOWMPKn_jB36OE3IjQg8H87KUw1qidCkcvm9YmvkHV2GSIhjj9qFg6dwipVfQnY_NEn6SPJBsyPoO8DJyoh67OPwnKTIH8z~tnqfcm__fQjsxyINKNCkJ5T6Ii4er~2I~jbnXU~oy2neG5Yf3buuDw9ixk74w--.jpg',
