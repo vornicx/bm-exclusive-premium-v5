@@ -15,6 +15,11 @@
       proxy('https://listing-images.autoscout24.ch/listing/361/12527361/548234037.jpg?q=90&w=1920'),
       proxy('https://mfinity.es/wp-content/uploads/2024/04/Final-Mercedes-C63S-Final-Edition-Marbella-Car-Rental-1.jpg')
     ],
+    'range-rover-svr': [
+      proxy('https://jancars.com/wp-content/uploads/2023/01/Range-Rover-Sport-SVR-103-jancars-alquiler-range-rover-scaled.jpg'),
+      proxy('https://www.marshallgoldmanoh.com/imagetag/3250/3/l/Used-2022-Land-Rover-Range-Rover-Sport-SVR-1696971868.jpg'),
+      proxy('https://www.amarisupercars.com/blobs/stock/1241344/images/ab3db514-2c1f-4934-9bc1-7690908c99d5.jpg?height=1333&width=2000')
+    ],
     'apartment-imara': [
       proxy('https://media.inmobalia.com/imgV1/B95mbh8olwFQm~uCUaVOI2kQT0hb0a8sZ9turUNfnwtvuccYCzs0YVPfPbfkc2VnnN1JFDpiXNU9xzJ~Ag4Bkq8Dwf9938ppZALLMGpg~i~PYxQv7FngtGXA8acMfMPp0n~07D3~d1ZYMTGtw6iYdXsITV97IyPIxJyvIDrNEcdruuSJzWh7_eIZ3fwImC55GLlqb1A9GOFpzQq_DKvhvmtDr97elHaAroeXQgIOAKihFaxCoaUUyFNFNelbO9VBNYoTYuD7JwO9D74AiZFwH2sLZcOWMPKn_jB36OE3IjQg8H87KUw1qidCkcvm9YmvkHV2GSIhjj9qFg6dwipVfQnY_NEn6SPJBsyPoO8DJyoh67OPwnKTIH8z~tnqfcm__fQjsxyINKNCkJ5T6Ii4er~2I~jbnXU~oy2neG5Yf3buuDw9ixk74w--.jpg'),
       proxy('https://media.inmobalia.com/imgV1/B95mbh8olwFQm~uCUaVOI2kQT0hb0a8sZ9turUNfnwtvuccYCzs0YVPfPbfkc2VnnN1JFDpiXNU9xzJ~Ag4Bkq8Dwf8oy1Jb5HpUKioTbSI5a_LhYPlT68xEzxGdVGu3JVB_f_99_7yeLYCyuZewbY~dDOsJViLvkui1l4ti5z4GgNYdww6b8r79~GsrU1YjUoG_PvdpZifwTIVTaEiO6hZOFJDv~wOH7rg_JMZI5Z41KI0hozXrVXU1U~XdEqOSomNeCK7sbUvmIRqe8ZEZSZm~iohdXHPm1DspvuUJNINGj~tcTe8R59AiomPuHMVNQIqmyEc1pydgPwICOn0KvKtJVBnA~04I3mo13X9IqVQgXfEBFlmUUQoE0ASB~bi0n3UcTtfaj28AII958IykHAZsqP4a4RoX~5OsqXyiGmJUnEP6Jre6NA--.jpg')
