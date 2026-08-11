@@ -5,12 +5,16 @@
     '/cars/bmw-x6m-competition': [
       'https://mfinity.es/wp-content/uploads/2024/04/BMW-X6M-Competition-Marbella-Rental-Final-768x576.jpg',
       'https://mfinity.es/wp-content/uploads/2024/04/BMW-X6M-Competition-Marbella-Rental-768x576.jpg',
-      'https://mfinity.es/wp-content/uploads/2024/04/BMW-X6M-Competition-Marbella-Rental2-768x576.jpg'
+      'https://mfinity.es/wp-content/uploads/2024/04/BMW-X6M-Competition-Marbella-Rental2-768x576.jpg',
+      'https://mfinity.es/wp-content/uploads/2024/04/BMW-X6M-Competition-Marbella-Rental3-768x576.jpg',
+      'https://mfinity.es/wp-content/uploads/2024/04/BMW-X6M-Competition-Marbella-Rental4-768x576.jpg',
+      'https://images.pexels.com/photos/193991/pexels-photo-193991.jpeg?auto=compress&cs=tinysrgb&w=1800'
     ],
     '/cars/mercedes-c63s-final-edition': [
-      'https://cdn.wayke.se/cfit/v3/577e4e315cf54ecd9cd6f449c7246f61/c8c7f69812ac4765bdeaa5f36c2aa0b2?format=jpeg&w=1600',
       'https://mfinity.es/wp-content/uploads/2024/04/Mercedes-C63S%E2%80%8B-White-Rental-Marbella-768x576.jpg',
-      'https://mfinity.es/wp-content/uploads/2024/04/Mercedes-C63S%E2%80%8B-rental-Marbella-13-768x576.jpg'
+      'https://mfinity.es/wp-content/uploads/2024/04/Mercedes-C63S%E2%80%8B-rental-Marbella-13-768x576.jpg',
+      'https://mfinity.es/wp-content/uploads/2024/04/Mercedes-C63S%E2%80%8B-rental-Marbella-14-768x576.jpg',
+      'https://images.pexels.com/photos/120049/pexels-photo-120049.jpeg?auto=compress&cs=tinysrgb&w=1800'
     ],
     '/properties/apartment-imara': [
       'https://media.inmobalia.com/imgV1/B95mbh8olwFQm~uCUaVOI2kQT0hb0a8sZ9turUNfnwtvuccYCzs0YVPfPbfkc2VnnN1JFDpiXNU9xzJ~Ag4Bkq8Dwf9938ppZALLMGpg~i~PYxQv7FngtGXA8acMfMPp0n~07D3~d1ZYMTGtw6iYdXsITV97IyPIxJyvIDrNEcdruuSJzWh7_eIZ3fwImC55GLlqb1A9GOFpzQq_DKvhvmtDr97elHaAroeXQgIOAKihFaxCoaUUyFNFNelbO9VBNYoTYuD7JwO9D74AiZFwH2sLZcOWMPKn_jB36OE3IjQg8H87KUw1qidCkcvm9YmvkHV2GSIhjj9qFg6dwipVfQnY_NEn6SPJBsyPoO8DJyoh67OPwnKTIH8z~tnqfcm__fQjsxyINKNCkJ5T6Ii4er~2I~jbnXU~oy2neG5Yf3buuDw9ixk74w--.jpg',
@@ -49,9 +53,34 @@
     return null;
   }
 
+  function genericForItem(item, path) {
+    if (exactMedia[path]) return exactMedia[path];
+    if (!item) return [];
+    const slug = item.slug || '';
+    const category = String(item.category || '').toLowerCase();
+    if (slug.includes('maybach')) return [
+      'https://images.pexels.com/photos/8425022/pexels-photo-8425022.jpeg?auto=compress&cs=tinysrgb&w=1800',
+      'https://images.pexels.com/photos/2365572/pexels-photo-2365572.jpeg?auto=compress&cs=tinysrgb&w=1800'
+    ];
+    if (slug.includes('audi-rs5')) return [
+      'https://images.pexels.com/photos/244206/pexels-photo-244206.jpeg?auto=compress&cs=tinysrgb&w=1800',
+      'https://images.pexels.com/photos/1545743/pexels-photo-1545743.jpeg?auto=compress&cs=tinysrgb&w=1800'
+    ];
+    if (slug.includes('g63') || category.includes('suv')) return [
+      'https://images.pexels.com/photos/193991/pexels-photo-193991.jpeg?auto=compress&cs=tinysrgb&w=1800'
+    ];
+    if (category.includes('supercar')) return [
+      'https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=1800'
+    ];
+    if (category.includes('performance')) return [
+      'https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&w=1800'
+    ];
+    return [];
+  }
+
   function sourcesForPath(path) {
     const item = catalogItemForPath(path);
-    return uniq([...(exactMedia[path] || []), ...((item && item.images) || [])]);
+    return uniq([...(exactMedia[path] || []), ...((item && item.images) || []), ...genericForItem(item, path)]);
   }
 
   function patchCatalogData() {
@@ -60,7 +89,7 @@
     [...(catalog.detailedCars || []), ...(catalog.properties || [])].forEach(item => {
       const prefix = (catalog.properties || []).includes(item) ? '/properties/' : '/cars/';
       const path = prefix + item.slug;
-      if (exactMedia[path]) item.images = uniq([...exactMedia[path], ...(item.images || [])]);
+      item.images = uniq([...(item.images || []), ...genericForItem(item, path), ...(exactMedia[path] || [])]);
     });
   }
 
@@ -84,11 +113,8 @@
     let index = 0;
     img.onerror = () => {
       index += 1;
-      if (index < sources.length) {
-        img.src = sources[index];
-      } else {
-        container.classList.add('media-failed');
-      }
+      if (index < sources.length) img.src = sources[index];
+      else container.classList.add('media-failed');
     };
     img.src = sources[index];
   }
