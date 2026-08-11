@@ -44,7 +44,7 @@
     document.head.appendChild(link);
   }
 
-  injectScript('/assets/catalog-system.js', () => injectScript('/assets/media-fix.js'));
+  injectScript('/assets/catalog-system.js', () => injectScript('/assets/media-corrective.js'));
   injectScript('/assets/official-site.js');
   injectStylesheet('https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css');
   injectScript('https://cdn.jsdelivr.net/npm/flatpickr', initDatePickers);
