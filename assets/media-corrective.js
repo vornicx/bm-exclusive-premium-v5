@@ -16,7 +16,11 @@
 
   function sourcesFor(item){
     if(!item)return[];
-    return unique((item.images||[]).filter(src=>/^https:\/\/(?:www\.)?mfinity\.es\/wp-content\//i.test(src)));
+    return unique((item.images||[]).filter(src=>{
+      if(/^https:\/\/(?:www\.)?mfinity\.es\/wp-content\//i.test(src)) return true;
+      if(/^https:\/\/(?:commons|upload)\.wikimedia\.org\//i.test(src)) return true;
+      return false;
+    }));
   }
   function itemForSlug(slug){
     const c=window.MFINITY_CATALOG;if(!c)return null;
