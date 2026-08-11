@@ -1,154 +1,32 @@
-/* Mfinity media corrective layer.
-   Never substitutes a different car model. Remote assets are proxied to avoid hotlink failures. */
+/* Stable Mfinity media layer.
+   Uses exact Mfinity media only, cached through this deployment. Never substitutes another car model. */
 (() => {
-  const proxy = url => `https://images.weserv.nl/?url=${encodeURIComponent(url)}&w=1800&q=90&output=jpg`;
-  const unique = list => [...new Set((list || []).filter(Boolean))];
+  const RENTAL_SCRIPT='/assets/rental-system.js';
+  const proxy = raw => raw && /^https:\/\//i.test(raw) ? `/api/media?src=${encodeURIComponent(raw)}` : raw;
+  const unique = list => [...new Set((list||[]).filter(Boolean))];
 
-  const exact = {
-    'bmw-x6m-competition': [
-      proxy('https://www.thegablessportscars.com/imagetag/279/4/l/Used-2021-BMW-X6-M-COMPETITION-M-COMPETITION.jpg'),
-      proxy('https://www.otokokpit.com/wp-content/uploads/2019/11/2020-yeni-bmw-x6-m-competition-6.jpg'),
-      proxy('https://mfinity.es/wp-content/uploads/2024/04/BMW-X6M-Competition-Marbella-Rental-Final-768x576.jpg'),
-      proxy('https://mfinity.es/wp-content/uploads/2024/04/BMW-X6M-Competition-Marbella-Rental-768x576.jpg')
-    ],
-    'mercedes-c63s-final-edition': [
-      proxy('https://listing-images.autoscout24.ch/listing/361/12527361/548234037.jpg?q=90&w=1920'),
-      proxy('https://mfinity.es/wp-content/uploads/2024/04/Final-Mercedes-C63S-Final-Edition-Marbella-Car-Rental-1.jpg')
-    ],
-    'range-rover-svr': [
-      proxy('https://jancars.com/wp-content/uploads/2023/01/Range-Rover-Sport-SVR-103-jancars-alquiler-range-rover-scaled.jpg'),
-      proxy('https://www.marshallgoldmanoh.com/imagetag/3250/3/l/Used-2022-Land-Rover-Range-Rover-Sport-SVR-1696971868.jpg'),
-      proxy('https://www.amarisupercars.com/blobs/stock/1241344/images/ab3db514-2c1f-4934-9bc1-7690908c99d5.jpg?height=1333&width=2000')
-    ],
-    'apartment-imara': [
-      proxy('https://media.inmobalia.com/imgV1/B95mbh8olwFQm~uCUaVOI2kQT0hb0a8sZ9turUNfnwtvuccYCzs0YVPfPbfkc2VnnN1JFDpiXNU9xzJ~Ag4Bkq8Dwf9938ppZALLMGpg~i~PYxQv7FngtGXA8acMfMPp0n~07D3~d1ZYMTGtw6iYdXsITV97IyPIxJyvIDrNEcdruuSJzWh7_eIZ3fwImC55GLlqb1A9GOFpzQq_DKvhvmtDr97elHaAroeXQgIOAKihFaxCoaUUyFNFNelbO9VBNYoTYuD7JwO9D74AiZFwH2sLZcOWMPKn_jB36OE3IjQg8H87KUw1qidCkcvm9YmvkHV2GSIhjj9qFg6dwipVfQnY_NEn6SPJBsyPoO8DJyoh67OPwnKTIH8z~tnqfcm__fQjsxyINKNCkJ5T6Ii4er~2I~jbnXU~oy2neG5Yf3buuDw9ixk74w--.jpg'),
-      proxy('https://media.inmobalia.com/imgV1/B95mbh8olwFQm~uCUaVOI2kQT0hb0a8sZ9turUNfnwtvuccYCzs0YVPfPbfkc2VnnN1JFDpiXNU9xzJ~Ag4Bkq8Dwf8oy1Jb5HpUKioTbSI5a_LhYPlT68xEzxGdVGu3JVB_f_99_7yeLYCyuZewbY~dDOsJViLvkui1l4ti5z4GgNYdww6b8r79~GsrU1YjUoG_PvdpZifwTIVTaEiO6hZOFJDv~wOH7rg_JMZI5Z41KI0hozXrVXU1U~XdEqOSomNeCK7sbUvmIRqe8ZEZSZm~iohdXHPm1DspvuUJNINGj~tcTe8R59AiomPuHMVNQIqmyEc1pydgPwICOn0KvKtJVBnA~04I3mo13X9IqVQgXfEBFlmUUQoE0ASB~bi0n3UcTtfaj28AII958IykHAZsqP4a4RoX~5OsqXyiGmJUnEP6Jre6NA--.jpg')
-    ],
-    'apartment-adrienne': [
-      proxy('https://media.inmobalia.com/imgV1/B95mbh8olwFQm~uCUaVOI2kQT0hb0a8sZ9turUNfnwtvuccYCzs0YVPfPbfkc2VnnN1JFDpiXNU9xzJ~Ag4BkQx9S3BfCFRnA2ejLoGjVXZrgJunRzO1yd3aTFWoeUSRpOLsoOHHY7kH6YMqYFlwpZVvdp5LxSzIzPlPFsxSmbvNCdPS~bqIOkpQINysCgtaBAD31mfgcUJpPlyWz7f2y0z0dl87CWgFe6~0M60PA8WxnS6M3jgB2JfzrhawG3dNd7e7WMQacKDcwehtSDvxtEOEMnvbsvzIIL9LPk5Y3XcLUi3hNtkxJr6kXUbB65ENC3oQtrV~QvQny9gC7GGwu_9rbQExCz4Rbs28PUQQGnYbaNj172iMMyMJolxA~FC9C8yIDkS7wzZwAnMMrtxYjMvjyfr4w0SI6hUgk78iQKnuSK13dpTJdQ--.jpg'),
-      proxy('https://media.inmobalia.com/imgV1/B95mbh8olwFQm~uCUaVOI2kQT0hb0a8sZ9turUNfnwtvuccYCzs0YVPfPbfkc2VnnN1JFDpiXNU9xzJ~Ag4BkQx9S3BZoqrdNNgX7R6oaGZPuQlA7oN0Nokw_BESyEBpqWL78sbg_XdIiCUHapmJqBJA21gZVXDitUO6zZP9EPhB8NKEY3fH0DRTGfgNrUQB6~d9~lvCgh5t04USuwRj6iDSocG5P9uGmwOz~Kv490I_Npq36YtqBlP3qnrsmUpWWZevh73dGmV1pabG6fT~lr8m4RRuk~bFWUH3bNw8QCGh2uAN09RcQHByY~6V3OezERv1wcGCLwNn9kgdX4pCLRf3X2Tx289mFU5B8UlM18c6aeVcl5yRP68NMGGcYdkCW~J1cXZ1D1A6GRqI4W0SQuBF~mv5lS2EiGWWDzkEMTZDy1mzSW3j3Q--.jpg')
-    ],
-    'apartment-malibu': [
-      proxy('https://media.inmobalia.com/imgV1/B95mbh8olwFQm~uCT2wPZNsw48fOO6fZf2JyyLpmtnY9L0eInQUz5tkQklYaK00tmbVSLp7oW~DxsNL8uFLTe2LD0az6MpSXPk9NEqaP3emhjNo7wLY4OzILmvw9dLDjzfwktbfSY0yg9xGPFOtvCAH348lBLKxN3w34sLaLW9lXNshw3lyEE1x8FbQT6qceSbo6AJecl_G~kQWr3U4Egs7xDbJLhew1udGG_z~Z2mq_9oWIgHnbeUSdO_G3TznIdyKTiMfgNOCOshAaaVA7OonLW1TfMpjyGIzYp8kxnpsnRxeO6fiNPyTi28nT4ens2E4H85QYUhjXG4a8BjkUV_fi.webp'),
-      proxy('https://media.inmobalia.com/imgV1/B95mbh8olwFQm~uCT2wPZNsw48fOO6fZf2JyyLpmtnY9L0eInQUz5tkQklYaK00tmbVSLp7oW~DxsNLqmC1BJjk12uwB3Vzx26hORsweL9~yEX9Sk8jEaM58bUtvuKwUbWupwgLpHDtacnVpAnZnGp7O8Wi7uB3guBqhxLeSBtcRAIILOXD5iSD~7SQJdyFcjuU5MWkvEyT2zIVSt3IcxbEji24w~DWyb~ctgPh8Vr8Lj34e388H5WRpn1XGCX0JtoxK_xixiJ~5p~_HL3tF0KXziQYA1n6jmcNJAUBj54NRGGRrFdWH_Nhx_mVKLDIWCRPJyFg-.webp')
-    ]
-  };
-
-  function allItems() {
-    const c = window.MFINITY_CATALOG;
-    if (!c) return [];
-    return [...(c.detailedCars || []), ...(c.properties || [])];
+  function loadRentalSystem(){
+    if ([...document.scripts].some(s=>s.src.includes(RENTAL_SCRIPT))) return;
+    const s=document.createElement('script');s.src=RENTAL_SCRIPT;s.async=true;document.head.appendChild(s);
   }
-
-  function prepareData() {
-    for (const item of allItems()) {
-      if (exact[item.slug]) {
-        item.images = unique(exact[item.slug]);
-        continue;
-      }
-      // Only this exact item's own Mfinity images are allowed. No category/generic substitutions.
-      item.images = unique((item.images || []).map(src => src.includes('mfinity.es/') ? proxy(src) : src));
-    }
+  function sourcesFor(item){if(!item)return[];return unique((item.images||[]).filter(src=>/mfinity\.es\/wp-content\//i.test(src)))}
+  function itemForSlug(slug){const c=window.MFINITY_CATALOG;if(!c)return null;return [...(c.detailedCars||[]),...(c.properties||[])].find(x=>x.slug===slug)||null}
+  function slugFromHref(href){try{const parts=new URL(href,location.origin).pathname.split('/').filter(Boolean);return parts[1]||''}catch(_){return''}}
+  function placeholder(container,label='Mfinity'){if(!container)return;container.classList.add('media-failed');let p=container.querySelector('.mfinity-media-placeholder');if(!p){p=document.createElement('div');p.className='mfinity-media-placeholder';container.appendChild(p)}p.innerHTML=`<span>MFINITY</span><small>${String(label||'Media').replace(/[<>]/g,'')}</small>`}
+  function resilient(img,rawSources,alt=''){
+    if(!img)return;const originals=unique(rawSources),queue=[];originals.forEach(src=>{queue.push(proxy(src));queue.push(src)});const key=queue.join('|');if(img.dataset.stableMediaKey===key&&img.getAttribute('src'))return;img.dataset.stableMediaKey=key;img.alt=alt;img.decoding='async';img.referrerPolicy='strict-origin-when-cross-origin';let i=0,attempt=0;
+    const next=()=>{if(i>=queue.length){placeholder(img.closest('.catalog-card-media,.catalog-hero-media,figure,.fleet-image-wrap,.hero-media,.marbella-image'),alt);return}const src=queue[i++];attempt++;if(!src)return next();img.src=src};
+    img.onload=()=>{const box=img.closest('.catalog-card-media,.catalog-hero-media,figure,.fleet-image-wrap,.hero-media,.marbella-image');box?.classList.remove('media-failed','no-media');box?.querySelector('.mfinity-media-placeholder')?.remove()};img.onerror=()=>{if(attempt<queue.length+2)setTimeout(next,attempt<3?80:220);else next()};next();
   }
-
-  function itemForSlug(slug) {
-    return allItems().find(item => item.slug === slug) || null;
+  function patchCatalog(){
+    const c=window.MFINITY_CATALOG;if(!c)return;[...(c.detailedCars||[]),...(c.properties||[])].forEach(item=>{item.images=sourcesFor(item)});
+    document.querySelectorAll('.catalog-card').forEach(card=>{const item=itemForSlug(slugFromHref(card.getAttribute('href'))),sources=sourcesFor(item),media=card.querySelector('.catalog-card-media');if(!media||!sources.length)return;media.classList.remove('no-media','media-failed');media.querySelectorAll('.catalog-card-tag,.mfinity-media-placeholder').forEach(x=>x.remove());let img=media.querySelector('img');if(!img){img=document.createElement('img');media.prepend(img)}resilient(img,sources,`${item.name} — Mfinity`)});
+    const parts=location.pathname.split('/').filter(Boolean);if(['cars','properties'].includes(parts[0])&&parts[1]){const item=itemForSlug(parts[1]),sources=sourcesFor(item);if(item&&sources.length){const hero=document.querySelector('.catalog-hero'),media=hero?.querySelector('.catalog-hero-media');if(hero&&media){hero.classList.remove('empty');let img=media.querySelector('img');if(!img){img=document.createElement('img');media.prepend(img)}resilient(img,sources,item.name)}document.querySelectorAll('.detail-gallery img').forEach((img,i)=>resilient(img,[sources[i%sources.length]],`${item.name} — image ${i+1}`))}}
   }
-
-  function slugFromHref(href) {
-    try {
-      const parts = new URL(href, location.origin).pathname.split('/').filter(Boolean);
-      return parts[1] || '';
-    } catch (_) { return ''; }
+  function hardenGlobalImages(){
+    document.querySelectorAll('img').forEach(img=>{if(img.closest('.catalog-card-media,.catalog-hero-media,.detail-gallery'))return;const current=img.getAttribute('src')||'',isDirect=/^https:\/\/(?:www\.)?mfinity\.es\/wp-content\//i.test(current);if(!isDirect)return;if(img.dataset.originalMfinitySrc===current&&img.dataset.globalStable==='1')return;img.dataset.originalMfinitySrc=current;img.dataset.globalStable='1';resilient(img,[current],img.alt||'Mfinity')});
   }
-
-  function setResilientImage(img, sources, alt = '') {
-    if (!img || !sources.length) return;
-    const key = sources.join('|');
-    if (img.dataset.exactMediaKey === key && sources.includes(img.src)) return;
-    img.dataset.exactMediaKey = key;
-    img.alt = alt;
-    img.decoding = 'async';
-    img.referrerPolicy = 'no-referrer';
-    let index = 0;
-    const next = () => {
-      if (index >= sources.length) {
-        img.removeAttribute('src');
-        img.closest('.catalog-card-media,.catalog-hero-media,figure')?.classList.add('media-failed');
-        return;
-      }
-      img.src = sources[index++];
-    };
-    img.onerror = next;
-    next();
-  }
-
-  function patchCards() {
-    document.querySelectorAll('.catalog-card').forEach(card => {
-      const slug = slugFromHref(card.getAttribute('href'));
-      const item = itemForSlug(slug);
-      if (!item?.images?.length) return;
-      const media = card.querySelector('.catalog-card-media');
-      if (!media) return;
-      media.classList.remove('no-media', 'media-failed');
-      media.querySelectorAll('.catalog-card-tag').forEach(el => el.remove());
-      let img = media.querySelector('img');
-      if (!img) {
-        img = document.createElement('img');
-        media.prepend(img);
-      }
-      setResilientImage(img, item.images, `${item.name} — Mfinity`);
-    });
-  }
-
-  function patchDetail() {
-    const parts = location.pathname.split('/').filter(Boolean);
-    if (!['cars', 'properties'].includes(parts[0]) || !parts[1]) return;
-    const item = itemForSlug(parts[1]);
-    if (!item?.images?.length) return;
-
-    const hero = document.querySelector('.catalog-hero');
-    const heroMedia = hero?.querySelector('.catalog-hero-media');
-    if (hero && heroMedia) {
-      hero.classList.remove('empty');
-      let img = heroMedia.querySelector('img');
-      if (!img) {
-        img = document.createElement('img');
-        heroMedia.prepend(img);
-      }
-      setResilientImage(img, item.images, item.name);
-    }
-
-    const emptyGallery = document.querySelector('.detail-no-gallery');
-    if (emptyGallery) {
-      const gallery = document.createElement('div');
-      gallery.className = 'detail-gallery';
-      item.images.slice(0, 3).forEach((src, i) => {
-        const figure = document.createElement('figure');
-        const img = document.createElement('img');
-        figure.appendChild(img);
-        gallery.appendChild(figure);
-        setResilientImage(img, [src], `${item.name} — image ${i + 1}`);
-      });
-      emptyGallery.replaceWith(gallery);
-    }
-  }
-
-  let queued = false;
-  function apply() {
-    queued = false;
-    if (!window.MFINITY_CATALOG) return;
-    prepareData();
-    patchCards();
-    patchDetail();
-  }
-  function schedule() {
-    if (queued) return;
-    queued = true;
-    requestAnimationFrame(apply);
-  }
-
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', schedule, { once: true });
-  else schedule();
-  new MutationObserver(schedule).observe(document.documentElement, { childList: true, subtree: true });
+  function addStyles(){if(document.querySelector('[data-stable-media-style]'))return;const style=document.createElement('style');style.dataset.stableMediaStyle='1';style.textContent=`.mfinity-media-placeholder{position:absolute;inset:0;display:grid;place-content:center;text-align:center;gap:5px;background:linear-gradient(135deg,#111,#1c1c1c);color:#fff;z-index:1}.mfinity-media-placeholder span{font:700 15px Montserrat,sans-serif;letter-spacing:.18em}.mfinity-media-placeholder small{font:500 9px Inter,sans-serif;color:#888}.catalog-card-media,.catalog-hero-media,.fleet-image-wrap,.hero-media,.marbella-image,figure{position:relative}.media-failed>img{opacity:0}`;document.head.appendChild(style)}
+  let queued=false;function apply(){queued=false;addStyles();patchCatalog();hardenGlobalImages()}function schedule(){if(queued)return;queued=true;requestAnimationFrame(apply)}
+  loadRentalSystem();if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',schedule,{once:true});else schedule();new MutationObserver(mutations=>{let needs=false;for(const m of mutations){if(m.type==='childList'||(m.type==='attributes'&&m.attributeName==='src')){needs=true;break}}if(needs)schedule()}).observe(document.documentElement,{childList:true,subtree:true,attributes:true,attributeFilter:['src']});
 })();
