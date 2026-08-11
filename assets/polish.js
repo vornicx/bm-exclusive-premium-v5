@@ -42,8 +42,8 @@
 
     const heroImage = document.querySelector('.hero-media img');
     if (heroImage) {
-      const originalMfinityHero = 'https://mfinity.es/wp-content/uploads/2024/04/Ferrari-488-Spyder%E2%80%8B-front-768x576.jpg';
-      const sharpHero = 'https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=2400&dpr=1';
+      const fallbackHero = 'https://mfinity.es/wp-content/uploads/2024/04/Ferrari-488-Spyder%E2%80%8B-front-768x576.jpg';
+      const sharpHero = 'https://mfinity.es/wp-content/uploads/2024/04/Ferrari-488-Spyder%E2%80%8B-front.jpg';
       heroImage.src = sharpHero;
       heroImage.removeAttribute('srcset');
       heroImage.removeAttribute('sizes');
@@ -52,9 +52,9 @@
       heroImage.style.objectPosition = 'center center';
       heroImage.style.transform = 'none';
       heroImage.onerror = () => {
-        if (heroImage.src !== originalMfinityHero) {
+        if (heroImage.src !== fallbackHero) {
           heroImage.onerror = null;
-          heroImage.src = originalMfinityHero;
+          heroImage.src = fallbackHero;
         }
       };
     }
