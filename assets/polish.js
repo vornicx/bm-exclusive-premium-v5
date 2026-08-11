@@ -1,11 +1,25 @@
-/* Mfinity precision layer: verified brand assets + restrained premium motion */
+/* Mfinity precision layer: cleaner hero, restrained motion and reliable catalog media */
 (() => {
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Hide the moving word strip immediately: the site should feel editorial, not promotional.
+  const precisionStyle = document.createElement('style');
+  precisionStyle.textContent = `
+    .brand-strip{display:none!important}
+    .hero-media img{transform:none!important;will-change:auto!important}
+  `;
+  document.head.appendChild(precisionStyle);
 
   // Load the shared real-catalog system on the homepage as well as on dedicated routes.
   const catalogScript = document.createElement('script');
   catalogScript.src = '/assets/catalog-system.js';
   catalogScript.async = true;
+  catalogScript.addEventListener('load', () => {
+    const mediaScript = document.createElement('script');
+    mediaScript.src = '/assets/media-fix.js';
+    mediaScript.async = true;
+    document.head.appendChild(mediaScript);
+  });
   document.head.appendChild(catalogScript);
 
   // Enforce the final-site rules everywhere: internal Mfinity navigation only and no decorative glyphs.
@@ -23,8 +37,27 @@
   } catch (_) {}
 
   document.addEventListener('DOMContentLoaded', () => {
-    const hero = document.querySelector('.hero');
+    // Remove it from the DOM too, so it does not occupy space or remain accessible to animation code.
+    document.querySelector('.brand-strip')?.remove();
+
     const heroImage = document.querySelector('.hero-media img');
+    if (heroImage) {
+      const originalMfinityHero = 'https://mfinity.es/wp-content/uploads/2024/04/Ferrari-488-Spyder%E2%80%8B-front-768x576.jpg';
+      const sharpHero = 'https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=2400&dpr=1';
+      heroImage.src = sharpHero;
+      heroImage.removeAttribute('srcset');
+      heroImage.removeAttribute('sizes');
+      heroImage.fetchPriority = 'high';
+      heroImage.decoding = 'async';
+      heroImage.style.objectPosition = 'center center';
+      heroImage.style.transform = 'none';
+      heroImage.onerror = () => {
+        if (heroImage.src !== originalMfinityHero) {
+          heroImage.onerror = null;
+          heroImage.src = originalMfinityHero;
+        }
+      };
+    }
 
     // Use Mfinity's Mercedes-AMG G63 in the Marbella lifestyle section.
     const marbellaImage = document.querySelector('.marbella-image img');
@@ -35,20 +68,7 @@
       marbellaImage.style.objectPosition = 'center center';
     }
 
-    // Small, almost imperceptible perspective response on desktop only.
-    if (hero && heroImage && !prefersReduced && window.matchMedia('(pointer:fine)').matches) {
-      hero.addEventListener('pointermove', (event) => {
-        const rect = hero.getBoundingClientRect();
-        const x = ((event.clientX - rect.left) / rect.width - .5) * 5;
-        const y = ((event.clientY - rect.top) / rect.height - .5) * 3;
-        heroImage.style.transform = `scale(1.025) translate3d(${x}px,${y}px,0)`;
-      }, { passive: true });
-      hero.addEventListener('pointerleave', () => {
-        heroImage.style.transform = 'scale(1.015) translate3d(0,0,0)';
-      });
-    }
-
-    // Give the active car image a more useful focal point depending on aspect/model.
+    // Keep movement in the product stage only; the hero itself stays optically crisp and still.
     const carImage = document.querySelector('[data-car-image]');
     const stage = document.querySelector('[data-stage]');
     const applyFocalPoint = () => {
@@ -72,5 +92,7 @@
         if (to.value && from.value && to.value < from.value) to.value = from.value;
       });
     }
+
+    if (prefersReduced) document.documentElement.classList.add('reduced-motion');
   });
 })();
