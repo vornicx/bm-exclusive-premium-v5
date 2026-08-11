@@ -1,4 +1,7 @@
-const ALLOWED = new Set(['mfinity.es','www.mfinity.es','images.pexels.com','media.inmobalia.com']);
+const ALLOWED = new Set([
+  'mfinity.es','www.mfinity.es','images.pexels.com','media.inmobalia.com',
+  'commons.wikimedia.org','upload.wikimedia.org'
+]);
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -9,11 +12,12 @@ module.exports = async (req,res) => {
     const url = new URL(raw);
     if (url.protocol !== 'https:' || !ALLOWED.has(url.hostname)) return res.status(403).send('Source not allowed');
 
+    const isWiki = url.hostname.includes('wikimedia.org');
     const headers = {
       'user-agent':'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Version/18.0 Mobile/15E148 Safari/604.1',
       'accept':'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
       'accept-language':'en-GB,en;q=0.9,es;q=0.8',
-      'referer':'https://mfinity.es/'
+      'referer':isWiki?'https://commons.wikimedia.org/':'https://mfinity.es/'
     };
 
     let upstream = null;
