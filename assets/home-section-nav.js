@@ -49,6 +49,15 @@
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',force,{once:true});
   else force();
   window.addEventListener('load',()=>setTimeout(force,0),{once:true});
-  setTimeout(force,120);
-  setTimeout(force,450);
+
+  [100,300,700,1200,1800].forEach(delay=>setTimeout(force,delay));
+
+  const observer=new MutationObserver(()=>requestAnimationFrame(force));
+  const startObserver=()=>{
+    if(!document.body)return;
+    observer.observe(document.body,{childList:true,subtree:true});
+    setTimeout(()=>observer.disconnect(),2200);
+  };
+  if(document.body)startObserver();
+  else document.addEventListener('DOMContentLoaded',startObserver,{once:true});
 })();
