@@ -8,11 +8,10 @@
     const style = document.createElement('style');
     style.id = STYLE_ID;
     style.textContent = `
-      .catalog-menu{width:48px!important;height:48px!important;min-width:48px!important;padding:0!important;border:0!important;background:transparent!important;color:#fff!important;display:none!important;align-items:center!important;justify-content:center!important;position:relative!important}
-      .mf-hamburger{width:30px;height:22px;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end;pointer-events:none}
-      .mf-hamburger i{display:block;height:1.5px;background:currentColor;border-radius:99px;transition:transform .35s cubic-bezier(.16,1,.3,1),width .35s cubic-bezier(.16,1,.3,1),opacity .2s ease;transform-origin:center}
-      .mf-hamburger i:nth-child(1){width:30px}.mf-hamburger i:nth-child(2){width:22px}.mf-hamburger i:nth-child(3){width:30px}
-      .catalog-menu:active .mf-hamburger i:nth-child(2){width:30px}
+      /* Keep this trigger identical to the canonical .menu-toggle on the Mfinity home page. */
+      .catalog-menu{display:none!important;width:44px!important;height:44px!important;min-width:44px!important;border:0!important;background:none!important;color:#fff!important;padding:12px!important;position:relative!important}
+      .mf-hamburger{display:block;width:100%;height:100%;pointer-events:none}
+      .mf-hamburger i{display:block;width:100%;height:1px;background:#fff;margin:6px 0;border:0;border-radius:0;transition:transform .28s cubic-bezier(.16,1,.3,1),opacity .2s ease}
 
       .catalog-mobile-menu-layer{position:fixed;z-index:220;inset:0;overflow:hidden;background:radial-gradient(circle at 82% 8%,#181818 0,#0b0b0b 28%,#060606 64%);color:#f6f6f4;display:flex;flex-direction:column;padding:max(24px,env(safe-area-inset-top)) 24px max(24px,env(safe-area-inset-bottom));transform:translateY(-102%);visibility:hidden;pointer-events:none;transition:transform .56s cubic-bezier(.16,1,.3,1),visibility 0s linear .56s}
       .catalog-mobile-menu-layer:before{content:'M';position:absolute;right:-.08em;bottom:-.18em;font:800 78vw/.72 Montserrat,sans-serif;letter-spacing:-.12em;color:rgba(255,255,255,.018);pointer-events:none}
@@ -34,7 +33,7 @@
       .catalog-mobile-menu-cta{appearance:none;border:0;background:#f5f5f2;color:#080808;min-height:56px;width:100%;font:700 10px/1 Montserrat,sans-serif;letter-spacing:.14em;text-transform:uppercase;box-shadow:0 12px 34px rgba(0,0,0,.18)}
       .catalog-mobile-menu-meta{display:flex;justify-content:space-between;gap:18px;padding-top:2px;font:500 10px/1.4 Inter,sans-serif;color:#6f6f6a}
       body.catalog-menu-open{overflow:hidden!important}
-      @media(max-width:900px){.catalog-menu{display:inline-flex!important}}
+      @media(max-width:900px){.catalog-menu{display:block!important}}
       @media(min-width:901px){.catalog-mobile-menu-layer{display:none!important}}
       @media(max-height:690px){.catalog-mobile-menu-nav a{padding:14px 0}.catalog-mobile-menu-nav strong{font-size:32px}.catalog-mobile-menu-nav{padding:18px 0}.catalog-mobile-menu-cta{min-height:50px}}
       @media(prefers-reduced-motion:reduce){.catalog-mobile-menu-layer,.mf-hamburger i{transition:none!important}}
@@ -72,7 +71,7 @@
 
   function decorateTriggers() {
     document.querySelectorAll('[data-catalog-menu]').forEach(btn => {
-      btn.innerHTML = '<span class="mf-hamburger" aria-hidden="true"><i></i><i></i><i></i></span>';
+      btn.innerHTML = '<span class="mf-hamburger" aria-hidden="true"><i></i><i></i></span>';
       btn.setAttribute('aria-label','Open navigation');
       btn.setAttribute('aria-expanded','false');
       btn.setAttribute('aria-controls',MENU_ID);
