@@ -6,7 +6,8 @@
     {"source": "/cars", "destination": "/catalog"},
     {"source": "/cars/:slug", "destination": "/catalog"},
     {"source": "/properties", "destination": "/catalog"},
-    {"source": "/properties/:slug", "destination": "/catalog"}
+    {"source": "/properties/:slug", "destination": "/catalog"},
+    {"source": "/control", "destination": "/control.html"}
   ],
   "headers": [
     {

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0a0a0a">
+  <title>Mfinity · Archic Control</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/control.css">
+</head>
+<body>
+  <aside class="control-sidebar">
+    <a class="control-brand" href="/"><span class="brand-mark">M</span><div><b>MFINITY</b><small>ARCHIC CONTROL</small></div></a>
+    <nav data-control-nav>
+      <button class="is-active" data-view="requests"><span>01</span>Requests <i data-count-pending>0</i></button>
+      <button data-view="calendar"><span>02</span>Availability</button>
+      <button data-view="fleet"><span>03</span>Fleet</button>
+      <button data-view="clients"><span>04</span>Clients</button>
+    </nav>
+    <div class="control-sidebar-bottom"><span class="live-dot"></span><div><b>Demo workspace</b><small>Synced in this browser</small></div></div>
+  </aside>
+
+  <main class="control-main">
+    <header class="control-topbar"><div><button class="mobile-nav" data-mobile-nav>Menu</button><p>MFINITY · MARBELLA</p><h1 data-view-title>Rental requests</h1></div><div class="control-top-actions"><a href="/" target="_blank">Open website ↗</a><button data-new-request>+ Add request</button></div></header>
+
+    <section class="control-view is-active" data-control-view="requests">
+      <div class="metric-grid">
+        <article><span>Pending</span><strong data-metric-pending>0</strong><small>Need a decision</small></article>
+        <article><span>Accepted</span><strong data-metric-accepted>0</strong><small>Upcoming rentals</small></article>
+        <article><span>Available fleet</span><strong data-metric-fleet>0</strong><small>Vehicles today</small></article>
+        <article><span>Clients</span><strong data-metric-clients>0</strong><small>Unique contacts</small></article>
+      </div>
+      <div class="control-toolbar"><div class="segmented"><button class="is-active" data-filter="all">All</button><button data-filter="pending">Pending</button><button data-filter="accepted">Accepted</button><button data-filter="denied">Denied</button></div><label class="control-search"><span>⌕</span><input data-search placeholder="Search client, car or request"></label></div>
+      <div class="request-board"><div class="request-list-head"><span>Request</span><span>Client</span><span>Dates</span><span>Status</span><span></span></div><div data-request-list></div></div>
+    </section>
+
+    <section class="control-view" data-control-view="calendar"><div class="section-intro"><div><p class="eyebrow">AVAILABILITY</p><h2>Know what can be rented before answering.</h2></div><p>Accepted rentals block the vehicle automatically. Mfinity can also add internal blocks for maintenance, events or owner use.</p></div><div class="availability-board" data-availability-board></div></section>
+
+    <section class="control-view" data-control-view="fleet"><div class="section-intro"><div><p class="eyebrow">FLEET</p><h2>One operational view of the cars.</h2></div><p>See today’s status, next accepted rental and the public daily rate used by the demo.</p></div><div class="fleet-control-grid" data-fleet-grid></div></section>
+
+    <section class="control-view" data-control-view="clients"><div class="section-intro"><div><p class="eyebrow">CLIENTS</p><h2>Every request builds a useful client record.</h2></div><p>Contact details and rental history stay together so the owner can call or write without searching through messages.</p></div><div class="client-grid" data-client-grid></div></section>
+  </main>
+
+  <div class="detail-drawer" data-detail-drawer aria-hidden="true"><button class="drawer-backdrop" data-drawer-close aria-label="Close"></button><aside><header><div><p data-detail-id>REQUEST</p><h2 data-detail-title>Rental request</h2></div><button data-drawer-close>×</button></header><div data-detail-body></div></aside></div>
+  <div class="control-toast" data-toast></div>
+  <script src="/assets/control.js" defer></script>
+</body>
+</html>
