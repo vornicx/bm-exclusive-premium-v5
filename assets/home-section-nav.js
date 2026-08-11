@@ -19,10 +19,16 @@
     return true;
   }
 
+  function requestedSection(link){
+    if(link?.dataset?.homeSection)return link.dataset.homeSection;
+    const raw=link?.getAttribute?.('href')||'';
+    const match=raw.match(/^\/#(experience|contact)$/);
+    return match?.[1]||'';
+  }
+
   document.addEventListener('click',event=>{
-    const link=event.target.closest?.('[data-home-section]');
-    if(!link)return;
-    const section=link.dataset.homeSection;
+    const link=event.target.closest?.('a[href],[data-home-section]');
+    const section=requestedSection(link);
     if(!section)return;
     event.preventDefault();
 
