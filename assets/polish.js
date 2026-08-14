@@ -1,159 +1,27 @@
-/* Mfinity precision layer: cleaner hero, stronger controls and reliable media */
-(() => {
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  const precisionStyle = document.createElement('style');
-  precisionStyle.textContent = `
-    .brand-strip{display:none!important}
-    .hero-media img{transform:none!important;will-change:auto!important}
-    .enquiry-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px}
-    .enquiry-head > div{min-width:0}
-    .enquiry-head .icon-close,.catalog-close.icon-close{position:relative;flex:0 0 auto;width:42px;height:42px;border-radius:999px;border:1px solid rgba(255,255,255,.16);background:#fff;color:#090909;padding:0;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .2s ease,background .25s ease,color .25s ease,border-color .25s ease;align-self:flex-start}
-    .enquiry-head .icon-close:hover,.catalog-close.icon-close:hover{transform:translateY(-1px);background:#090909;color:#fff;border-color:#090909}
-    .enquiry-head .icon-close::before,.catalog-close.icon-close::before{content:'×';font-size:22px;line-height:1;font-weight:500}
-    .enquiry-head .icon-close > *,.catalog-close.icon-close > *{display:none!important}
-    .catalog-modal-head .catalog-close.icon-close{margin-top:0;align-self:flex-start}
-    .flatpickr-calendar{background:#111;border:1px solid rgba(255,255,255,.12);box-shadow:0 24px 80px rgba(0,0,0,.38)}
-    .flatpickr-months .flatpickr-month,.flatpickr-current-month .flatpickr-monthDropdown-months,.flatpickr-current-month input.cur-year,.flatpickr-weekday,.flatpickr-day{color:#efefeb}
-    .flatpickr-weekdays{background:#111}
-    .flatpickr-months .flatpickr-prev-month svg,.flatpickr-months .flatpickr-next-month svg{fill:#efefeb}
-    .flatpickr-day{border-radius:10px;max-width:37px;line-height:37px;height:37px}
-    .flatpickr-day.today{border-color:rgba(255,255,255,.4)}
-    .flatpickr-day.selected,.flatpickr-day.startRange,.flatpickr-day.endRange,.flatpickr-day.selected:hover,.flatpickr-day.startRange:hover,.flatpickr-day.endRange:hover{background:#fff;border-color:#fff;color:#090909}
-    .flatpickr-day.inRange,.flatpickr-day.prevMonthDay.inRange,.flatpickr-day.nextMonthDay.inRange{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.08);box-shadow:none}
-    .flatpickr-day:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.08)}
-    .flatpickr-input[readonly]{background:#fff!important;color:#090909!important;cursor:pointer}
-    .catalog-form input.flatpickr-input[readonly],.enquiry-panel input.flatpickr-input[readonly]{background:#fff!important;color:#090909!important}
-  `;
-  document.head.appendChild(precisionStyle);
-
-  function injectScript(src, onload) {
-    if ([...document.scripts].some(s => s.src === src)) { if (onload) onload(); return; }
-    const script = document.createElement('script');
-    script.src = src;
-    script.async = true;
-    if (onload) script.addEventListener('load', onload, { once: true });
-    document.head.appendChild(script);
-  }
-
-  function injectStylesheet(href) {
-    if ([...document.querySelectorAll('link[rel="stylesheet"]')].some(l => l.href === href)) return;
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = href;
-    document.head.appendChild(link);
-  }
-
-  injectScript('/assets/catalog-system.js', () => injectScript('/assets/media-corrective.js'));
-  injectScript('/assets/official-site.js');
-  injectScript('/assets/home-section-nav.js?v=20260811-2207');
-  injectStylesheet('https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css');
-  injectScript('https://cdn.jsdelivr.net/npm/flatpickr', initDatePickers);
-
-  try {
-    if (typeof cars !== 'undefined' && cars[3]) {
-      cars[3].image = 'https://mfinity.es/wp-content/uploads/2024/09/u3446499754_Mercedes_gelik_g63_2022_blac_front_in_marbellasho_50e7cc59-3823-493b-8f40-b1882b1ec00d_2-768x768.png';
-      cars[3].fallback = 'https://mfinity.es/wp-content/uploads/2024/09/IMG_5139-768x1024.jpg';
-    }
-  } catch (_) {}
-
-  function initDatePickers() {
-    if (!window.flatpickr) return;
-    const today = new Date();
-    const inputs = [...document.querySelectorAll('input[name="from"], input[name="to"], .catalog-form input[type="date"]')];
-    inputs.forEach(input => {
-      if (input.dataset.fpBound) return;
-      input.dataset.fpBound = '1';
-      input.type = 'text';
-      flatpickr(input, {
-        altInput: true,
-        altFormat: 'd M Y',
-        dateFormat: 'Y-m-d',
-        minDate: today,
-        disableMobile: true,
-        monthSelectorType: 'static',
-        prevArrow: '‹',
-        nextArrow: '›'
-      });
-    });
-
-    const syncPair = (fromSelector, toSelector) => {
-      const from = document.querySelector(fromSelector);
-      const to = document.querySelector(toSelector);
-      if (!from?._flatpickr || !to?._flatpickr || from.dataset.fpLinked) return;
-      from.dataset.fpLinked = '1';
-      const isoToday = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().slice(0,10);
-      from._flatpickr.set('minDate', isoToday);
-      to._flatpickr.set('minDate', isoToday);
-      from._flatpickr.config.onChange.push(function(selectedDates, dateStr){
-        const min = dateStr || isoToday;
-        to._flatpickr.set('minDate', min);
-        if (to.value && dateStr && to.value < dateStr) to._flatpickr.setDate(dateStr, true);
-      });
-    };
-
-    syncPair('input[name="from"]', 'input[name="to"]');
-    const catalogForms = document.querySelectorAll('.catalog-form');
-    catalogForms.forEach(form => {
-      const from = form.querySelector('input[name="from"]');
-      const to = form.querySelector('input[name="to"]');
-      if (from && to) syncPair(`.catalog-form input[name="from"]`, `.catalog-form input[name="to"]`);
-    });
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    document.querySelector('.brand-strip')?.remove();
-
-    const heroImage = document.querySelector('.hero-media img');
-    if (heroImage) {
-      const fallbackHero = 'https://mfinity.es/wp-content/uploads/2024/04/Ferrari-488-Spyder%E2%80%8B-front-768x576.jpg';
-      const sharpHero = 'https://mfinity.es/wp-content/uploads/2024/04/Ferrari-488-Spyder%E2%80%8B-front.jpg';
-      heroImage.src = sharpHero;
-      heroImage.removeAttribute('srcset');
-      heroImage.removeAttribute('sizes');
-      heroImage.fetchPriority = 'high';
-      heroImage.decoding = 'async';
-      heroImage.style.objectPosition = 'center center';
-      heroImage.style.transform = 'none';
-      heroImage.onerror = () => {
-        if (heroImage.src !== fallbackHero) {
-          heroImage.onerror = null;
-          heroImage.src = fallbackHero;
-        }
-      };
-    }
-
-    const marbellaImage = document.querySelector('.marbella-image img');
-    if (marbellaImage) {
-      marbellaImage.src = 'https://mfinity.es/wp-content/uploads/2024/09/u3446499754_Mercedes_gelik_g63_2022_blac_front_in_marbellasho_50e7cc59-3823-493b-8f40-b1882b1ec00d_2-768x768.png';
-      marbellaImage.alt = 'Mercedes-AMG G63 by Mfinity in Marbella';
-      marbellaImage.removeAttribute('srcset');
-      marbellaImage.style.objectPosition = 'center center';
-    }
-
-    const carImage = document.querySelector('[data-car-image]');
-    const stage = document.querySelector('[data-stage]');
-    const applyFocalPoint = () => {
-      if (!carImage) return;
-      const name = document.querySelector('[data-car-name]')?.textContent || '';
-      carImage.style.objectPosition = name.includes('Lamborghini') ? 'center 58%' : name.includes('G63') ? 'center 54%' : 'center 50%';
-    };
-    applyFocalPoint();
-    if (stage) new MutationObserver(applyFocalPoint).observe(stage, { attributes: true, attributeFilter: ['class'] });
-
-    const from = document.querySelector('input[name="from"]');
-    const to = document.querySelector('input[name="to"]');
-    if (from && to) {
-      const iso = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10);
-      from.min = iso;
-      to.min = iso;
-      from.addEventListener('change', () => {
-        to.min = from.value || iso;
-      });
-    }
-
-    initDatePickers();
-    new MutationObserver(initDatePickers).observe(document.documentElement, { childList: true, subtree: true });
-    if (prefersReduced) document.documentElement.classList.add('reduced-motion');
-  });
+/* Mfinity benchmark pass: product-first hero, booking clarity, accessibility, trust and SEO. */
+(()=>{
+const proxy=u=>/^https:\/\//i.test(u||'')?`/api/media?src=${encodeURIComponent(u)}`:u;
+const style=document.createElement('style');style.textContent=`
+.brand-strip{display:none!important}
+.kicker,.eyebrow,.desktop-nav a,.nav-book,.button,.hero-panel-head,.hero-panel button,.hero-foot-inner,.section-aside span,.section-aside p,.fleet-arrows span,.fleet-image-top,.fleet-image-bottom,.rate-grid span,.detail-link,.fleet-tab span,.fleet-tab small,.fleet-more a,.property-row small,.contact-lines span,.footer-bottom,.mobile-quick,.lang-toggle,.mf-trust-label,.mf-availability label,.mf-availability input,.mf-availability select,.mf-availability button{font-size:12px!important}.fleet-tab strong{font-size:13px!important}.proof span,.fleet-more p{font-size:13px!important}
+.skip,.desktop-nav a,.lang-toggle,.nav-book,.menu-toggle,.mobile-close,.hero-panel button,.fleet-arrows button,.fleet-tab,.detail-link,.fleet-more a,.hero-foot a,.footer a,.mobile-quick a,.mobile-quick button{min-height:44px}.desktop-nav a,.hero-foot a,.footer a,.detail-link,.fleet-more a{display:inline-flex;align-items:center}.fleet-arrows button{width:44px!important;height:44px!important}.lang-toggle{min-width:52px;justify-content:center}
+.hero{background:#050505;isolation:isolate}.hero-media{z-index:0;background:#101010}.hero-media img{opacity:1!important;visibility:visible!important;filter:saturate(.98) contrast(1.05) brightness(1.08)!important;object-position:center 52%!important;transform:scale(1.015)!important}.hero-shade{z-index:1;background:linear-gradient(90deg,rgba(0,0,0,.84),rgba(0,0,0,.58) 34%,rgba(0,0,0,.14) 66%,rgba(0,0,0,.02)),linear-gradient(0deg,rgba(0,0,0,.72),transparent 48%)!important}.hero-shell{z-index:2}.hero-copy{max-width:880px}.hero h1{max-width:900px}.hero-lead{max-width:590px;color:#e0e0db!important}.hero-actions .button{min-height:52px}.hero-actions .button-ghost{background:rgba(4,4,4,.5);backdrop-filter:blur(12px)}.hero-panel{background:rgba(8,8,8,.56)!important;backdrop-filter:blur(16px);border-color:rgba(255,255,255,.28)!important}
+.mf-availability{margin-top:18px;display:grid;grid-template-columns:1fr 1fr 1.25fr auto;max-width:820px;border:1px solid rgba(255,255,255,.26);background:rgba(6,6,6,.66);backdrop-filter:blur(16px)}.mf-availability label{padding:11px 13px;border-right:1px solid rgba(255,255,255,.14);color:#aaa9a4;font-family:Montserrat,sans-serif;font-weight:600;letter-spacing:.09em;text-transform:uppercase}.mf-availability label>span{display:block;margin-bottom:6px}.mf-availability input,.mf-availability select{width:100%;height:34px;border:0;outline:0;background:transparent;color:#fff;font-family:Inter,sans-serif;letter-spacing:0;text-transform:none}.mf-availability input{color-scheme:dark}.mf-availability select option{background:#111;color:#fff}.mf-availability button{min-width:176px;border:0;background:#fff;color:#080808;padding:0 18px;font-family:Montserrat,sans-serif;font-weight:700;letter-spacing:.09em;text-transform:uppercase}.mf-availability-note{margin:9px 0 0;color:#c0c0ba;font-size:12px;line-height:1.45}
+.mf-trust{background:#0b0b0b;border-bottom:1px solid rgba(255,255,255,.1)}.mf-trust-inner{min-height:76px;display:grid;grid-template-columns:1.2fr repeat(3,1fr)}.mf-trust-item{display:flex;flex-direction:column;justify-content:center;padding:15px 22px;border-right:1px solid rgba(255,255,255,.1)}.mf-trust-item:first-child{padding-left:0}.mf-trust-item:last-child{border-right:0}.mf-trust-label{font-family:Montserrat,sans-serif;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:#777772}.mf-trust-item strong{margin-top:5px;font:600 14px/1.35 Inter,sans-serif;color:#eeeae5}
+.enquiry-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px}.enquiry-head .icon-close,.catalog-close.icon-close{position:relative;width:44px;height:44px;min-width:44px;border-radius:999px;border:1px solid rgba(255,255,255,.16);background:#fff;color:#090909;padding:0;display:inline-flex;align-items:center;justify-content:center}.enquiry-head .icon-close::before,.catalog-close.icon-close::before{content:'×';font-size:22px}.enquiry-head .icon-close>*,.catalog-close.icon-close>*{display:none!important}.enquiry-panel input,.enquiry-panel select,.enquiry-panel textarea{font-size:16px!important}:where(a,button,input,select,textarea):focus-visible{outline:2px solid #fff!important;outline-offset:3px!important}
+.flatpickr-calendar{background:#111!important;border:1px solid rgba(255,255,255,.12)!important}.flatpickr-months .flatpickr-month,.flatpickr-current-month .flatpickr-monthDropdown-months,.flatpickr-current-month input.cur-year,.flatpickr-weekday,.flatpickr-day{color:#efefeb!important}.flatpickr-weekdays{background:#111!important}.flatpickr-months svg{fill:#efefeb!important}.flatpickr-day.selected{background:#fff!important;border-color:#fff!important;color:#090909!important}
+@media(max-width:980px){.hero{min-height:820px}.hero-shell{padding-top:110px!important;padding-bottom:90px!important}.hero-media img{object-position:58% center!important}.mf-availability{grid-template-columns:1fr 1fr}.mf-availability label:nth-of-type(3){grid-column:1/2;border-top:1px solid rgba(255,255,255,.14)}.mf-availability button{grid-column:2/3;border-top:1px solid rgba(255,255,255,.14);min-height:58px}.mf-availability-note{display:none}.mf-trust-inner{grid-template-columns:1fr 1fr}.mf-trust-item{padding:15px 18px;border-bottom:1px solid rgba(255,255,255,.1)}.mf-trust-item:nth-child(2n){border-right:0}}
+@media(max-width:640px){.nav-shell{height:68px!important}.site-header.scrolled .nav-shell{height:64px!important}.brand img{height:34px!important}.hero{min-height:100svh!important}.hero-shell{padding-top:86px!important;padding-bottom:70px!important}.hero h1{font-size:clamp(46px,13.2vw,66px)!important;line-height:.9!important;margin:16px 0!important}.hero-lead{font-size:15px!important;line-height:1.58!important;margin-bottom:16px!important}.hero-actions{display:flex!important;gap:8px!important}.hero-actions .button{width:auto!important;flex:1}.hero-actions .button-ghost{display:none!important}.hero-media img{object-position:63% center!important}.hero-shade{background:linear-gradient(0deg,rgba(0,0,0,.91),rgba(0,0,0,.54) 44%,rgba(0,0,0,.12) 75%),linear-gradient(90deg,rgba(0,0,0,.34),transparent 70%)!important}.mf-availability{margin-top:13px;grid-template-columns:1fr 1fr;background:rgba(7,7,7,.78)}.mf-availability label{padding:9px 10px}.mf-availability label:nth-of-type(3){display:none}.mf-availability button{min-width:0;min-height:54px;padding:0 10px}.hero-foot{display:none!important}.mf-trust-item:first-child{display:none}.mf-trust-item{padding:13px 14px!important}.mf-trust-item strong{font-size:13px}}
+@media(prefers-reduced-motion:reduce){.hero-media img{transform:none!important}}
+`;document.head.appendChild(style);
+function script(src,cb){if([...document.scripts].some(s=>s.src.endsWith(src))){cb?.();return}const x=document.createElement('script');x.src=src;x.async=true;x.onload=()=>cb?.();document.head.appendChild(x)}
+function css(href){if([...document.querySelectorAll('link[rel=stylesheet]')].some(l=>l.href===href))return;const x=document.createElement('link');x.rel='stylesheet';x.href=href;document.head.appendChild(x)}
+function head(){let c=document.querySelector('link[rel=canonical]');if(!c){c=document.createElement('link');c.rel='canonical';document.head.appendChild(c)}c.href='https://mfinity-premium.vercel.app/';if(!document.querySelector('meta[name=robots]')){const m=document.createElement('meta');m.name='robots';m.content='index,follow,max-image-preview:large';document.head.appendChild(m)}if(!document.querySelector('[data-mfinity-schema]')){const s=document.createElement('script');s.type='application/ld+json';s.dataset.mfinitySchema='1';s.textContent=JSON.stringify({'@context':'https://schema.org','@type':'LocalBusiness',name:'Mfinity Luxury Car Rental',description:'Luxury and supercar rental in Marbella and the Costa del Sol.',url:'https://mfinity-premium.vercel.app/',telephone:'+34 662 612 022',email:'Mfinity.info@gmail.com',address:{'@type':'PostalAddress',streetAddress:'Pol. Ind. Nueva Campana, nave 109',addressLocality:'Nueva Andalucía, Marbella',addressRegion:'Málaga',postalCode:'29660',addressCountry:'ES'},areaServed:['Marbella','Puerto Banús','Costa del Sol'],sameAs:['https://mfinity.es/']});document.head.appendChild(s)}}
+function availability(){const host=document.querySelector('.hero-copy');if(!host||host.querySelector('.mf-availability'))return;const f=document.createElement('form');f.className='mf-availability';f.setAttribute('aria-label','Check Mfinity vehicle availability');f.innerHTML='<label><span>From</span><input name="hero-from" type="date" aria-label="Rental start date"></label><label><span>To</span><input name="hero-to" type="date" aria-label="Rental end date"></label><label><span>Vehicle</span><select name="hero-car" aria-label="Preferred vehicle"><option value="">Any Mfinity car</option><option>Lamborghini Huracán Tecnica</option><option>Ferrari 488 Spyder</option><option>Audi R8</option><option>Mercedes-AMG G63</option></select></label><button type="submit">Check availability</button>';host.querySelector('.hero-actions')?.insertAdjacentElement('afterend',f);f.insertAdjacentHTML('afterend','<p class="mf-availability-note">Direct enquiry · Marbella coordination · Published rental rates and deposits</p>');const a=f.elements['hero-from'],b=f.elements['hero-to'],today=new Date(),iso=new Date(today-today.getTimezoneOffset()*60000).toISOString().slice(0,10);a.min=b.min=iso;a.onchange=()=>{b.min=a.value||iso;if(b.value&&a.value&&b.value<a.value)b.value=a.value};f.onsubmit=e=>{e.preventDefault();const modal=document.querySelector('[data-enquiry]'),main=document.querySelector('[data-enquiry-form]');if(!modal||!main)return;const car=f.elements['hero-car'].value;if(car)main.elements.car.value=car;const setDate=(el,v)=>{if(!v||!el)return;if(el._flatpickr)el._flatpickr.setDate(v,true);else el.value=v};setDate(main.elements.from,a.value);setDate(main.elements.to,b.value);modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.classList.add('lock');setTimeout(()=>main.querySelector('select')?.focus(),100)}}
+function trust(){const h=document.querySelector('.hero');if(!h||document.querySelector('.mf-trust'))return;const s=document.createElement('section');s.className='mf-trust';s.setAttribute('aria-label','Mfinity service facts');s.innerHTML='<div class="shell mf-trust-inner"><div class="mf-trust-item"><span class="mf-trust-label">Mfinity Marbella</span><strong>Luxury car rental based in Nueva Andalucía</strong></div><div class="mf-trust-item"><span class="mf-trust-label">Collection</span><strong>40+ cars presented by Mfinity</strong></div><div class="mf-trust-item"><span class="mf-trust-label">Conditions</span><strong>Rates and deposits shown before enquiry</strong></div><div class="mf-trust-item"><span class="mf-trust-label">Concierge</span><strong>Direct WhatsApp and phone contact</strong></div></div>';h.insertAdjacentElement('afterend',s)}
+function legal(){const b=document.querySelector('.footer-bottom');if(!b)return;if(!b.querySelector('a[href="/privacy"]'))b.insertAdjacentHTML('beforeend','<a href="/privacy">Privacy</a><a href="/legal">Legal & Cookies</a>')}
+function a11y(){[['[data-prev]','Previous vehicle'],['[data-next]','Next vehicle'],['[data-lang-toggle]','Change language'],['[data-menu-open]','Open navigation'],['[data-menu-close]','Close navigation']].forEach(([q,l])=>document.querySelectorAll(q).forEach(e=>e.setAttribute('aria-label',l)));document.querySelectorAll('[data-car]').forEach((e,i)=>{e.setAttribute('role','tab');e.setAttribute('aria-label',`Show vehicle ${i+1}: ${e.querySelector('strong')?.textContent?.trim()||'Mfinity car'}`)});document.querySelectorAll('a,button').forEach((e,i)=>{if((e.textContent||'').trim()||e.getAttribute('aria-label')||e.getAttribute('title')||e.querySelector('img[alt]'))return;const h=e.getAttribute('href')||'';e.setAttribute('aria-label',h.startsWith('tel:')?'Call Mfinity':h.startsWith('mailto:')?'Email Mfinity':h.includes('wa.me')?'Contact Mfinity on WhatsApp':`Mfinity action ${i+1}`)})}
+function dates(){if(!window.flatpickr)return;document.querySelectorAll('input[name="from"],input[name="to"],.catalog-form input[type="date"]').forEach(i=>{if(i.dataset.fpBound)return;i.dataset.fpBound='1';i.type='text';flatpickr(i,{altInput:true,altFormat:'d M Y',dateFormat:'Y-m-d',minDate:'today',disableMobile:true,monthSelectorType:'static',prevArrow:'‹',nextArrow:'›'})})}
+head();script('/assets/catalog-system.js',()=>script('/assets/media-corrective.js'));script('/assets/official-site.js');script('/assets/home-section-nav.js?v=20260814-benchmark');css('https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css');script('https://cdn.jsdelivr.net/npm/flatpickr',dates);
+document.addEventListener('DOMContentLoaded',()=>{document.querySelector('.brand-strip')?.remove();const img=document.querySelector('.hero-media img'),src='https://mfinity.es/wp-content/uploads/2024/04/Ferrari-488-Spyder%E2%80%8B-front-768x576.jpg';if(img){img.dataset.originalMfinitySrc=src;img.src=proxy(src);img.alt='Ferrari 488 Spyder available from Mfinity in Marbella';img.fetchPriority='high';img.onerror=()=>{img.onerror=null;img.src=src}}availability();trust();legal();a11y();dates();new MutationObserver(()=>{a11y();dates()}).observe(document.documentElement,{childList:true,subtree:true});if(matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('reduced-motion')});
 })();
