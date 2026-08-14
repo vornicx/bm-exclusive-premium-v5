@@ -1,12 +1,9 @@
 /* Mfinity 90+ quality pass — focused rental positioning, mobile ergonomics and commercial clarity. */
 (() => {
   const CSS = `
-    /* Final readability floor for functional and commercial UI. */
+    /* Final readability and target floors for functional/commercial UI. */
     .mf-q90-readable{font-size:12px!important;line-height:1.42!important}
-    .mf-q90-target{min-width:44px!important;min-height:44px!important}
-
-    /* Keep the homepage focused on car rental. Properties remain available as a separate product, not a primary journey. */
-    .properties{display:none!important}
+    body .mf-q90-target.mf-q90-target{min-width:44px!important;min-height:44px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important}
 
     /* Less template-like hero treatment: let the real car carry the composition. */
     .hero-media:after{background:linear-gradient(90deg,rgba(0,0,0,.34) 0%,rgba(0,0,0,.10) 38%,transparent 68%)!important}
@@ -30,6 +27,7 @@
     .mf-availability-note{font-size:12px!important;color:#d8d8d3!important}
     .mf-availability-note a{min-height:44px;display:inline-flex;align-items:center;text-decoration:underline;text-underline-offset:3px}
     .mf-hero-terms{font-size:12px!important}
+    .mf-inline-proof{display:none;margin:8px 0 0;font:500 12px/1.42 Inter,Arial,sans-serif;color:#d6d6d0}
 
     /* Never let the sticky action rail cover content. */
     @media(max-width:980px){
@@ -38,18 +36,19 @@
       .mf-local-proof-item:nth-child(2n){border-right:0}
     }
     @media(max-width:640px){
-      body{padding-bottom:calc(68px + env(safe-area-inset-bottom))!important}
+      body{padding-bottom:calc(76px + env(safe-area-inset-bottom))!important}
       .mobile-quick{min-height:68px!important;height:calc(68px + env(safe-area-inset-bottom));padding-bottom:env(safe-area-inset-bottom)!important;background:#080808!important;border-top:1px solid rgba(255,255,255,.18)!important}
       .mobile-quick a,.mobile-quick button{min-height:68px!important;font-size:12px!important}
       .mf-local-proof-inner{grid-template-columns:1fr 1fr}
       .mf-local-proof-item{min-height:76px;padding:12px 13px!important}
       .mf-local-proof-item:first-child{padding-left:13px}
-      .mf-local-proof-item span{font-size:11px!important}.mf-local-proof-item strong{font-size:12.5px!important}
+      .mf-local-proof-item span{font-size:12px!important}.mf-local-proof-item strong{font-size:12.5px!important}
       .mf-availability{grid-template-columns:1fr 1fr!important}
       .mf-availability label{min-height:52px!important;padding:6px 10px!important}
       .mf-availability label:nth-of-type(3){display:flex!important;grid-column:1/-1!important;min-height:50px!important}
       .mf-availability button{grid-column:1/-1!important;min-height:52px!important}
       .mf-availability-note{font-size:12px!important;line-height:1.4!important}
+      .mf-inline-proof{display:block}
     }
   `;
 
@@ -75,16 +74,19 @@
 
   function focusRental(){
     document.querySelectorAll('.desktop-nav a[href="#properties"],.mobile-menu a[href="#properties"]').forEach(a=>a.remove());
-    document.querySelector('.properties')?.setAttribute('aria-hidden','true');
+    document.querySelector('.properties')?.remove();
   }
 
   function addProcessClarity(){
     const note=document.querySelector('.mf-availability-note');
-    if(note){
+    if(note && !note.dataset.q90){
+      note.dataset.q90='1';
       note.innerHTML='<b>Availability enquiry.</b> Dates and final terms are confirmed directly by Mfinity. <a href="https://wa.me/34663557861" target="_blank" rel="noreferrer">WhatsApp Mfinity</a>.';
+      note.insertAdjacentHTML('afterend','<p class="mf-inline-proof">Nueva Andalucía base · regular inspections & maintenance · direct local contact</p>');
     }
     const terms=document.querySelector('.mf-hero-terms');
-    if(terms){
+    if(terms && !terms.dataset.q90){
+      terms.dataset.q90='1';
       terms.innerHTML='<span>Ferrari 488 Spyder · from €1,400/day</span><span>Deposit €7,000 · longer rentals on request</span>';
     }
   }
