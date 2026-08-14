@@ -1,5 +1,13 @@
 /* Reliable cross-page navigation to sections on the Mfinity home page. */
 (() => {
+  const QUALITY='/assets/quality-90.js?v=20260814-q90';
+  if(![...document.scripts].some(s=>s.src.includes('/assets/quality-90.js'))){
+    const q=document.createElement('script');
+    q.src=QUALITY;
+    q.defer=true;
+    document.head.appendChild(q);
+  }
+
   const KEY='mfinity_home_section_target';
   const isHome=()=>location.pathname==='/'||location.pathname==='/index.html';
 
