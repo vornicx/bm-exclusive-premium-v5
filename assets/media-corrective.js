@@ -2,6 +2,7 @@
 (() => {
   const RENTAL_SCRIPT='/assets/rental-system.js';
   const HOTFIX='/assets/mobile-hotfix.css';
+  const MARBELLA_IMAGE='https://mfinity.es/wp-content/uploads/2024/04/Range-Rover-SVR-rental-marbella.jpg';
   const proxy = raw => raw && /^https:\/\//i.test(raw) ? `/api/media?src=${encodeURIComponent(raw)}` : raw;
   const unique = list => [...new Set((list||[]).filter(Boolean))];
 
@@ -96,7 +97,15 @@
   function patchGlobal(){
     document.querySelectorAll('img').forEach(img=>{
       if(img.closest('.catalog-card-media,.catalog-hero-media,.detail-gallery'))return;
-      const current=img.dataset.originalMfinitySrc || img.getAttribute('src') || '';
+      if(img.matches('[data-car-image]'))return;
+
+      const raw=img.getAttribute('src')||'';
+      if(/images\.pexels\.com\/photos\/3773657\//i.test(raw)){
+        resilient(img,[MARBELLA_IMAGE],'Range Rover SVR — Mfinity Marbella');
+        return;
+      }
+
+      const current=img.dataset.originalMfinitySrc || raw;
       if(!/^https:\/\/(?:www\.)?mfinity\.es\/wp-content\//i.test(current))return;
       img.dataset.originalMfinitySrc=current;
       resilient(img,[current],img.alt||'Mfinity');
